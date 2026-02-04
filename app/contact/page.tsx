@@ -10,7 +10,7 @@ const ContactPage = () => {
       <main className={styles.mainContent}>
         <h1 className={styles.title}>Contact Us</h1>
         <p className={styles.subtitle}>
-          We'd love to hear from you. Whether you have a question about our services, pricing, or anything else, our team is ready to answer all your questions.
+          We&apos;d love to hear from you. Whether you have a question about our services, pricing, or anything else, our team is ready to answer all your questions.
         </p>
         <div className={styles.contentWrapper}>
           <div className={styles.formContainer}>

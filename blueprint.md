@@ -2,7 +2,7 @@
 
 ## Overview
 
-A professional and approachable website for a general contracting company in Hawaii. The website is designed for optimal Google SEO to generate leads and encourage potential clients to call. The aesthetic is masculine yet inviting, with a clean and simple design.
+A professional and approachable website for Dumore Construction and Remodeling, a general contracting company in Hawaii. The website is designed for optimal Google SEO to generate leads and encourage potential clients to call. The aesthetic is masculine yet inviting, with a clean and simple design.
 
 ## Style and Design
 
@@ -21,40 +21,27 @@ A professional and approachable website for a general contracting company in Haw
     *   High-quality images of construction projects.
     *   Subtle animations and hover effects to enhance user experience.
 
-## Features
+## Implemented Features
 
-*   **Navbar:**
-    *   Logo on the left, "Contact" button on the right.
-    *   Visible on all pages.
-*   **Banner:**
-    *   **Desktop/Tablet:** "Remodeling Cost Estimator" form side-by-side with the headline "Reliable Home Remodeling Contractor for Quality Renovation in Hawaii" over a background image.
-    *   **Mobile:** Only the "Remodeling Cost Estimator" form is displayed.
-*   **Reviews Section:**
-    *   A carousel of review cards that automatically cycles at different speeds and pauses on hover.
-*   **Services Section:**
-    *   A grid displaying 9 common services of a general contractor.
-*   **FAQ Section:**
-    *   A static section with common questions and answers for a Honolulu construction company.
-    *   JSON-LD implementation for SEO.
-*   **Blog Section:**
-    *   A carousel of blog post cards linking to individual article pages.
-    *   Blog articles will be templated and later powered by Supabase.
-*   **Contact Section:**
-    *   **Mobile:** A "Call Now" button that initiates a phone call.
-    *   **Tablet/Desktop:** A link to the company's Google Business Profile.
-*   **Footer:**
-    *   Standard legal and navigation links (e.g., Privacy Policy, Terms of Service).
+*   **Homepage:** A single-page layout featuring the components listed below.
+*   **Banner:** A prominent hero section.
+*   **Services:** A section showcasing the company's services.
+*   **Why Choose Us:** A section highlighting the company's value proposition.
+*   **Recent Work:** An interactive carousel displaying recent projects.
+*   **Reviews:** A section for client testimonials.
+*   **FAQ:** A section addressing frequently asked questions.
+*   **Contact Form:** A contact form with a Server Action for secure submissions.
 
-## Current Plan
+## Business Information
 
-*   [x] Update `blueprint.md` with the new requirements.
-*   [ ] Update the global styles and CSS modules to reflect the new design aesthetic.
-*   [ ] Update the Navbar component.
-*   [ ] Create the Banner component with responsive behavior.
-*   [ ] Update the Services section with 9 services.
-*   [ ] Update the Reviews section with a carousel of cards.
-*   [ ] Update the FAQ section with relevant questions, answers, and JSON-LD.
-*   [ ] Update the Blog section with a carousel of blog post cards.
-*   [ ] Update the Contact section with responsive behavior.
-*   [ ] Update the Footer with standard links.
-*   [ ] Assemble all sections on the homepage.
+*   **Business Name:** Dumore Construction and Remodeling
+*   **Phone Number:** +18082169956
+*   **Address:** 1253 S Beretania St. #1501, Honolulu, HI 96814, United States
+
+## Production Readiness Plan
+
+*   [x] **Update Blueprint:** Update the blueprint to reflect the current state and production plan.
+*   [x] **Code & Dependency Audit:** Scan for `TODO` comments and review dependencies. The `ContactForm` was updated to use a Server Action, and placeholders were added for social media icons.
+*   [x] **Accessibility (A11Y) Review:** Ensure the site is usable by everyone, including people with disabilities. Installed and configured `axe-core` and `react-axe` for automated accessibility testing in development.
+*   [ ] **Run Production Build:** Compile the application for production and check for errors.
+*   [x] **Final Linting:** Run the linter to ensure code quality and consistency.

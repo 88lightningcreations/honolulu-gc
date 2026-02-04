@@ -6,18 +6,18 @@ const AboutPage = () => {
     <div className={styles.pageContainer}>
       <Navbar />
       <main className={styles.mainContent}>
-        <h1 className={styles.title}>About ConstructCo</h1>
+        <h1 className={styles.title}>About Dumore Construction and Remodeling</h1>
         <div className={styles.aboutContent}>
           <div className={styles.textSection}>
             <p>
-              Founded in 2005, ConstructCo has been a leading force in the construction industry,
+              Founded in 2005, Dumore Construction and Remodeling has been a leading force in the construction industry,
               delivering high-quality projects that stand the test of time. Our mission is to build
               more than just structures; we build lasting relationships with our clients based on
               trust, integrity, and a commitment to excellence.
             </p>
             <p>
               Our team is comprised of experienced professionals who are passionate about what they do.
-              From our project managers to our skilled laborers, everyone at ConstructCo is dedicated
+              From our project managers to our skilled laborers, everyone at Dumore Construction and Remodeling is dedicated
               to ensuring every project is completed to the highest standards, on time and within budget.
             </p>
           </div>

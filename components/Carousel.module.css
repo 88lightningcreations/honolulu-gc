@@ -1,0 +1,96 @@
+.carouselContainer {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  margin: auto;
+  overflow: hidden;
+  border-radius: var(--border-radius);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.slide {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 Aspect Ratio */
+  z-index: 1;
+}
+
+.image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: var(--space-sm);
+  cursor: pointer;
+  z-index: 10;
+  transition: background-color 0.3s ease;
+}
+
+.arrow:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.leftArrow {
+  left: var(--space-md);
+}
+
+.rightArrow {
+  right: var(--space-md);
+}
+
+.caption {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: var(--space-md);
+  text-align: center;
+  z-index: 2;
+}
+
+.caption h3 {
+  margin: 0;
+  font-size: 1.8rem;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+}
+
+.dotsContainer {
+  position: absolute;
+  bottom: var(--space-md);
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: var(--space-sm);
+  z-index: 10;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.dot:hover {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.activeDot {
+  background-color: white;
+}

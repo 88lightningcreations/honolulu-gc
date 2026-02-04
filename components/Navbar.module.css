@@ -12,16 +12,17 @@
   align-items: center;
 }
 
-.contactButton {
-  background-color: var(--accent-orange);
-  color: var(--text-white);
-  border: none;
-  padding: var(--space-sm) var(--space-md);
-  border-radius: var(--border-radius);
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+.businessName {
+    color: var(--primary-dark-blue);
 }
 
-.contactButton:hover {
-  background-color: var(--accent-yellow);
+.phoneNumber {
+  color: var(--primary-dark-blue);
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.phoneNumber:hover {
+  color: var(--accent-orange);
 }

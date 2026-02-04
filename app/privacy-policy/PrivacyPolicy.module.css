@@ -1,0 +1,12 @@
+.container {
+    max-width: 800px;
+    margin: var(--space-xl) auto;
+    padding: var(--space-lg);
+    background-color: var(--background-light);
+    color: var(--primary-dark-blue);
+    border-radius: var(--border-radius);
+}
+
+.heading {
+    color: var(--primary-dark-blue);
+}

@@ -3,7 +3,7 @@
   justify-content: space-between;
   align-items: center;
   padding: var(--space-xl) var(--space-lg);
-  background-image: url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+  background-image: url('/home-remodel-honolulu-general-contractor.webp');
   background-size: cover;
   background-position: center;
   position: relative;
@@ -57,10 +57,10 @@
   border-radius: var(--border-radius);
 }
 
-.formContainer button {
+.submitButton {
   width: 100%;
   padding: var(--space-md);
-  background-color: var(--accent-orange);
+  background-color: var(--primary-dark-blue);
   color: var(--text-white);
   border: none;
   border-radius: var(--border-radius);
@@ -68,7 +68,7 @@
   transition: background-color 0.3s ease;
 }
 
-.formContainer button:hover {
+.submitButton:hover {
   background-color: var(--accent-yellow);
 }
 

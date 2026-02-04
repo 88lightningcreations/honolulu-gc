@@ -9,7 +9,7 @@ const Navbar = () => {
         <Link href="/">
           <Image
             src="/hawaii-general-contractor-logo.webp"
-            alt="General Contracting Company Hawaii Logo"
+            alt="Dumore Construction and Remodeling Logo"
             width={150}
             height={50}
             priority
@@ -17,9 +17,7 @@ const Navbar = () => {
         </Link>
       </div>
       <div className={styles.contact}>
-        <Link href="/contact">
-          <button className={styles.contactButton}>Contact</button>
-        </Link>
+        <a href="tel:+18082169956" className={styles.phoneNumber}>+1 (808) 216-9956</a>
       </div>
     </nav>
   );

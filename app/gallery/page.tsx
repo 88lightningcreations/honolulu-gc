@@ -1,4 +1,5 @@
 import Navbar from '../../components/Navbar';
+import Image from 'next/image';
 import styles from './page.module.css';
 
 const images = [
@@ -21,7 +22,7 @@ const GalleryPage = () => {
         <div className={styles.imageGrid}>
           {images.map((image, index) => (
             <div key={index} className={styles.imageContainer}>
-              <img src={image} alt={`Project image ${index + 1}`} />
+              <Image src={image} alt={`Project image ${index + 1}`} layout="fill" objectFit="cover" />
             </div>
           ))}
         </div>
