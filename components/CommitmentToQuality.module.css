@@ -1,0 +1,26 @@
+.commitmentSection {
+  padding: var(--space-xl) var(--space-lg);
+  background-color: var(--dark-bg);
+  color: var(--dark-text-primary);
+  text-align: center;
+}
+
+.contentWrapper {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.title {
+  font-family: var(--font-serif);
+  font-size: 4rem;
+  font-weight: 700;
+  color: var(--dark-heading);
+  margin-bottom: var(--space-md);
+}
+
+.description {
+  font-family: var(--font-sans);
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: var(--dark-text-secondary);
+}

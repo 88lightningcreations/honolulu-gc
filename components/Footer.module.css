@@ -1,56 +1,64 @@
-
 .footer {
-  background-color: var(--primary-dark-blue);
-  color: var(--text-white);
-  padding: var(--space-xl) var(--space-lg);
+    background-color: var(--dark-bg);
+    color: var(--dark-text-primary);
+    padding: var(--space-lg) var(--space-md);
+    border-top: 1px solid var(--glass-border-dark-color);
 }
 
 .footerContent {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: var(--space-lg);
-  max-width: 1200px;
-  margin: auto;
-  margin-bottom: var(--space-xl);
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: var(--space-lg);
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-bottom: var(--space-lg);
 }
 
-.brand h3 {
-  font-size: 1.8rem;
-  margin-bottom: var(--space-sm);
-  color: var(--accent-yellow);
+.contactInfo, .socialMedia {
+    text-align: center;
 }
 
-.links ul {
-  list-style: none;
-  padding: 0;
+.contactInfo h4, .socialMedia h4 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: var(--space-md);
+    color: var(--accent-gold);
 }
 
-.links li {
-  margin-bottom: var(--space-sm);
-}
-
-.links a {
-  color: var(--accent-yellow);
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.links a:hover {
-  color: var(--text-white);
-}
-
-.copy {
-  text-align: center;
-  border-top: 1px solid var(--primary-gray);
-  padding-top: var(--space-lg);
-}
-
-.contact p, .socials p {
-    margin-bottom: var(--space-xs);
+.contactInfo p {
+    font-size: 1rem;
+    margin: var(--space-sm) 0;
 }
 
 .socialIcons {
     display: flex;
-    gap: var(--space-md);
+    gap: var(--space-lg);
+}
+
+.socialIcons a {
+    color: var(--dark-text-primary);
+    font-size: 1.5rem;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.socialIcons a:hover {
+    color: var(--accent-gold);
+    transform: scale(1.1);
+    text-shadow: 0 0 10px var(--accent-color-glow);
+}
+
+.copyright {
+    text-align: center;
+    padding-top: var(--space-lg);
+    border-top: 1px solid var(--glass-border-dark-color);
+    font-size: 0.9rem;
+    color: var(--dark-text-primary);
+}
+
+@media (max-width: 768px) {
+    .footerContent {
+        flex-direction: column;
+        align-items: center;
+    }
 }

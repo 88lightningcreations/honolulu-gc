@@ -3,8 +3,11 @@
   justify-content: space-between;
   align-items: center;
   padding: var(--space-md) var(--space-lg);
-  background-color: var(--background-light);
-  border-bottom: 1px solid #ddd;
+  background-color: var(--section-background);
+  border-bottom: 1px solid var(--border-color);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  position: relative; /* Establish stacking context */
+  z-index: 1000; /* Ensure navbar is on top of all other content */
 }
 
 .logo a {
@@ -13,16 +16,21 @@
 }
 
 .businessName {
-    color: var(--primary-dark-blue);
+  font-family: var(--font-serif);
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--primary-color);
 }
 
 .phoneNumber {
-  color: var(--primary-dark-blue);
+  font-family: var(--font-sans);
+  color: var(--secondary-color);
   text-decoration: none;
   font-weight: bold;
   font-size: 1.2rem;
+  transition: color 0.3s ease;
 }
 
 .phoneNumber:hover {
-  color: var(--accent-orange);
+  color: var(--accent-color);
 }

@@ -2,35 +2,40 @@
 
 ## Overview
 
-A professional and approachable website for Dumore Construction and Remodeling, a general contracting company in Hawaii. The website is designed for optimal Google SEO to generate leads and encourage potential clients to call. The aesthetic is masculine yet inviting, with a clean and simple design.
+A professional and sophisticated website for Dumore Construction and Remodeling, a general contracting company in Hawaii. The website is designed to be a visually stunning, high-end showcase that generates leads and builds immediate trust with potential clients. The design is anchored in the visual identity of the business, drawing inspiration directly from images of their work to create a sophisticated, cohesive, and luxurious design system.
 
 ## Style and Design
 
-*   **Color Palette:**
-    *   Primary: Dark blues and grays for a professional and masculine feel.
-    *   Accent: Muted orange or yellow for an approachable and friendly touch.
-    *   Text: White or light gray on dark backgrounds for readability.
-*   **Typography:**
-    *   Headings: A strong, bold font to convey stability and trust.
-    *   Body: A clean and readable sans-serif font.
+*   **Elegant Background:** A subtle, warm gradient from sandy white to a light, earthy beige provides a sophisticated and clean canvas for the content.
+*   **Refined Glassmorphism:** Key UI elements, including forms and cards, feature a refined frosted-glass effect. This creates a sense of depth and transparency, making them appear to float over the background.
+*   **Image-Derived Luxury Color Palette:** The color palette is extracted from the banner image to create a cohesive, high-end feel.
+    *   **Primary:** #5D4037 (Rich Wood Brown)
+    *   **Secondary:** #78909C (Elegant Stone Grey)
+    *   **Accent:** #B8860B (Sophisticated Gold)
+    *   **Background:** #F5F5F5 (Warm Sandy White) and #FFFFFF (Section Background)
+    *   **Text:** #3E2723 (Dark, Earthy Brown)
+*   **Luxurious Typography:** A new font hierarchy has been introduced to create a sense of luxury and improve readability.
+    *   **Headings:** `Playfair Display`, an elegant serif font, is used for headings to convey sophistication.
+    *   **Body:** `Montserrat`, a clean, modern sans-serif font, is used for body text for clarity and readability.
 *   **Layout:**
-    *   Clean and spacious with clear separation between sections.
-    *   Responsive design for mobile, tablet, and desktop.
-    *   No section overflow.
-*   **Visuals:**
-    *   High-quality images of construction projects.
-    *   Subtle animations and hover effects to enhance user experience.
+    *   Clean, spacious, and responsive design for all devices.
+    *   Clear separation between sections.
+*   **Visuals & Interactivity:**
+    *   High-quality, professional images of construction projects.
+    *   Subtle and refined hover effects on cards and buttons to enhance user engagement.
 
 ## Implemented Features
 
 *   **Homepage:** A single-page layout featuring the components listed below.
-*   **Banner:** A prominent hero section.
-*   **Services:** A section showcasing the company's services.
-*   **Why Choose Us:** A section highlighting the company's value proposition.
-*   **Recent Work:** An interactive carousel displaying recent projects.
-*   **Reviews:** A section for client testimonials.
-*   **FAQ:** A section addressing frequently asked questions.
-*   **Contact Form:** A contact form with a Server Action for secure submissions.
+*   **Navbar:** A redesigned navigation bar with the new luxury branding.
+*   **Banner:** A hero section with a prominent contact form.
+*   **Our Services:** A section showcasing the company's services.
+*   **Commitment to Quality:** A new section that reinforces the company's dedication to high standards.
+*   **Animated Why Choose Us:** A section highlighting the company's value proposition with animations.
+*   **Interactive Reviews:** A scrolling section of client testimonials.
+*   **Interactive FAQ:** An interactive FAQ section with a clean, easy-to-use accordion interface.
+*   **Call to Action:** A final section encouraging users to get in touch for a free quote.
+*   **Footer:** A footer with contact information, social media links, and a copyright notice.
 
 ## Business Information
 
@@ -40,8 +45,8 @@ A professional and approachable website for Dumore Construction and Remodeling, 
 
 ## Production Readiness Plan
 
-*   [x] **Update Blueprint:** Update the blueprint to reflect the current state and production plan.
-*   [x] **Code & Dependency Audit:** Scan for `TODO` comments and review dependencies. The `ContactForm` was updated to use a Server Action, and placeholders were added for social media icons.
-*   [x] **Accessibility (A11Y) Review:** Ensure the site is usable by everyone, including people with disabilities. Installed and configured `axe-core` and `react-axe` for automated accessibility testing in development.
-*   [ ] **Run Production Build:** Compile the application for production and check for errors.
-*   [x] **Final Linting:** Run the linter to ensure code quality and consistency.
+*   [ ] **Update Blueprint:** The blueprint will be updated to reflect the current state of the application.
+*   [ ] **Code & Dependency Audit:** Code will be reviewed, and all necessary dependencies will be put in place.
+*   [ ] **Accessibility (A11Y) Review:** The site will be reviewed for accessibility.
+*   [ ] **Run Production Build:** The application will be compiled for production.
+*   [ ] **Final Linting:** The code will be linted to ensure quality and consistency.

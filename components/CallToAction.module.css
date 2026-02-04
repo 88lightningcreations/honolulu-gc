@@ -1,0 +1,44 @@
+.ctaSection {
+  background: var(--accent-gradient);
+  padding: var(--space-xl) var(--space-lg);
+  text-align: center;
+}
+
+.maxWidthWrapper {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  color: var(--light-text-primary);
+}
+
+.title {
+  font-family: var(--font-serif);
+  font-size: 4rem;
+  font-weight: 700;
+  margin-bottom: var(--space-md);
+}
+
+.subtitle {
+  font-family: var(--font-sans);
+  font-size: 1.5rem;
+  margin-bottom: var(--space-lg);
+  opacity: 0.9;
+}
+
+.ctaButton {
+  font-family: var(--font-sans);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--dark-bg);
+  background-color: var(--accent-gold);
+  border: none;
+  border-radius: var(--border-radius);
+  padding: var(--space-md) var(--space-xl);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow);
+}
+
+.ctaButton:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}

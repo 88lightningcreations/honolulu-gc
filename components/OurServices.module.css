@@ -1,6 +1,8 @@
-.whyChooseUsSection {
+.servicesSection {
   padding: var(--space-xl) var(--space-lg);
-  background-color: var(--dark-bg); /* Use the darker background */
+  background-color: var(--light-bg);
+  position: relative; /* Stacking context */
+  z-index: 49; /* Sits behind banner text */
 }
 
 .maxWidthWrapper {
@@ -13,44 +15,44 @@
   font-family: var(--font-serif);
   font-size: 4rem;
   font-weight: 700;
-  color: var(--dark-heading);
+  color: var(--light-heading);
   margin-bottom: var(--space-lg);
 }
 
-.reasonsGrid {
+.servicesGrid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: var(--space-lg);
-  text-align: left;
 }
 
-.reasonCard {
-  background: var(--dark-card-bg);
+.serviceCard {
+  background: var(--light-card-bg);
   backdrop-filter: var(--glass-blur);
   -webkit-backdrop-filter: var(--glass-blur);
   border-radius: var(--border-radius);
-  border: var(--dark-glass-border);
+  border: var(--light-glass-border);
   box-shadow: var(--shadow);
   padding: var(--space-lg);
+  text-align: left;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.reasonCard:hover {
+.serviceCard:hover {
   transform: translateY(-5px);
-  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.15);
 }
 
-.reasonCard h3 {
+.serviceCard h3 {
   font-family: var(--font-serif);
   font-size: 2rem;
   font-weight: 700;
-  color: var(--dark-heading);
+  color: var(--light-heading);
   margin-bottom: var(--space-md);
 }
 
-.reasonCard p {
+.serviceCard p {
   font-family: var(--font-sans);
   font-size: 1rem;
-  color: var(--dark-text-secondary);
+  color: var(--light-text-secondary);
   line-height: 1.6;
 }

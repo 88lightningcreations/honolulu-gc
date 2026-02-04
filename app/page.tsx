@@ -1,19 +1,21 @@
-import Banner from '../components/Banner';
-import Services from '../components/Services';
-import WhyChooseUs from '../components/WhyChooseUs';
-import RecentWork from '../components/RecentWork';
-import Reviews from '../components/Reviews';
-import FAQ from '../components/FAQ';
+import AnimatedWhyChooseUs from "../components/AnimatedWhyChooseUs";
+import Banner from "../components/Banner";
+import CallToAction from "../components/CallToAction";
+import CommitmentToQuality from "../components/CommitmentToQuality";
+import InteractiveFAQ from "../components/InteractiveFAQ";
+import InteractiveReviews from "../components/InteractiveReviews";
+import OurServices from "../components/OurServices";
 
 export default function Home() {
   return (
     <main>
       <Banner />
-      <Services />
-      <WhyChooseUs />
-      <RecentWork />
-      <Reviews />
-      <FAQ />
+      <OurServices />
+      <CommitmentToQuality />
+      <AnimatedWhyChooseUs />
+      <InteractiveReviews />
+      <InteractiveFAQ />
+      <CallToAction />
     </main>
   );
 }
