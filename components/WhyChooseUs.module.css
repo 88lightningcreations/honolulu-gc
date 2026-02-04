@@ -1,0 +1,31 @@
+.whyChooseUsSection {
+  padding: var(--space-xl) var(--space-lg);
+  text-align: center;
+  background-color: var(--background-dark-blue);
+}
+
+.title {
+    font-size: 2.5rem;
+    margin-bottom: var(--space-lg);
+    color: var(--text-white);
+}
+
+.reasonsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--space-lg);
+  color: var(--text-white);
+}
+
+.reasonCard {
+  background-color: var(--primary-gray);
+  padding: var(--space-lg);
+  border-radius: var(--border-radius);
+  text-align: left;
+}
+
+.reasonCard h3 {
+  font-size: 1.5rem;
+  margin-bottom: var(--space-md);
+  color: var(--accent-yellow);
+}

@@ -1,0 +1,27 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-md) var(--space-lg);
+  background-color: var(--background-light);
+  border-bottom: 1px solid #ddd;
+}
+
+.logo a {
+  display: flex;
+  align-items: center;
+}
+
+.contactButton {
+  background-color: var(--accent-orange);
+  color: var(--text-white);
+  border: none;
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.contactButton:hover {
+  background-color: var(--accent-yellow);
+}

@@ -1,0 +1,16 @@
+.infoContainer {
+  background-color: var(--primary-gray);
+  padding: var(--space-lg);
+  border-radius: var(--border-radius-md);
+  color: var(--text-white);
+}
+
+.infoBlock {
+  margin-bottom: var(--space-lg);
+}
+
+.infoBlock h4 {
+  color: var(--accent-yellow);
+  margin-bottom: var(--space-sm);
+  font-size: 1.4rem;
+}

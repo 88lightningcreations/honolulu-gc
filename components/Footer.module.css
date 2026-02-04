@@ -1,0 +1,46 @@
+.footer {
+  background-color: var(--background-dark-blue);
+  color: var(--text-white);
+  padding: var(--space-xl) var(--space-lg);
+}
+
+.footerContent {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-lg);
+  max-width: 1200px;
+  margin: auto;
+  margin-bottom: var(--space-xl);
+}
+
+.brand h3 {
+  font-size: 1.8rem;
+  margin-bottom: var(--space-sm);
+  color: var(--accent-yellow);
+}
+
+.links ul {
+  list-style: none;
+  padding: 0;
+}
+
+.links li {
+  margin-bottom: var(--space-sm);
+}
+
+.links a {
+  color: var(--text-white);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.links a:hover {
+  color: var(--accent-yellow);
+}
+
+.copy {
+  text-align: center;
+  border-top: 1px solid var(--primary-dark-blue);
+  padding-top: var(--space-lg);
+}
