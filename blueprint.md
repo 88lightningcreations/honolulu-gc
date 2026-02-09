@@ -43,10 +43,16 @@ A professional and sophisticated website for Dumore Construction and Remodeling,
 *   **Phone Number:** +18082169956
 *   **Address:** 1253 S Beretania St. #1501, Honolulu, HI 96814, United States
 
-## Production Readiness Plan
+## Production Readiness Plan (Vercel)
 
-*   [ ] **Update Blueprint:** The blueprint will be updated to reflect the current state of the application.
+*   [x] **Update Blueprint:** The blueprint will be updated to reflect the current state of the application.
+*   [ ] **SEO & Analytics Implementation:**
+    *   [ ] Create `robots.txt` for search engine crawlers.
+    *   [ ] Generate a dynamic `sitemap.xml` for better indexing.
+    *   [ ] Implement Google Analytics and Google Tag Manager.
+    *   [ ] Optimize metadata in `app/layout.tsx`.
 *   [ ] **Code & Dependency Audit:** Code will be reviewed, and all necessary dependencies will be put in place.
 *   [ ] **Accessibility (A11Y) Review:** The site will be reviewed for accessibility.
 *   [ ] **Run Production Build:** The application will be compiled for production.
 *   [ ] **Final Linting:** The code will be linted to ensure quality and consistency.
+*   [ ] **Vercel Deployment:** Provide guidance on deploying to Vercel.

@@ -3,7 +3,7 @@
 import Navbar from '../../components/Navbar';
 import styles from './page.module.css';
 import Link from 'next/link';
-import { services } from '../lib/services';
+import { services } from '../../lib/services';
 
 const ServicesPage = () => {
   return (
