@@ -3,6 +3,7 @@ import { Playfair_Display, Montserrat } from "next/font/google";
 import "./globals.css";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import Accessibility from "../components/Accessibility";
 
 const playfair = Playfair_Display({ 
   subsets: ["latin"], 
@@ -29,6 +30,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${playfair.variable} ${montserrat.variable}`}>
       <body>
+        <Accessibility />
         <Navbar />
         {children}
         <Footer />

@@ -35,7 +35,7 @@
 
 .formContainer input::placeholder,
 .formContainer textarea::placeholder {
-  color: #555;
+  color: #212529; /* Darker color for better contrast */
 }
 
 .formContainer input:focus,
