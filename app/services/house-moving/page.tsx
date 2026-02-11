@@ -80,7 +80,7 @@ const HouseMovingPage = () => {
         <section>
           <h2>Serving the Entire State of Hawaii</h2>
           <p>
-            At [Your Company Name], we have the expertise and equipment to handle house moving projects on all of the Hawaiian Islands, including Oahu, Maui, Kauai, and the Big Island. We are familiar with the unique challenges of each island and have the experience to navigate the complexities of inter-island moves.
+            At Dumore Construction and Remodeling, we have the expertise and equipment to handle house moving projects on all of the Hawaiian Islands, including Oahu, Maui, Kauai, and the Big Island. We are familiar with the unique challenges of each island and have the experience to navigate the complexities of inter-island moves.
           </p>
         </section>
 

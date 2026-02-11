@@ -14,7 +14,7 @@ const StormDamageRepairPage = () => {
         <section>
           <h2>The Devastating Impact of Storms in Hawaii</h2>
           <p>
-            Hawaii&apos;s idyllic beauty belies a powerful and often destructive force of nature. From the ferocious winds of hurricanes to the ravages of wildfires, the islands are no stranger to severe weather. When a storm strikes, the damage to your home can be overwhelming, both physically and emotionally. At [Your Company Name], we understand the urgency of these situations. We are a licensed and experienced general contractor specializing in storm damage repair across the Hawaiian Islands. Our mission is to restore your property to its pre-loss condition, quickly, efficiently, and with the highest standards of quality.
+            Hawaii&apos;s idyllic beauty belies a powerful and often destructive force of nature. From the ferocious winds of hurricanes to the ravages of wildfires, the islands are no stranger to severe weather. When a storm strikes, the damage to your home can be overwhelming, both physically and emotionally. At Dumore Construction and Remodeling, we understand the urgency of these situations. We are a licensed and experienced general contractor specializing in storm damage repair across the Hawaiian Islands. Our mission is to restore your property to its pre-loss condition, quickly, efficiently, and with the highest standards of quality.
           </p>
           <p>
             This article will delve into the specifics of storm damage repair in Hawaii, outlining the types of damage we frequently encounter, the areas most affected, and the critical tasks a general contractor undertakes to bring your home back to life. We aim to provide homeowners with the knowledge and resources to navigate the post-storm recovery process with confidence.
@@ -146,7 +146,7 @@ const StormDamageRepairPage = () => {
         <section>
           <h2>Why Choose [Your Company Name]?</h2>
           <p>
-            When it comes to storm damage repair, you need a contractor you can trust. At [Your Company Name], we are committed to providing our clients with the highest level of service and craftsmanship. Here are just a few reasons to choose us for your storm damage repair needs:
+            When it comes to storm damage repair, you need a contractor you can trust. At Dumore Construction and Remodeling, we are committed to providing our clients with the highest level of service and craftsmanship. Here are just a few reasons to choose us for your storm damage repair needs:
           </p>
           <ul>
             <li><strong>Licensed and Insured:</strong> We are a fully licensed and insured general contractor in the state of Hawaii.</li>
@@ -161,7 +161,7 @@ const StormDamageRepairPage = () => {
         <section>
           <h2>Contact Us Today for a Free Consultation</h2>
           <p>
-            If your home has been damaged by a storm, don&apos;t wait to call for help. Contact [Your Company Name] today for a free consultation and damage assessment. We will work with you every step of the way to restore your home and your peace of mind.
+            If your home has been damaged by a storm, don&apos;t wait to call for help. Contact Dumore Construction and Remodeling today for a free consultation and damage assessment. We will work with you every step of the way to restore your home and your peace of mind.
           </p>
         </section>
       </article>

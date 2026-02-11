@@ -4,7 +4,7 @@ import "./globals.css";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Accessibility from "../components/Accessibility";
-import Analytics from "../components/Analytics";
+import ClientAnalytics from "../components/ClientAnalytics";
 
 const playfair = Playfair_Display({ 
   subsets: ["latin"], 
@@ -68,9 +68,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${playfair.variable} ${montserrat.variable}`}>
+    <html lang="en" className={`${playfair.variable} ${montserrat.variable}`} data-scroll-behavior="smooth">
       <body>
-        <Analytics />
+        <ClientAnalytics />
         <Accessibility />
         <Navbar />
         {children}

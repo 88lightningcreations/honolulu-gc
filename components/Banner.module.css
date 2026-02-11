@@ -2,7 +2,7 @@
 
 .banner {
   display: flex;
-  justify-content: flex-start; /* Align title to the left */
+  justify-content: space-between; /* Space between title and estimator */
   align-items: center;
   padding: var(--space-xl) var(--space-lg);
   background-image: url('/home-remodel-honolulu-general-contractor.webp');
@@ -25,7 +25,7 @@
 }
 
 .textContainer {
-  flex-basis: 60%;
+  flex-basis: 50%;
   position: relative;
   z-index: 50; /* Keep title above the gradient */
 }
@@ -45,26 +45,42 @@
   margin-bottom: 0; /* REMOVED: No more title spill-over */
 }
 
+.estimatorContainer {
+  flex-basis: 45%;
+  z-index: 50;
+  display: flex;
+  justify-content: flex-end;
+}
+
 /* --- Responsive Design --- */
 @media (max-width: 900px) {
   .banner {
-    justify-content: center;
-    text-align: center;
-    height: 50vh;
-    min-height: 350px;
-    overflow: hidden;
-  }
-
-  .textContainer {
-    flex-basis: 100%;
-    padding: 0 var(--space-md);
+    height: 80vh;
+    min-height: 600px;
+    display: block;
+    overflow: hidden; /* Hide anything that might spill out */
   }
 
   .textContainer h1 {
-    font-size: 4rem;
-    margin-bottom: 0;
-    text-shadow:
-      0 2px 2px rgba(0, 0, 0, 0.7),
-      0 5px 10px rgba(0, 0, 0, 0.5);
+    display: none;
+  }
+
+  .estimatorContainer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 95%;
+    max-width: 450px;
+    height: auto;
+    max-height: calc(100% - 40px); /* Fit within the banner with padding */
+    overflow-y: auto; /* Scroll if needed */
+    z-index: 100;
+    
+    /* Reset desktop styles */
+    flex-basis: auto;
+    display: block;
+    justify-content: initial;
+    padding: 0; /* The CostEstimator probably has its own padding */
   }
 }

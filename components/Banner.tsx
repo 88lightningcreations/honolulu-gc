@@ -7,13 +7,10 @@ const Banner = () => {
     <div className={styles.banner}>
       <div className={styles.textContainer}>
         <h1 className={styles.headline}>Your Vision, Our Expertise</h1>
-        <p className={styles.description}>
-          From concept to completion, we&apos;re dedicated to bringing your dream project to life. 
-          Experience the difference of working with a team that values quality, craftsmanship, and you.
-        </p>
-        <button className={styles.ctaButton}>Get a Free Quote</button>
       </div>
-      <CostEstimator />
+      <div className={styles.estimatorContainer}>
+        <CostEstimator />
+      </div>
     </div>
   );
 };

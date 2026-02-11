@@ -14,7 +14,7 @@ const HomeRemodelingPage = () => {
         <section>
           <h2>Reimagining Your Space: The Art of Home Remodeling in Hawaii</h2>
           <p>
-            Your home is more than just a place to live; it&apos;s a reflection of your lifestyle, your taste, and your connection to the beautiful islands of Hawaii. But as your family grows, your needs change, and your style evolves, your home may no longer feel like the perfect fit. That&apos;s where home remodeling comes in. A well-executed remodel can breathe new life into your space, enhancing its beauty, functionality, and value. At [Your Company Name], we are passionate about helping our clients transform their homes into spaces that they will love for years to come.
+            Your home is more than just a place to live; it&apos;s a reflection of your lifestyle, your taste, and your connection to the beautiful islands of Hawaii. But as your family grows, your needs change, and your style evolves, your home may no longer feel like the perfect fit. That&apos;s where home remodeling comes in. A well-executed remodel can breathe new life into your space, enhancing its beauty, functionality, and value. At Dumore Construction and Remodeling, we are passionate about helping our clients transform their homes into spaces that they will love for years to come.
           </p>
           <p>
             This article will serve as your comprehensive guide to home remodeling in Hawaii. We will explore the many benefits of remodeling, the various types of remodeling projects, and the essential role that a general contractor plays in bringing your vision to life. Whether you are dreaming of a modern kitchen, a spa-like bathroom, or a complete home makeover, we will provide you with the information and inspiration you need to get started.
@@ -94,7 +94,7 @@ const HomeRemodelingPage = () => {
         <section>
           <h2>Your Partner in Creating the Home of Your Dreams</h2>
           <p>
-            At [Your Company Name], we believe that home remodeling should be an exciting and rewarding experience. We are committed to providing our clients with the highest level of service, quality, and craftsmanship, and we will work with you every step of the way to create a home that you will love for years to come. If you are ready to transform your Hawaiian home, we invite you to contact us for a free consultation. Let us help you turn your dreams into a reality.
+            At Dumore Construction and Remodeling, we believe that home remodeling should be an exciting and rewarding experience. We are committed to providing our clients with the highest level of service, quality, and craftsmanship, and we will work with you every step of the way to create a home that you will love for years to come. If you are ready to transform your Hawaiian home, we invite you to contact us for a free consultation. Let us help you turn your dreams into a reality.
           </p>
         </section>
       </article>

@@ -11,12 +11,13 @@
   text-align: center;
 }
 
-.title {
+.heading {
   font-family: var(--font-serif);
   font-size: 4rem;
   font-weight: 700;
   color: var(--light-heading);
   margin-bottom: var(--space-lg);
+  text-align: center;
 }
 
 .servicesGrid {

@@ -14,7 +14,7 @@ const PestRepairPage = () => {
         <section>
           <h2>The Hidden Threat of Pest Infestations</h2>
           <p>
-            Hawaii&apos;s tropical climate, while a paradise for residents, is also a breeding ground for a variety of pests that can cause significant damage to your home. From the silent destruction of termites to the nuisance of rodents and bees, these tiny intruders can compromise the structural integrity of your property and create a host of health and safety issues. At [Your Company Name], we specialize in repairing the damage caused by pest infestations, ensuring your home is not only aesthetically pleasing but also structurally sound and safe for your family.
+            Hawaii&apos;s tropical climate, while a paradise for residents, is also a breeding ground for a variety of pests that can cause significant damage to your home. From the silent destruction of termites to the nuisance of rodents and bees, these tiny intruders can compromise the structural integrity of your property and create a host of health and safety issues. At Dumore Construction and Remodeling, we specialize in repairing the damage caused by pest infestations, ensuring your home is not only aesthetically pleasing but also structurally sound and safe for your family.
           </p>
           <p>
             This article will guide you through the common types of pest damage found in Hawaii, the areas most susceptible to these infestations, and the essential repair tasks a general contractor performs to restore your home. Our goal is to empower homeowners with the knowledge to identify, address, and prevent pest-related damage.
@@ -134,7 +134,7 @@ const PestRepairPage = () => {
         <section>
           <h2>Your Trusted Partner in Pest Damage Repair</h2>
           <p>
-            At [Your Company Name], we have the expertise and experience to handle all types of pest damage repair. We are committed to providing our clients with the highest quality workmanship and materials, and we will work tirelessly to restore your home to a safe, healthy, and pest-free condition. Contact us today for a free consultation and let us help you protect your most valuable investment.
+            At Dumore Construction and Remodeling, we have the expertise and experience to handle all types of pest damage repair. We are committed to providing our clients with the highest quality workmanship and materials, and we will work tirelessly to restore your home to a safe, healthy, and pest-free condition. Contact us today for a free consultation and let us help you protect your most valuable investment.
           </p>
         </section>
       </article>

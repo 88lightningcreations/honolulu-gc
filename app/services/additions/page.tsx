@@ -14,7 +14,7 @@ const AdditionsPage = () => {
         <section>
           <h2>Growing Your Hawaiian Home: The Art of the Seamless Addition</h2>
           <p>
-            As your family grows and your needs change, you may find yourself in need of more space. But what if you love your home and your neighborhood? A home addition is the perfect solution. A well-designed addition can seamlessly blend with your existing home, providing you with the extra space you need without the stress and expense of moving. At [Your Company Name], we specialize in designing and building home additions that are both beautiful and functional, enhancing your lifestyle and increasing the value of your home.
+            As your family grows and your needs change, you may find yourself in need of more space. But what if you love your home and your neighborhood? A home addition is the perfect solution. A well-designed addition can seamlessly blend with your existing home, providing you with the extra space you need without the stress and expense of moving. At Dumore Construction and Remodeling, we specialize in designing and building home additions that are both beautiful and functional, enhancing your lifestyle and increasing the value of your home.
           </p>
           <p>
             This article will be your guide to home additions in Hawaii. We will explore the various types of additions, the benefits of adding on to your home, and the process of designing and building an addition that perfectly complements your existing home. Whether you are dreaming of a new master suite, a spacious family room, or a private home office, we will provide you with the information and inspiration you need to get started.
@@ -78,7 +78,7 @@ const AdditionsPage = () => {
         <section>
           <h2>Your Partner in Expanding Your Hawaiian Home</h2>
           <p>
-            At [Your Company Name], we understand that a home addition is a significant investment. That is why we are committed to providing our clients with the highest level of service, quality, and craftsmanship. We have a team of experienced designers and craftsmen who will work with you every step of the way to create an addition that you will love for years to come. Contact us today for a free consultation and let us help you expand your Hawaiian home.
+            At Dumore Construction and Remodeling, we understand that a home addition is a significant investment. That is why we are committed to providing our clients with the highest level of service, quality, and craftsmanship. We have a team of experienced designers and craftsmen who will work with you every step of the way to create an addition that you will love for years to come. Contact us today for a free consultation and let us help you expand your Hawaiian home.
           </p>
         </section>
       </article>

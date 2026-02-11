@@ -40,9 +40,9 @@ const BathroomRemodelingPage = () => {
         </section>
 
         <section>
-          <h2>Why Choose [Your Company Name] for Your Bathroom Remodel?</h2>
+          <h2>Why Choose Dumore Construction and Remodeling for Your Bathroom Remodel?</h2>
           <p>
-            At [Your Company Name], we are passionate about creating beautiful and functional bathrooms that our clients will love for years to come. We have a team of experienced designers and craftsmen who are dedicated to providing the highest level of quality and service. We will work with you every step of the way to ensure that your bathroom remodel is a success. Contact us today for a free consultation and let us help you create the bathroom of your dreams.
+            At Dumore Construction and Remodeling, we are passionate about creating beautiful and functional bathrooms that our clients will love for years to come. We have a team of experienced designers and craftsmen who are dedicated to providing the highest level of quality and service. We will work with you every step of the way to ensure that your bathroom remodel is a success. Contact us today for a free consultation and let us help you create the bathroom of your dreams.
           </p>
         </section>
       </article>
