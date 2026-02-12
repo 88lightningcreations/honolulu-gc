@@ -2,8 +2,10 @@
 
 .banner {
   display: flex;
-  justify-content: space-between; /* Space between title and estimator */
+  /* Default: Centered for mobile and extra-wide screens */
+  justify-content: center;
   align-items: center;
+  text-align: center;
   padding: var(--space-xl) var(--space-lg);
   background-image: url('/home-remodel-honolulu-general-contractor.webp');
   background-size: cover;
@@ -12,7 +14,6 @@
   height: 100vh;
 }
 
-/* LIGHTENED GRADIENT: Less aggressive, clearer image */
 .banner::before {
     content: '';
     position: absolute;
@@ -25,62 +26,53 @@
 }
 
 .textContainer {
-  flex-basis: 50%;
   position: relative;
-  z-index: 50; /* Keep title above the gradient */
+  z-index: 50;
+  width: 90%;
+  max-width: 1200px;
 }
 
 .textContainer h1 {
   font-family: var(--font-serif);
-  font-size: 6rem;
+  font-size: clamp(3rem, 10vw, 6rem);
   font-weight: 700;
   line-height: 1.1;
   color: var(--accent-gold);
-  /* The Forged Gold Effect */
   text-shadow:
     0 2px 3px rgba(0, 0, 0, 0.6),
     0 8px 15px rgba(0, 0, 0, 0.5),
     0 15px 40px rgba(0, 0, 0, 0.4);
-
-  margin-bottom: 0; /* REMOVED: No more title spill-over */
+  margin-bottom: 0;
 }
 
 .estimatorContainer {
-  flex-basis: 45%;
-  z-index: 50;
-  display: flex;
-  justify-content: flex-end;
+  display: none;
 }
 
 /* --- Responsive Design --- */
-@media (max-width: 900px) {
+
+/* Tablet & Desktop: Slightly left of center */
+@media (min-width: 768px) and (max-width: 1920px) {
+  .banner {
+    justify-content: flex-start; /* Align content container to the left */
+  }
+  .textContainer {
+    text-align: left; /* Align text to the left within its container */
+    /* Add margin to push it off the left edge, creating the "slightly left of center" effect */
+    margin-left: 10vw;
+  }
+}
+
+/* Mobile-specific adjustments */
+@media (max-width: 767px) {
   .banner {
     height: 80vh;
-    min-height: 600px;
-    display: block;
-    overflow: hidden; /* Hide anything that might spill out */
+    min-height: 500px;
   }
 
   .textContainer h1 {
-    display: none;
-  }
-
-  .estimatorContainer {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 95%;
-    max-width: 450px;
-    height: auto;
-    max-height: calc(100% - 40px); /* Fit within the banner with padding */
-    overflow-y: auto; /* Scroll if needed */
-    z-index: 100;
-    
-    /* Reset desktop styles */
-    flex-basis: auto;
-    display: block;
-    justify-content: initial;
-    padding: 0; /* The CostEstimator probably has its own padding */
+     font-size: clamp(2.5rem, 8vw, 4.5rem); /* Slightly smaller max font size for mobile */
   }
 }
+
+/* Note: Extra-wide screens (> 1920px) will use the default centered styles, as requested. */
