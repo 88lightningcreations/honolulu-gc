@@ -59,7 +59,7 @@ const InteractiveFAQ = () => {
             </div>
             {visibleCount < faqs.length && (
                 <button onClick={handleReadMore} className={styles.readMoreButton}>
-                    Read More FAQ's
+                    Read More FAQ&apos;s
                 </button>
             )}
         </div>
