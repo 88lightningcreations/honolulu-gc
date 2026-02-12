@@ -25,7 +25,7 @@ const HomeRemodelingPage = () => {
           <h2>Why Remodel Your Hawaiian Home?</h2>
           <p>
             There are many reasons why a homeowner might choose to remodel their home. Some of the most common motivations include:
-          </p>
+          </p><br/>
           <ul>
             <li><strong>To improve functionality and flow:</strong> An outdated floor plan can make a home feel cramped and dysfunctional. A remodel can open up the space, improve the flow, and create a more functional layout that better suits your family&apos;s needs.</li>
             <li><strong>To update the style and aesthetics:</strong> Your home&apos;s style should be a reflection of your personal taste. If your home is feeling dated, a remodel can bring it into the 21st century with modern finishes, fixtures, and a fresh color palette.</li>
@@ -67,7 +67,7 @@ const HomeRemodelingPage = () => {
           <h2>The Home Remodeling Process: A Step-by-Step Guide</h2>
           <p>
             A successful home remodel requires careful planning and execution. Here is a step-by-step guide to the remodeling process:
-          </p>
+          </p><br/>
           <ol>
             <li><strong>Initial Consultation:</strong> The first step is to meet with a general contractor to discuss your project. During this consultation, you will have the opportunity to share your ideas, ask questions, and get a feel for the contractor&apos;s experience and expertise.</li>
             <li><strong>Design and Planning:</strong> Once you have chosen a contractor, the design process can begin. Your contractor will work with you to create a set of plans that meets your needs and fits your budget.</li>
@@ -81,7 +81,7 @@ const HomeRemodelingPage = () => {
           <h2>The Importance of Hiring a Licensed General Contractor</h2>
           <p>
             When it comes to home remodeling, it is essential to hire a licensed and insured general contractor. A general contractor will act as your project manager, overseeing every aspect of the remodel and ensuring that it is completed to the highest standards. Here are just a few of the benefits of hiring a general contractor:
-          </p>
+          </p><br/>
           <ul>
             <li><strong>They have the experience and expertise to get the job done right.</strong> A general contractor has a deep understanding of the construction process and can anticipate and solve problems before they arise.</li>
             <li><strong>They have a network of trusted subcontractors.</strong> A general contractor has relationships with a variety of subcontractors, such as plumbers, electricians, and painters, and can ensure that you are getting the best possible workmanship.</li>
