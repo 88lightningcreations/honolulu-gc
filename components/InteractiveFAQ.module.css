@@ -53,7 +53,8 @@
 }
 
 .answer.open {
-    max-height: 200px; /* Adjust as needed */
+    max-height: 150px; /* Adjust as needed */
+    overflow-y: auto;
     padding: 0 1.5rem 1.5rem 1.5rem;
 }
 
@@ -63,4 +64,22 @@
     color: #555;
     margin: 0;
     font-family: 'Montserrat', sans-serif;
+}
+
+.readMoreButton {
+    display: block;
+    margin: 2rem auto 0;
+    padding: 1rem 2rem;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-family: 'Montserrat', sans-serif;
+    transition: background-color 0.3s ease;
+}
+
+.readMoreButton:hover {
+    background-color: #555;
 }
