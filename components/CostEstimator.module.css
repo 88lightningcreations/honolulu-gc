@@ -1,75 +1,61 @@
-/* The styles for the Cost Estimator are intentionally independent to prevent them from being affected by global style changes. */
+
 .formContainer {
-  flex-basis: 450px;
-  background: rgba(255, 255, 255, 0.6);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border-radius: 8px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
-  padding: 32px;
-  z-index: 2;
-  position: relative;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 2rem;
+    width: 100%;
+    max-width: 500px;
 }
 
 .formContainer h2 {
-  margin-bottom: 16px;
-  color: #333;
-  font-size: 2rem;
-  text-align: center;
-  font-weight: 700;
+    font-family: var(--font-playfair-display);
+    color: #FFFFFF;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.formContainer form {
+    display: flex;
+    flex-direction: column;
 }
 
 .formContainer input,
 .formContainer textarea {
-  width: 100%;
-  padding: 16px;
-  margin-bottom: 16px;
-  background-color: rgba(255, 255, 255, 0.5);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  border-radius: 8px;
-  font-size: 1rem;
-  color: #333;
-  transition: all 0.2s ease-in-out;
+    background: #FFFFFF;
+    border: 1px solid #1565C0;
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    font-family: var(--font-montserrat);
+    color: #3E2723;
 }
 
 .formContainer input::placeholder,
 .formContainer textarea::placeholder {
-  color: #212529; /* Darker color for better contrast */
-}
-
-.formContainer input:focus,
-.formContainer textarea:focus {
-  outline: none;
-  border: 1px solid #007bff; /* Original blue */
-  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.3);
+    color: #78909C;
 }
 
 .submitButton {
-  width: 100%;
-  padding: 16px;
-  background-color: #007bff; /* Original blue */
-  color: #ffffff;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  font-size: 1.2rem;
-  font-weight: bold;
-  box-shadow: 0 4px 15px rgba(0, 123, 255, 0.4);
+    background-color: #1565C0;
+    color: #FFFFFF;
+    font-family: var(--font-montserrat);
+    font-weight: bold;
+    padding: 1rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .submitButton:hover {
-  background-color: #ff8c00; /* Original orange */
-  color: #333;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(255, 140, 0, 0.5);
+    background-color: #1E88E5;
+    transform: scale(1.05);
 }
 
-@media (max-width: 900px) {
-  .formContainer {
-    width: 100%;
-    max-width: 450px;
-    margin-top: 32px;
-  }
+.label {
+  display: none; 
 }

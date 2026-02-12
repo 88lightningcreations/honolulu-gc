@@ -14,10 +14,10 @@ const HouseMovingPage = () => {
         <section>
           <h2>A Foundation on the Move: The Art and Science of House Moving</h2>
           <p>
-            Imagine the possibility of lifting your entire home from its foundation and transporting it to a new location. While it may sound like a feat of fiction, house moving, also known as structural moving, is a highly specialized service that has been practiced for centuries. In Hawaii, with its unique landscape and property challenges, house moving offers a practical and often cost-effective solution for a variety of situations. At [Your Company Name], we are one of the few general contractors in Hawaii with the expertise and equipment to handle the complex process of physically relocating a house.
-          </p>
+            Imagine the possibility of lifting your entire home from its foundation and transporting it to a new location. While it may sound like a feat of fiction, house moving, also known as structural moving, is a highly specialized service that has been practiced for centuries. In Hawaii, with its unique landscape and property challenges, house moving offers a practical and often cost-effective solution for a variety of situations. 
+          </p><br/>
           <p>
-            This article will explore the fascinating world of house moving in Hawaii. We will discuss the reasons why a homeowner might choose to move their house, the intricate process involved, the critical role of a general contractor, and the specific challenges of relocating a structure in the Hawaiian Islands.
+            At Dumore Construction and Remodel, we are one of the few general contractors in Hawaii with the expertise and equipment to handle the complex process of physically relocating a house. This article will explore the fascinating world of house moving in Hawaii. We will discuss the reasons why a homeowner might choose to move their house, the intricate process involved, the critical role of a general contractor, and the specific challenges of relocating a structure in the Hawaiian Islands.
           </p>
         </section>
 
@@ -25,7 +25,7 @@ const HouseMovingPage = () => {
           <h2>Why Move a House in Hawaii?</h2>
           <p>
             The decision to move a house is not one to be taken lightly, but it can be a surprisingly practical solution in a number of scenarios:
-          </p>
+          </p><br/>
           <ul>
             <li><strong>Preserving a Historic Home:</strong> Hawaii has a rich architectural heritage, and moving a historic home can save it from demolition to make way for new development.</li>
             <li><strong>Avoiding Natural Hazards:</strong> If a home is located in an area prone to flooding, coastal erosion, or lava flows, moving it to a safer location can be a life-saving and investment-protecting measure.</li>
@@ -39,7 +39,7 @@ const HouseMovingPage = () => {
           <h2>The Intricate Process of Moving a House</h2>
           <p>
             Moving a house is a meticulously planned and executed operation that involves a team of skilled professionals. The process can be broken down into several key stages:
-          </p>
+          </p><br/>
           <ol>
             <li><strong>Site Preparation:</strong> Both the current and new sites must be prepared for the move. This includes disconnecting all utilities, excavating around the foundation, and clearing a path for the house to be moved.</li>
             <li><strong>Lifting the Structure:</strong> A unified hydraulic jacking system is used to slowly and evenly lift the house off its foundation. Steel beams are inserted beneath the structure to provide support.</li>
@@ -53,7 +53,7 @@ const HouseMovingPage = () => {
           <h2>The General Contractor: Your House-Moving Project Manager</h2>
           <p>
             A successful house move requires the expertise of a licensed and experienced general contractor. The general contractor acts as the project manager, overseeing every aspect of the move and ensuring that it is completed safely, on time, and on budget. Key responsibilities include:
-          </p>
+          </p><br/>
           <ul>
             <li><strong>Obtaining all necessary permits:</strong> House moving requires a multitude of permits from various county and state agencies.</li>
             <li><strong>Coordinating with all subcontractors:</strong> This includes utility companies, excavation crews, and transportation specialists.</li>
@@ -67,7 +67,7 @@ const HouseMovingPage = () => {
           <h2>The Unique Challenges of Moving a House in Hawaii</h2>
           <p>
             House moving in Hawaii presents a unique set of challenges due to the islands&apos; geography, infrastructure, and regulations:
-          </p>
+          </p><br/>
           <ul>
             <li><strong>Narrow and Winding Roads:</strong> Many of Hawaii&apos;s roads are narrow and winding, making it difficult to transport a large structure.</li>
             <li><strong>Steep Terrain:</strong> The mountainous terrain of the islands can make it challenging to move a house, especially in hilly or sloped areas.</li>
@@ -87,7 +87,7 @@ const HouseMovingPage = () => {
         <section>
           <h2>Your Partner in a Complex Endeavor</h2>
           <p>
-            House moving is a complex and challenging endeavor, but it can be a rewarding one. If you are considering moving a house in Hawaii, it is essential to partner with a general contractor who has the experience and expertise to get the job done right. At [Your Company Name], we have a proven track record of successful house moves, and we are committed to providing our clients with the highest level of service and craftsmanship. Contact us today for a free consultation and let us help you make your house-moving project a reality.
+            House moving is a complex and challenging endeavor, but it can be a rewarding one. If you are considering moving a house in Hawaii, it is essential to partner with a general contractor who has the experience and expertise to get the job done right. At Dumore Construction and Remodel, we have a proven track record of successful house moves, and we are committed to providing our clients with the highest level of service and craftsmanship. Contact us today for a free consultation and let us help you make your house-moving project a reality.
           </p>
         </section>
       </article>

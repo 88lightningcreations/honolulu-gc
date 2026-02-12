@@ -1,6 +1,5 @@
 
 'use client';
-import Navbar from '../../components/Navbar';
 import styles from './page.module.css';
 import Link from 'next/link';
 import { services } from '../../lib/services';
@@ -8,8 +7,7 @@ import { services } from '../../lib/services';
 const ServicesPage = () => {
   return (
     <div className={styles.pageContainer}>
-      <Navbar />
-      <main className={styles.mainContent}>
+      <div className={styles.mainContent}>
         <h1 className={styles.title}>Our Services</h1>
         <p className={styles.subtitle}>
           We offer a wide range of construction services to meet the diverse needs of our clients.
@@ -28,7 +26,7 @@ const ServicesPage = () => {
             );
           })}
         </div>
-      </main>
+      </div>
     </div>
   );
 };

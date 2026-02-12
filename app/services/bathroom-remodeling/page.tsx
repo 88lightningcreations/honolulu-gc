@@ -15,7 +15,7 @@ const BathroomRemodelingPage = () => {
           <h2>The Spa-Like Hawaiian Bathroom: A Sanctuary for Relaxation</h2>
           <p>
             Your bathroom should be more than just a functional space; it should be a sanctuary where you can relax, rejuvenate, and escape from the stresses of everyday life. The modern Hawaiian bathroom is a spa-like retreat that incorporates natural elements and luxurious amenities. Some of the key elements of a spa-like Hawaiian bathroom include:
-          </p>
+          </p><br/>
           <ul>
             <li><strong>Walk-in shower:</strong> A spacious walk-in shower with a rainfall showerhead, body sprays, and a built-in bench can create a truly luxurious experience.</li>
             <li><strong>Freestanding tub:</strong> A freestanding tub is a beautiful focal point for any bathroom and provides the perfect spot for a long, relaxing soak.</li>
@@ -28,7 +28,7 @@ const BathroomRemodelingPage = () => {
           <h2>The Bathroom Remodeling Process: From Concept to Completion</h2>
           <p>
             A bathroom remodel is a significant undertaking, but with careful planning and the right team, it can be a smooth and rewarding process. Here are the key steps involved:
-          </p>
+          </p><br/>
           <ol>
             <li><strong>Initial Consultation and Design:</strong> The first step is to meet with a designer and a general contractor to discuss your vision, budget, and timeline. They will work with you to create a design that meets your needs and reflects your personal style.</li>
             <li><strong>Material Selection:</strong> Once the design is finalized, you will select the materials for your new bathroom. This includes everything from the cabinets and countertops to the flooring and fixtures.</li>

@@ -14,10 +14,10 @@ const PestRepairPage = () => {
         <section>
           <h2>The Hidden Threat of Pest Infestations</h2>
           <p>
-            Hawaii&apos;s tropical climate, while a paradise for residents, is also a breeding ground for a variety of pests that can cause significant damage to your home. From the silent destruction of termites to the nuisance of rodents and bees, these tiny intruders can compromise the structural integrity of your property and create a host of health and safety issues. At Dumore Construction and Remodeling, we specialize in repairing the damage caused by pest infestations, ensuring your home is not only aesthetically pleasing but also structurally sound and safe for your family.
-          </p>
+            Hawaii&apos;s tropical climate, while a paradise for residents, is also a breeding ground for a variety of pests that can cause significant damage to your home. From the silent destruction of termites to the nuisance of rodents and bees, these tiny intruders can compromise the structural integrity of your property and create a host of health and safety issues. 
+          </p><br/>
           <p>
-            This article will guide you through the common types of pest damage found in Hawaii, the areas most susceptible to these infestations, and the essential repair tasks a general contractor performs to restore your home. Our goal is to empower homeowners with the knowledge to identify, address, and prevent pest-related damage.
+           At Dumore Construction and Remodeling, we specialize in repairing the damage caused by pest infestations, ensuring your home is not only aesthetically pleasing but also structurally sound and safe for your family.This article will guide you through the common types of pest damage found in Hawaii, the areas most susceptible to these infestations, and the essential repair tasks a general contractor performs to restore your home. Our goal is to empower homeowners with the knowledge to identify, address, and prevent pest-related damage.
           </p>
         </section>
 
@@ -29,7 +29,7 @@ const PestRepairPage = () => {
           <h3>Termite Damage</h3>
           <p>
             Termites, particularly the Formosan subterranean termite, are the most destructive pests in Hawaii. They thrive in moist, dark conditions and can consume wood from the inside out, often going undetected for years. Signs of termite damage include:
-          </p>
+          </p><br/>
           <ul>
             <li><strong>Hollow-sounding wood:</strong> When tapped, infested wood will sound hollow or papery.</li>
             <li><strong>Visible mazes within walls or furniture:</strong> These are the tunnels, or galleries, that termites carve out as they feed.</li>
@@ -40,7 +40,7 @@ const PestRepairPage = () => {
           <h3>Rodent Damage (Mice and Rats)</h3>
           <p>
             Rats and mice are not just a nuisance; they can cause significant damage to your home and pose a serious health risk. They are known to:
-          </p>
+          </p><br/>
           <ul>
             <li><strong>Gnaw on electrical wiring:</strong> This creates a serious fire hazard.</li>
             <li><strong>Shred insulation for nesting material:</strong> This can reduce your home&apos;s energy efficiency.</li>
@@ -93,7 +93,7 @@ const PestRepairPage = () => {
           <h3>2. Structural Repairs</h3>
           <p>
             If pests have compromised the structural integrity of your home, we will perform the necessary repairs to ensure its safety and stability. This may include:
-          </p>
+          </p><br/>
           <ul>
             <li><strong>Replacing damaged support beams, floor joists, and wall studs.</strong></li>
             <li><strong>Reinforcing weakened areas.</strong></li>
@@ -102,7 +102,7 @@ const PestRepairPage = () => {
           <h3>3. Repair of Non-Structural Elements</h3>
           <p>
             Pest damage can also affect non-structural elements of your home. We will repair or replace:
-          </p>
+          </p><br/>
           <ul>
             <li><strong>Damaged drywall and insulation.</strong></li>
             <li><strong>Chewed electrical wiring (in conjunction with a licensed electrician).</strong></li>
@@ -112,7 +112,7 @@ const PestRepairPage = () => {
           <h3>4. Restoration and Finishing</h3>
           <p>
             Once the structural and non-structural repairs are complete, we will restore your home to its original condition. This includes:
-          </p>
+          </p><br/>
           <ul>
             <li><strong>Installing new drywall and insulation.</strong></li>
             <li><strong>Painting and finishing.</strong></li>
@@ -122,7 +122,7 @@ const PestRepairPage = () => {
           <h3>5. Prevention Measures</h3>
           <p>
             To protect your home from future infestations, we can recommend and implement a variety of preventative measures, such as:
-          </p>
+          </p><br/>
           <ul>
             <li><strong>Sealing cracks and crevices in your home&apos;s foundation and exterior walls.</strong></li>
             <li><strong>Installing pest-resistant insulation.</strong></li>

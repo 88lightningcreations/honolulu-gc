@@ -14,8 +14,11 @@ const StormDamageRepairPage = () => {
         <section>
           <h2>The Devastating Impact of Storms in Hawaii</h2>
           <p>
-            Hawaii&apos;s idyllic beauty belies a powerful and often destructive force of nature. From the ferocious winds of hurricanes to the ravages of wildfires, the islands are no stranger to severe weather. When a storm strikes, the damage to your home can be overwhelming, both physically and emotionally. At Dumore Construction and Remodeling, we understand the urgency of these situations. We are a licensed and experienced general contractor specializing in storm damage repair across the Hawaiian Islands. Our mission is to restore your property to its pre-loss condition, quickly, efficiently, and with the highest standards of quality.
-          </p>
+            Hawaii&apos;s idyllic beauty belies a powerful and often destructive force of nature. From the ferocious winds of hurricanes to the ravages of wildfires, the islands are no stranger to severe weather. When a storm strikes, the damage to your home can be overwhelming, both physically and emotionally. 
+          </p><br/>
+          <p>
+            At Dumore Construction and Remodeling, we understand the urgency of these situations. We are a licensed and experienced general contractor specializing in storm damage repair across the Hawaiian Islands. Our mission is to restore your property to its pre-loss condition, quickly, efficiently, and with the highest standards of quality.
+          </p><br/>
           <p>
             This article will delve into the specifics of storm damage repair in Hawaii, outlining the types of damage we frequently encounter, the areas most affected, and the critical tasks a general contractor undertakes to bring your home back to life. We aim to provide homeowners with the knowledge and resources to navigate the post-storm recovery process with confidence.
           </p>
@@ -29,7 +32,7 @@ const StormDamageRepairPage = () => {
           <h3>Hurricane Damage</h3>
           <p>
             Hurricanes are the most significant storm threat to Hawaii. The combination of high winds, torrential rain, and storm surge can cause widespread devastation. Common types of hurricane damage include:
-          </p>
+          </p><br/>
           <ul>
             <li><strong>Roof Damage:</strong> High winds can lift, curl, or completely strip shingles and other roofing materials, exposing the underlayment to water intrusion. Debris carried by the wind can also puncture the roof, leading to significant leaks.</li>
             <li><strong>Structural Damage:</strong> The immense pressure from hurricane-force winds can compromise the structural integrity of a home, leading to collapsed walls, broken windows, and damaged foundations.</li>
@@ -39,7 +42,7 @@ const StormDamageRepairPage = () => {
           <h3>Wildfire Damage</h3>
           <p>
             While often associated with drier climates, wildfires are a growing concern in Hawaii, particularly in the leeward areas of the islands. The dry, brush-covered slopes can ignite easily, and strong trade winds can quickly spread the flames. Wildfire damage can be catastrophic, including:
-          </p>
+          </p><br/>
           <ul>
             <li><strong>Complete Structural Loss:</strong> In the most severe cases, wildfires can completely consume a home, leaving nothing but ashes and the foundation.</li>
             <li><strong>Smoke and Soot Damage:</strong> Even if a home is not directly in the path of the flames, smoke and soot can permeate every surface, causing discoloration, odor, and long-term health hazards.</li>
@@ -56,7 +59,7 @@ const StormDamageRepairPage = () => {
           <h3>Oahu</h3>
           <p>
             As the most populous island, Oahu has a high concentration of homes and infrastructure at risk from storm damage. We serve all areas of Oahu, including:
-          </p>
+          </p><br/>
           <ul>
             <li><strong>Honolulu:</strong> From Manoa to Hawaii Kai, we provide rapid response for storm damage repair in the island&apos;s capital.</li>
             <li><strong>Leeward Coast:</strong> The dry, fire-prone areas of Waianae and Makaha are particularly vulnerable to wildfires.</li>
@@ -66,7 +69,7 @@ const StormDamageRepairPage = () => {
           <h3>Maui</h3>
           <p>
             Maui&apos;s diverse landscape presents a range of storm-related challenges. We offer our services across the Valley Isle, including:
-          </p>
+          </p><br/>
           <ul>
             <li><strong>West Maui:</strong> The popular tourist destinations of Lahaina and Kaanapali are at risk from hurricanes and wildfires.</li>
             <li><strong>Upcountry Maui:</strong> The higher elevations of Kula and Pukalani are prone to strong winds and heavy rainfall.</li>
@@ -75,7 +78,7 @@ const StormDamageRepairPage = () => {
           <h3>Kauai</h3>
           <p>
             Known as the Garden Isle, Kauai&apos;s abundant rainfall can also lead to significant water damage. We serve communities across Kauai, including:
-          </p>
+          </p><br/>
           <ul>
             <li><strong>North Shore:</strong> The beautiful but vulnerable communities of Hanalei and Princeville are at risk from flooding and coastal erosion.</li>
             <li><strong>East Side:</strong> The towns of Kapaa and Lihue can experience heavy rainfall and strong winds during storms.</li>
@@ -84,7 +87,7 @@ const StormDamageRepairPage = () => {
           <h3>Big Island (Hawaii Island)</h3>
           <p>
             The Big Island&apos;s sheer size and diverse microclimates create a wide range of storm-related risks. We are equipped to handle storm damage repair in all districts, including:
-          </p>
+          </p><br/>
           <ul>
             <li><strong>Hilo:</strong> The rainiest city in the United States, Hilo is particularly vulnerable to flooding and water damage.</li>
             <li><strong>Kona:</strong> The dry, sunny Kona coast is at risk from wildfires and hurricanes.</li>
@@ -101,7 +104,7 @@ const StormDamageRepairPage = () => {
           <h3>1. Emergency Board-Up and Tarping</h3>
           <p>
             The first priority after a storm is to secure your property and prevent further damage. This includes:
-          </p>
+          </p><br/>
           <ul>
             <li><strong>Boarding up broken windows and doors:</strong> To protect your home from the elements and prevent unauthorized entry.</li>
             <li><strong>Tarping damaged roofs:</strong> To prevent water from entering your home and causing further damage to the interior.</li>
@@ -117,7 +120,7 @@ const StormDamageRepairPage = () => {
           <h3>4. Structural Repairs</h3>
           <p>
             Storms can cause significant damage to the structural components of your home. A general contractor is responsible for ensuring that all structural repairs are completed to code and that your home is safe and sound. This may include:
-          </p>
+          </p><br/>
           <ul>
             <li><strong>Repairing or replacing damaged roof trusses and framing.</strong></li>
             <li><strong>Reinforcing or rebuilding damaged walls.</strong></li>
@@ -130,7 +133,7 @@ const StormDamageRepairPage = () => {
           <h3>6. Interior Repairs and Restoration</h3>
           <p>
             Once the structural and exterior repairs are complete, we will focus on restoring the interior of your home. This may include:
-          </p>
+          </p><br/>
           <ul>
             <li><strong>Replacing damaged drywall and insulation.</strong></li>
             <li><strong>Installing new flooring.</strong></li>
@@ -147,7 +150,7 @@ const StormDamageRepairPage = () => {
           <h2>Why Choose [Your Company Name]?</h2>
           <p>
             When it comes to storm damage repair, you need a contractor you can trust. At Dumore Construction and Remodeling, we are committed to providing our clients with the highest level of service and craftsmanship. Here are just a few reasons to choose us for your storm damage repair needs:
-          </p>
+          </p><br/>
           <ul>
             <li><strong>Licensed and Insured:</strong> We are a fully licensed and insured general contractor in the state of Hawaii.</li>
             <li><strong>Experienced and Knowledgeable:</strong> We have years of experience in storm damage repair and are familiar with the unique challenges of building in Hawaii.</li>

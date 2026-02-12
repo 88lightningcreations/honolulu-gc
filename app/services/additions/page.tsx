@@ -14,10 +14,10 @@ const AdditionsPage = () => {
         <section>
           <h2>Growing Your Hawaiian Home: The Art of the Seamless Addition</h2>
           <p>
-            As your family grows and your needs change, you may find yourself in need of more space. But what if you love your home and your neighborhood? A home addition is the perfect solution. A well-designed addition can seamlessly blend with your existing home, providing you with the extra space you need without the stress and expense of moving. At Dumore Construction and Remodeling, we specialize in designing and building home additions that are both beautiful and functional, enhancing your lifestyle and increasing the value of your home.
-          </p>
+            As your family grows and your needs change, you may find yourself in need of more space. But what if you love your home and your neighborhood? A home addition is the perfect solution. A well-designed addition can seamlessly blend with your existing home, providing you with the extra space you need without the stress and expense of moving. 
+          </p><br/>
           <p>
-            This article will be your guide to home additions in Hawaii. We will explore the various types of additions, the benefits of adding on to your home, and the process of designing and building an addition that perfectly complements your existing home. Whether you are dreaming of a new master suite, a spacious family room, or a private home office, we will provide you with the information and inspiration you need to get started.
+            At Dumore Construction and Remodeling, we specialize in designing and building home additions that are both beautiful and functional, enhancing your lifestyle and increasing the value of your home. This article will be your guide to home additions in Hawaii. We will explore the various types of additions, the benefits of adding on to your home, and the process of designing and building an addition that perfectly complements your existing home. Whether you are dreaming of a new master suite, a spacious family room, or a private home office, we will provide you with the information and inspiration you need to get started.
           </p>
         </section>
 
@@ -52,7 +52,7 @@ const AdditionsPage = () => {
           <h2>The Benefits of a Home Addition</h2>
           <p>
             There are many benefits to adding on to your home. Some of the most significant benefits include:
-          </p>
+          </p><br/>
           <ul>
             <li><strong>More space:</strong> The most obvious benefit of a home addition is that it provides you with more space. This can be a lifesaver for growing families or for homeowners who simply need more room to spread out.</li>
             <li><strong>Increased home value:</strong> A well-designed and well-built home addition can significantly increase the value of your home.</li>
@@ -65,7 +65,7 @@ const AdditionsPage = () => {
           <h2>The Home Addition Process: A Step-by-Step Guide</h2>
           <p>
             A home addition is a major construction project, and it is important to have a clear understanding of the process before you begin. Here is a step-by-step guide to the home addition process:
-          </p>
+          </p><br/>
           <ol>
             <li><strong>Initial Consultation and Feasibility Study:</strong> The first step is to meet with a general contractor to discuss your project. The contractor will conduct a feasibility study to determine if an addition is possible on your property and to give you a rough estimate of the cost.</li>
             <li><strong>Design and Planning:</strong> Once you have decided to move forward with the project, the design process can begin. The contractor will work with you to create a set of plans that meets your needs and that seamlessly blends with your existing home.</li>

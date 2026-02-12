@@ -1,10 +1,11 @@
+
 import type { Metadata } from "next";
 import { Playfair_Display, Montserrat } from "next/font/google";
 import "./globals.css";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Accessibility from "../components/Accessibility";
-import ClientAnalytics from "../components/ClientAnalytics";
+import Analytics from "../components/Analytics";
 
 const playfair = Playfair_Display({ 
   subsets: ["latin"], 
@@ -19,7 +20,7 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://yourdomain.com'),
+  metadataBase: new URL('https://dumoreconstruction.com'),
   title: {
     template: '%s | Dumore Construction and Remodeling',
     default: 'Dumore Construction and Remodeling',
@@ -28,7 +29,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Dumore Construction and Remodeling | General Contractor in Honolulu, HI',
     description: 'High-quality construction and remodeling services in Hawaii.',
-    url: 'https://yourdomain.com',
+    url: 'https://dumoreconstruction.com',
     siteName: 'Dumore Construction and Remodeling',
     images: [
       {
@@ -44,7 +45,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Dumore Construction and Remodeling | General Contractor in Honolulu, HI',
     description: 'High-quality construction and remodeling services in Hawaii.',
-    creator: '@yourtwitterhandle',
+    creator: '@dumorehawaii',
     images: ['/hawaii-general-contractor-logo.webp'],
   },
   robots: {
@@ -53,8 +54,8 @@ export const metadata: Metadata = {
     nocache: true,
     googleBot: {
       index: true,
-      follow: false,
-      noimageindex: true,
+      follow: true,
+      noimageindex: false,
       'max-video-preview': -1,
       'max-image-preview': 'large',
       'max-snippet': -1,
@@ -70,11 +71,13 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${playfair.variable} ${montserrat.variable}`} data-scroll-behavior="smooth">
       <body>
-        <ClientAnalytics />
         <Accessibility />
         <Navbar />
-        {children}
+        <main>
+          {children}
+        </main>
         <Footer />
+        <Analytics /> 
       </body>
     </html>
   );

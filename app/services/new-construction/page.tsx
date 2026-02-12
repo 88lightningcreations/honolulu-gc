@@ -14,10 +14,14 @@ const NewConstructionPage = () => {
         <section>
           <h2>From Vision to Reality: The Journey of Building a New Home in Hawaii</h2>
           <p>
-            Building a new home in Hawaii is a dream for many. The allure of waking up to the sound of the ocean, surrounded by lush tropical landscapes, is a powerful motivator. However, the process of new construction in the islands is a unique and complex journey. From navigating the intricacies of local building codes and permitting to understanding the challenges of building in a tropical climate, it is a significant undertaking. At Dumore Construction and Remodeling, we specialize in turning your vision of a new Hawaiian home into a tangible reality. We are a full-service general contractor with the experience, knowledge, and dedication to guide you through every step of the new construction process.
-          </p>
+            Building a new home in Hawaii is a dream for many. The allure of waking up to the sound of the ocean, surrounded by lush tropical landscapes, is a powerful motivator. However, the process of new construction in the islands is a unique and complex journey. 
+            From navigating the intricacies of local building codes and permitting to understanding the challenges of building in a tropical climate, it is a significant undertaking. 
+          </p><br/>
           <p>
-            This comprehensive guide will walk you through the journey of building a new home in Hawaii. We will explore the various stages of construction, from initial design to final inspection, and we will highlight the critical role that a general contractor plays in ensuring a successful outcome. Whether you are a kama&apos;aina or a newcomer to the islands, this article will provide you with the essential information you need to embark on your new home construction journey with confidence.
+            At Dumore Construction and Remodeling, we specialize in turning your vision of a new Hawaiian home into a tangible reality. We are a full-service general contractor with the experience, knowledge, and dedication to guide you through every step of the new construction process. This comprehensive guide will walk you through the journey of building a new home in Hawaii.            
+          </p><br/>
+          <p>
+            We will explore the various stages of construction, from initial design to final inspection, and we will highlight the critical role that a general contractor plays in ensuring a successful outcome. Whether you are a kama&apos;aina or a newcomer to the islands, this article will provide you with the essential information you need to embark on your new home construction journey with confidence.
           </p>
         </section>
 
@@ -103,9 +107,9 @@ const NewConstructionPage = () => {
         </section>
 
         <section>
-          <h2>Why Choose [Your Company Name] for Your New Home Construction Project?</h2>
+          <h2>Why Choose Dumore Construction and Remodeling for Your New Home Construction Project?</h2>
           <p>
-            At [Your Company Name], we understand that building a new home is one of the biggest investments you will ever make. That&apos;s why we are committed to providing our clients with the highest level of service, quality, and craftsmanship. We have a proven track record of success, and we have the experience and knowledge to guide you through every step of the new construction process. We are your trusted partner in building your dream home in paradise.
+            At Dumore Construction and Remodeling, we understand that building a new home is one of the biggest investments you will ever make. That&apos;s why we are committed to providing our clients with the highest level of service, quality, and craftsmanship. We have a proven track record of success, and we have the experience and knowledge to guide you through every step of the new construction process. We are your trusted partner in building your dream home in paradise.
           </p>
         </section>
       </article>

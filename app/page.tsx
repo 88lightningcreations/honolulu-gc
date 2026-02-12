@@ -8,7 +8,7 @@ import OurServices from "../components/OurServices";
 
 export default function Home() {
   return (
-    <main>
+    <>
       <Banner />
       <OurServices />
       <CommitmentToQuality />
@@ -16,6 +16,6 @@ export default function Home() {
       <InteractiveReviews />
       <InteractiveFAQ />
       <CallToAction />
-    </main>
+    </>
   );
 }

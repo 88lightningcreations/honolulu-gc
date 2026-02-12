@@ -15,7 +15,7 @@ const KitchenRemodelingPage = () => {
           <h2>The Modern Hawaiian Kitchen: A Fusion of Style and Function</h2>
           <p>
             The kitchen is the heart of the home, and in Hawaii, it is often the hub of family life and social gatherings. The modern Hawaiian kitchen is a space that is both beautiful and functional, with a seamless connection to the outdoors. Some of the key elements of a modern Hawaiian kitchen include:
-          </p>
+          </p><br/>
           <ul>
             <li><strong>Open and airy layout:</strong> An open floor plan creates a sense of spaciousness and allows for easy flow between the kitchen, dining, and living areas.</li>
             <li><strong>Natural materials:</strong> The use of natural materials, such as wood, stone, and bamboo, brings the beauty of the outdoors in and creates a warm and inviting atmosphere.</li>
@@ -28,7 +28,7 @@ const KitchenRemodelingPage = () => {
           <h2>The Kitchen Remodeling Process: From Concept to Completion</h2>
           <p>
             A kitchen remodel is a significant undertaking, but with careful planning and the right team, it can be a smooth and rewarding process. Here are the key steps involved:
-          </p>
+          </p><br/>
           <ol>
             <li><strong>Initial Consultation and Design:</strong> The first step is to meet with a designer and a general contractor to discuss your vision, budget, and timeline. They will work with you to create a design that meets your needs and reflects your personal style.</li>
             <li><strong>Material Selection:</strong> Once the design is finalized, you will select the materials for your new kitchen. This includes everything from the cabinets and countertops to the flooring and fixtures.</li>
@@ -40,9 +40,9 @@ const KitchenRemodelingPage = () => {
         </section>
 
         <section>
-          <h2>Why Choose [Your Company Name] for Your Kitchen Remodel?</h2>
+          <h2>Why Choose Dumore Construction and Remodeling for Your Kitchen Remodel?</h2>
           <p>
-            At [Your Company Name], we are passionate about creating beautiful and functional kitchens that our clients will love for years to come. We have a team of experienced designers and craftsmen who are dedicated to providing the highest level of quality and service. We will work with you every step of the way to ensure that your kitchen remodel is a success. Contact us today for a free consultation and let us help you create the kitchen of your dreams.
+            At Dumore Construction and Remodeling, we are passionate about creating beautiful and functional kitchens that our clients will love for years to come. We have a team of experienced designers and craftsmen who are dedicated to providing the highest level of quality and service. We will work with you every step of the way to ensure that your kitchen remodel is a success. Contact us today for a free consultation and let us help you create the kitchen of your dreams.
           </p>
         </section>
       </article>
