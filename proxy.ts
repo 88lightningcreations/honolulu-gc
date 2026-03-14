@@ -7,6 +7,7 @@ export function proxy(request: NextRequest) {
   const { pathname, search, host } = request.nextUrl;
 
   const permanentRedirects: { [key: string]: string } = {
+    '/index.php': PATHS.home,
     '/?page_id=110.html': PATHS.services.newConstruction,
     '/?page_id=140.html': PATHS.services.homeRemodeling,
     '/2019/09/10/steel-framing-in-hawaii-prevents-termites': PATHS.services.pestRepair,

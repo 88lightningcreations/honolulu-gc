@@ -24,7 +24,7 @@ export async function generateMetadata({ params }: { params: { slug: string[] } 
   return {
     metadataBase: new URL('https://dumoreconstruction.com'),
     alternates: {
-      canonical: path,
+      canonical: new URL(path, 'https://dumoreconstruction.com'),
     },
     title: {
       template: '%s | Dumore Construction and Remodeling',
