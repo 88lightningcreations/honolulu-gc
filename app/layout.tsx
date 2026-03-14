@@ -5,7 +5,7 @@ import "./globals.css";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Accessibility from "../components/Accessibility";
-import Analytics from "../components/Analytics";
+import ClientAnalytics from "../components/ClientAnalytics";
 
 const playfair = Playfair_Display({ 
   subsets: ["latin"], 
@@ -22,7 +22,7 @@ const montserrat = Montserrat({
 export async function generateMetadata({ params }: { params: { slug: string[] } }): Promise<Metadata> {
   const path = params.slug ? '/' + params.slug.join('/') : '/';
   return {
-    metadataBase: new URL('https://www.dumoreconstruction.com'),
+    metadataBase: new URL('https://dumoreconstruction.com'),
     alternates: {
       canonical: path,
     },
@@ -34,7 +34,7 @@ export async function generateMetadata({ params }: { params: { slug: string[] } 
     openGraph: {
       title: 'Dumore Construction and Remodeling | General Contractor in Honolulu, HI',
       description: 'High-quality construction and remodeling services in Hawaii.',
-      url: `https://www.dumoreconstruction.com${path}`,
+      url: `https://dumoreconstruction.com${path}`,
       siteName: 'Dumore Construction and Remodeling',
       images: [
         {
@@ -82,7 +82,7 @@ export default function RootLayout({
           {children}
         </main>
         <Footer />
-        <Analytics /> 
+        <ClientAnalytics /> 
       </body>
     </html>
   );

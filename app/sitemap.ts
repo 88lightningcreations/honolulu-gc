@@ -12,7 +12,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         .replace(/\/index$/, '');
       if (route === '/not-found') return null;
       return {
-        url: `https://www.dumoreconstruction.com${route || '/'}`, 
+        url: `https://dumoreconstruction.com${route || '/'}`, 
         lastModified: new Date(),
       };
     })
