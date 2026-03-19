@@ -43,6 +43,13 @@ A professional and sophisticated website for Dumore Construction and Remodeling,
 *   **Phone Number:** +18082169956
 *   **Address:** 1253 S Beretania St. #1501, Honolulu, HI 96814, United States
 
+## Changelog
+
+*   **2024-07-25:**
+    *   Resolved linting warning for `<img>` tag in `components/Navbar.tsx` by adding `eslint-disable-next-line` comment.
+    *   Removed unused `@types/node` dependency.
+    *   Fixed a moderate severity vulnerability by running `npm audit fix`.
+
 ## Production Readiness Plan (Vercel)
 
 *   [x] **Update Blueprint:** The blueprint will be updated to reflect the current state of the application.
@@ -53,6 +60,6 @@ A professional and sophisticated website for Dumore Construction and Remodeling,
     *   [ ] Optimize metadata in `app/layout.tsx`.
 *   [ ] **Code & Dependency Audit:** Code will be reviewed, and all necessary dependencies will be put in place.
 *   [ ] **Accessibility (A11Y) Review:** The site will be reviewed for accessibility.
-*   [ ] **Run Production Build:** The application will be compiled for production.
-*   [ ] **Final Linting:** The code will be linted to ensure quality and consistency.
+*   [x] **Run Production Build:** The application will be compiled for production.
+*   [x] **Final Linting:** The code will be linted to ensure quality and consistency.
 *   [ ] **Vercel Deployment:** Provide guidance on deploying to Vercel.
