@@ -30,12 +30,7 @@ const faqs = [
 ];
 
 const InteractiveFAQ = () => {
-    const [activeIndex, setActiveIndex] = useState<number | null>(null);
     const [visibleCount, setVisibleCount] = useState(5);
-
-    const toggleFAQ = (index: number) => {
-        setActiveIndex(activeIndex === index ? null : index);
-    };
 
     const handleReadMore = () => {
         setVisibleCount(prevCount => prevCount + 5);
@@ -46,15 +41,15 @@ const InteractiveFAQ = () => {
             <h2 className={styles.title}>Frequently Asked Questions</h2>
             <div className={styles.faqWrapper}>
                 {faqs.slice(0, visibleCount).map((faq, index) => (
-                    <div key={index} className={styles.faqItem}>
-                        <div className={styles.question} onClick={() => toggleFAQ(index)}>
+                    <details key={index} className={styles.faqItem}>
+                        <summary className={styles.question}>
                             {faq.question}
-                            <span className={`${styles.arrow} ${activeIndex === index ? styles.open : ''}`}></span>
-                        </div>
-                        <div className={`${styles.answer} ${activeIndex === index ? styles.open : ''}`}>
+                            <span className={styles.arrow}></span>
+                        </summary>
+                        <div className={styles.answer}>
                             <p>{faq.answer}</p>
                         </div>
-                    </div>
+                    </details>
                 ))}
             </div>
             {visibleCount < faqs.length && (

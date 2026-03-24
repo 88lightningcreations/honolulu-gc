@@ -1,5 +1,3 @@
-"use client";
-import { motion, Variants } from 'framer-motion';
 import styles from './AnimatedWhyChooseUs.module.css';
 
 const reasons = [
@@ -9,47 +7,19 @@ const reasons = [
   { title: 'Transparent Pricing', description: 'We provide detailed estimates with no hidden costs.' },
 ];
 
-const containerVariants: Variants = {
-  hidden: {},
-  visible: {
-    transition: {
-      staggerChildren: 0.1,
-    },
-  },
-};
-
-const cardVariants: Variants = {
-  hidden: { x: -50, opacity: 0 },
-  visible: {
-    x: 0,
-    opacity: 1,
-    transition: { type: 'spring', stiffness: 100 },
-  },
-};
-
 const AnimatedWhyChooseUs = () => {
   return (
-    <motion.section 
-      className={styles.whyChooseUsSection}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, amount: 0.2 }}
-      variants={containerVariants}
-    >
+    <section className={styles.whyChooseUsSection}>
       <h2 className={styles.title}>Why Choose Us?</h2>
-      <motion.div className={styles.reasonsGrid}>
+      <div className={styles.reasonsGrid}>
         {reasons.map((reason, index) => (
-          <motion.div 
-            key={index} 
-            className={styles.reasonCard}
-            variants={cardVariants}
-          >
+          <div key={index} className={styles.reasonCard}>
             <h3>{reason.title}</h3>
             <p>{reason.description}</p>
-          </motion.div>
+          </div>
         ))}
-      </motion.div>
-    </motion.section>
+      </div>
+    </section>
   );
 };
 
