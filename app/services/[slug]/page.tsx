@@ -44,7 +44,7 @@ export default async function ServiceDetailPage({ params }: { params: { slug: st
                 alt={`${service.title} image ${index + 1}`} 
                 width={500} 
                 height={300} 
-                style={{ objectFit: 'cover', width: '100%', height: 'auto' }} 
+                style={{ objectFit: 'cover' }} 
               />
             </div>
           ))}
