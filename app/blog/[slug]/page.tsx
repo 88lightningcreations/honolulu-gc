@@ -2,6 +2,7 @@
 import { supabase } from '@/lib/supabase'
 import { notFound } from 'next/navigation'
 import Image from 'next/image'
+import ReactMarkdown from 'react-markdown'
 import styles from './BlogPage.module.css'
 
 export const revalidate = 60; // Revalidate every 60 seconds
@@ -44,10 +45,9 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
         )}
         <div className={styles.contentContainer}>
             <h1 className={styles.title}>{post.title}</h1>
-            <div 
-                className={styles.content}
-                dangerouslySetInnerHTML={{ __html: post.content || '' }}
-            />
+            <div className={styles.content}>
+                <ReactMarkdown>{post.content || ''}</ReactMarkdown>
+            </div>
         </div>
         </article>
     </div>

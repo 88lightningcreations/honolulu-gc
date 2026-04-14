@@ -1,0 +1,137 @@
+.serviceDetail {
+    max-width: 1200px;
+    margin: 4rem auto;
+    padding: 3rem;
+    background: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  .header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+  
+  .title {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    color: #3E2723;
+    margin-bottom: 1rem;
+  }
+  
+  .subtitle {
+    font-size: 1.4rem;
+    color: #5D4037;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.7;
+  }
+  
+  .imageGallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin: 3rem 0;
+  }
+  
+  .imageContainer {
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  }
+  
+  .content {
+    color: #3E2723;
+    font-size: 1.1rem;
+    line-height: 1.8;
+  }
+  
+  .content h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    margin: 3rem 0 1.5rem;
+    color: #3E2723;
+    padding-bottom: 0.5rem;
+    border-bottom: 3px solid #B8860B;
+  }
+  
+  .contactSection {
+    margin-top: 4rem;
+    text-align: center;
+    padding: 3rem;
+    background-color: #F5F5F5;
+    border-radius: 10px;
+  }
+  
+  .contactSection h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    color: #3E2723;
+    margin-bottom: 1rem;
+  }
+  
+  .contactSection p {
+    font-size: 1.2rem;
+    color: #5D4037;
+    margin-bottom: 2rem;
+  }
+  
+  .ctaButton {
+    display: inline-block;
+    padding: 1.2rem 2.8rem;
+    background-color: #B8860B;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: background-color 0.3s, transform 0.3s;
+  }
+  
+  .ctaButton:hover {
+    background-color: #a0740a;
+    transform: translateY(-3px);
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 992px) {
+    .serviceDetail {
+        margin: 3rem auto;
+        padding: 2rem;
+    }
+
+    .title {
+        font-size: 2.8rem;
+    }
+
+    .subtitle {
+        font-size: 1.2rem;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .serviceDetail {
+        margin: 2rem 1rem;
+        padding: 1.5rem;
+    }
+
+    .title {
+        font-size: 2.2rem;
+    }
+
+    .subtitle {
+        font-size: 1.1rem;
+    }
+
+    .imageGallery {
+        grid-template-columns: 1fr;
+    }
+
+    .content h2 {
+        font-size: 2rem;
+    }
+  }
+  

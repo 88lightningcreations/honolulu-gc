@@ -125,13 +125,14 @@ const BlogCarousel = () => {
             {posts.map((post) => (
                 <div key={post.id} className={styles.slide}>
                 {post.image && (
-                    <Image
-                    src={post.image}
-                    alt={post.title}
-                    width={400}
-                    height={300}
-                    className={styles.slideImage}
-                    />
+                    <div className={styles.imageContainer}>
+                        <Image
+                        src={post.image}
+                        alt={post.title}
+                        layout="fill"
+                        objectFit="cover"
+                        />
+                    </div>
                 )}
                 <div className={styles.slideContent}>
                     <h3>{post.title}</h3>
