@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation'
 import Image from 'next/image'
 import ReactMarkdown from 'react-markdown'
 import styles from './ServiceDetail.module.css'
+import CostEstimator from '@/components/CostEstimator'
 
 export const revalidate = 60;
 
@@ -30,36 +31,36 @@ export default async function ServiceDetailPage({ params }: { params: { slug: st
 
   return (
     <div className={styles.serviceDetail}>
-      <header className={styles.header}>
-        <h1 className={styles.title}>{service.title}</h1>
-        <p className={styles.subtitle}>{service.short_description}</p>
-      </header>
+      <div className={styles.mainContent}>
+        <header className={styles.header}>
+          <h1 className={styles.title}>{service.title}</h1>
+          <p className={styles.subtitle}>{service.short_description}</p>
+        </header>
 
-      {service.images && (
-        <div className={styles.imageGallery}>
-          {service.images.map((image: string, index: number) => (
-            <div key={index} className={styles.imageContainer}>
-              <Image 
-                src={image} 
-                alt={`${service.title} image ${index + 1}`} 
-                width={500} 
-                height={300} 
-                style={{ objectFit: 'cover' }} 
-              />
-            </div>
-          ))}
-        </div>
-      )}
+        {service.images && (
+          <div className={styles.imageGallery}>
+            {service.images.map((image: string, index: number) => (
+              <div key={index} className={styles.imageContainer}>
+                <Image 
+                  src={image} 
+                  alt={`${service.title} image ${index + 1}`} 
+                  width={500} 
+                  height={300} 
+                  style={{ objectFit: 'cover' }} 
+                />
+              </div>
+            ))}
+          </div>
+        )}
 
-      <main className={styles.content}>
-        <ReactMarkdown>{service.long_description || ''}</ReactMarkdown>
-      </main>
+        <main className={styles.content}>
+          <ReactMarkdown>{service.long_description || ''}</ReactMarkdown>
+        </main>
+      </div>
 
-      <section className={styles.contactSection}>
-        <h2>Ready to Start Your Project?</h2>
-        <p>Contact us today for a free consultation and estimate.</p>
-        <a href="/contact" className={styles.ctaButton}>Get in Touch</a>
-      </section>
+      <aside className={styles.sidebar}>
+        <CostEstimator preselectedService={service.slug} />
+      </aside>
     </div>
   )
 }

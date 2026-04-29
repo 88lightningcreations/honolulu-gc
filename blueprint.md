@@ -2,64 +2,46 @@
 
 ## Overview
 
-A professional and sophisticated website for Dumore Construction and Remodeling, a general contracting company in Hawaii. The website is designed to be a visually stunning, high-end showcase that generates leads and builds immediate trust with potential clients. The design is anchored in the visual identity of the business, drawing inspiration directly from images of their work to create a sophisticated, cohesive, and luxurious design system.
+This document outlines the features, design, and implementation plan for the Dumore Construction and Remodeling website. It serves as a single source of truth for the project's development.
 
-## Style and Design
+## Current Features
 
-*   **Elegant Background:** A subtle, warm gradient from sandy white to a light, earthy beige provides a sophisticated and clean canvas for the content.
-*   **Refined Glassmorphism:** Key UI elements, including forms and cards, feature a refined frosted-glass effect. This creates a sense of depth and transparency, making them appear to float over the background.
-*   **Image-Derived Luxury Color Palette:** The color palette is extracted from the banner image to create a cohesive, high-end feel.
-    *   **Primary:** #5D4037 (Rich Wood Brown)
-    *   **Secondary:** #78909C (Elegant Stone Grey)
-    *   **Accent:** #B8860B (Sophisticated Gold)
-    *   **Background:** #F5F5F5 (Warm Sandy White) and #FFFFFF (Section Background)
-    *   **Text:** #3E2723 (Dark, Earthy Brown)
-*   **Luxurious Typography:** A new font hierarchy has been introduced to create a sense of luxury and improve readability.
-    *   **Headings:** `Playfair Display`, an elegant serif font, is used for headings to convey sophistication.
-    *   **Body:** `Montserrat`, a clean, modern sans-serif font, is used for body text for clarity and readability.
-*   **Layout:**
-    *   Clean, spacious, and responsive design for all devices.
-    *   Clear separation between sections.
-*   **Visuals & Interactivity:**
-    *   High-quality, professional images of construction projects.
-    *   Subtle and refined hover effects on cards and buttons to enhance user engagement.
+*   **Homepage:** A welcoming page with a brief introduction to the company, a list of services, and a call to action.
+*   **Services Pages:** Detailed pages for each of the company's services.
+*   **Blog:** A blog with articles about construction and remodeling.
+*   **About Us Page:** Information about the company's history, team, and values.
+*   **Contact Page:** A form for clients to get in touch with the company.
+*   **Privacy Policy and Terms of Service:** Legal documents for the website.
 
-## Implemented Features
+## New Feature: Cost Estimator
 
-*   **Homepage:** A single-page layout featuring the components listed below.
-*   **Navbar:** A redesigned navigation bar with the new luxury branding.
-*   **Banner:** A hero section with a prominent contact form.
-*   **Our Services:** A section showcasing the company's services.
-*   **Commitment to Quality:** A new section that reinforces the company's dedication to high standards.
-*   **Animated Why Choose Us:** A section highlighting the company's value proposition with animations.
-*   **Interactive Reviews:** A scrolling section of client testimonials.
-*   **Interactive FAQ:** An interactive FAQ section with a clean, easy-to-use accordion interface.
-*   **Call to Action:** A final section encouraging users to get in touch for a free quote.
-*   **Footer:** A footer with contact information, social media links, and a copyright notice.
+### Overview
 
-## Business Information
+A multi-step form that allows clients to get an estimated cost for their construction or remodeling project.
 
-*   **Business Name:** Dumore Construction and Remodeling
-*   **Phone Number:** +18082169956
-*   **Address:** 1253 S Beretania St. #1501, Honolulu, HI 96814, United States
+### Implementation Plan
 
-## Changelog
+1.  **Component:** Create a new `CostEstimator` component in the `components` directory.
+2.  **State Management:** Use React's `useState` and `useReducer` hooks to manage the form's state.
+3.  **Multi-Step Logic:** Implement the multi-step functionality, with validation at each step to ensure that all required fields are filled out.
+4.  **Dynamic Fields:** Conditionally render form fields based on the selected service.
+5.  **Pricing:** Use the provided dummy data for pricing. Create a separate module for pricing logic to make it easy to update in the future.
+6.  **Island-Based Pricing:** Add a multiplier to the total cost based on the selected island.
+7.  **UI/UX:**
+    *   **Mobile:** The estimator will replace the banner image.
+    *   **Tablet/Desktop:** The estimator will be a card that floats over the banner image on the right side of the screen.
+8.  **Submission:**
+    *   Create a server action to handle the form submission.
+    *   The server action will:
+        *   Calculate the final estimated cost.
+        *   Send an email to the client with the estimate.
+        *   Send an email to an admin with the estimate.
+        *   Send an SMS notification to the company owner using Twilio.
+9.  **Integration:**
+    *   Add the `CostEstimator` component to the homepage.
+    *   Add the `CostEstimator` component to each service page, with the service pre-selected.
 
-*   **2024-07-25:**
-    *   Resolved linting warning for `<img>` tag in `components/Navbar.tsx` by adding `eslint-disable-next-line` comment.
-    *   Removed unused `@types/node` dependency.
-    *   Fixed a moderate severity vulnerability by running `npm audit fix`.
+### Future Improvements
 
-## Production Readiness Plan (Vercel)
-
-*   [x] **Update Blueprint:** The blueprint will be updated to reflect the current state of the application.
-*   [ ] **SEO & Analytics Implementation:**
-    *   [ ] Create `robots.txt` for search engine crawlers.
-    *   [ ] Generate a dynamic `sitemap.xml` for better indexing.
-    *   [ ] Implement Google Analytics and Google Tag Manager.
-    *   [ ] Optimize metadata in `app/layout.tsx`.
-*   [ ] **Code & Dependency Audit:** Code will be reviewed, and all necessary dependencies will be put in place.
-*   [ ] **Accessibility (A11Y) Review:** The site will be reviewed for accessibility.
-*   [x] **Run Production Build:** The application will be compiled for production.
-*   [x] **Final Linting:** The code will be linted to ensure quality and consistency.
-*   [ ] **Vercel Deployment:** Provide guidance on deploying to Vercel.
+*   **Headless CMS for Pricing:** To make it easier for the client to update pricing without touching the code, the pricing data could be fetched from a headless CMS like Contentful or Strapi.
+*   **Advanced Form Library:** For more complex forms, a library like `react-hook-form` or `formik` could be used to provide more advanced features for validation and state management.

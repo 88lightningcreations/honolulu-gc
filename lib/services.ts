@@ -7,6 +7,7 @@ export interface Service {
   title: string;
   description: string;
   link: string;
+  slug: string;
 }
 
 export const services: Service[] = [
@@ -14,48 +15,56 @@ export const services: Service[] = [
     icon: FaHardHat,
     title: 'New Construction',
     description: 'Building your dream home from the ground up, with a focus on quality and craftsmanship.',
-    link: '/services/new-construction'
+    link: '/services/new-construction',
+    slug: 'new-construction'
   },
   {
     icon: FaHome,
     title: 'Home Remodeling',
     description: 'Transforming your existing space to better suit your needs and lifestyle.',
-    link: '/services/home-remodeling'
+    link: '/services/home-remodeling',
+    slug: 'home-remodeling'
   },
   {
     icon: FaUtensils,
     title: 'Kitchen Remodeling',
     description: 'Creating a beautiful and functional kitchen that is the heart of your home.',
-    link: '/services/kitchen-remodeling'
+    link: '/services/kitchen-remodeling',
+    slug: 'kitchen-remodeling'
   },
   {
     icon: FaBath,
     title: 'Bathroom Remodeling',
     description: 'Transforming your bathroom into a spa-like retreat for relaxation and rejuvenation.',
-    link: '/services/bathroom-remodeling'
+    link: '/services/bathroom-remodeling',
+    slug: 'bathroom-remodeling'
   },
   {
     icon: FaPlus,
     title: 'Additions',
     description: 'Expanding your home to create more space for your growing family or changing needs.',
-    link: '/services/additions'
+    link: '/services/additions',
+    slug: 'additions'
   },
   {
     icon: FaBroom,
     title: 'Pest Repair',
     description: 'Comprehensive pest damage repair services to restore the integrity of your home.',
-    link: '/services/pest-repair'
+    link: '/services/pest-repair',
+    slug: 'pest-repair'
   },
   {
     icon: FaHammer,
     title: 'Storm Damage Repair',
     description: 'Reliable and efficient storm damage repair to get your home back to its pre-storm condition.',
-    link: '/services/storm-damage-repair'
+    link: '/services/storm-damage-repair',
+    slug: 'storm-damage-repair'
   },
   {
     icon: FaTree,
     title: 'House Moving',
     description: 'Professional house moving services, ensuring a safe and smooth relocation of your home.',
-    link: '/services/house-moving'
+    link: '/services/house-moving',
+    slug: 'house-moving'
   },
 ];

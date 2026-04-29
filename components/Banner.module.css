@@ -2,7 +2,7 @@
 
 .banner {
   display: flex;
-  /* Default: Centered for mobile and extra-wide screens */
+  flex-direction: column; /* Mobile-first: stacks headline and estimator */
   justify-content: center;
   align-items: center;
   text-align: center;
@@ -11,30 +11,35 @@
   background-size: cover;
   background-position: center;
   position: relative;
-  height: 100vh;
+  min-height: 100vh;
+  width: 100%;
 }
 
 .banner::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0) 100%);
-    z-index: 1;
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.2) 50%, rgba(0, 0, 0, 0) 100%);
+  z-index: 1;
+}
+
+.textContainer,
+.estimatorContainer {
+  position: relative;
+  z-index: 2; /* Ensures content is above the overlay */
+  width: 90%;
 }
 
 .textContainer {
-  position: relative;
-  z-index: 50;
-  width: 90%;
-  max-width: 1200px;
+  color: white;
 }
 
-.textContainer h1 {
+.headline {
   font-family: var(--font-serif);
-  font-size: clamp(3rem, 10vw, 6rem);
+  font-size: clamp(3rem, 10vw, 5.5rem);
   font-weight: 700;
   line-height: 1.1;
   color: var(--accent-gold);
@@ -42,37 +47,41 @@
     0 2px 3px rgba(0, 0, 0, 0.6),
     0 8px 15px rgba(0, 0, 0, 0.5),
     0 15px 40px rgba(0, 0, 0, 0.4);
-  margin-bottom: 0;
+  margin-bottom: 2rem; /* Space between headline and estimator on mobile */
 }
 
-.estimatorContainer {
-  display: none;
-}
+/* --- Responsive Flexbox Layout --- */
 
-/* --- Responsive Design --- */
-
-/* Tablet & Desktop: Slightly left of center */
-@media (min-width: 768px) and (max-width: 1920px) {
+@media (min-width: 992px) {
   .banner {
-    justify-content: flex-start; /* Align content container to the left */
+    flex-direction: row; /* Side-by-side on larger screens */
+    justify-content: space-around; /* Distribute space between items */
+    align-items: center;
   }
+
   .textContainer {
-    text-align: left; /* Align text to the left within its container */
-    /* Add margin to push it off the left edge, creating the "slightly left of center" effect */
-    margin-left: 10vw;
+    flex-basis: 50%; /* Take up about half the space */
+    text-align: left;
+    padding-right: 2rem;
+  }
+
+  .estimatorContainer {
+    flex-basis: 450px; /* Fixed width for the estimator */
+    flex-shrink: 0;
+  }
+
+  .headline {
+    margin-bottom: 0;
   }
 }
 
 /* Mobile-specific adjustments */
 @media (max-width: 767px) {
   .banner {
-    height: 80vh;
-    min-height: 500px;
+    min-height: 80vh;
   }
 
-  .textContainer h1 {
-     font-size: clamp(2.5rem, 8vw, 4.5rem); /* Slightly smaller max font size for mobile */
+  .headline {
+     font-size: clamp(2.5rem, 8vw, 4.5rem);
   }
 }
-
-/* Note: Extra-wide screens (> 1920px) will use the default centered styles, as requested. */

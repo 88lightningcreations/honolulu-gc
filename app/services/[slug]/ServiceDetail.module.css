@@ -1,38 +1,64 @@
 .serviceDetail {
-    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    max-width: 1400px;
     margin: 4rem auto;
-    padding: 3rem;
-    background: #ffffff;
-    border-radius: 15px;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+    padding: 2rem;
     font-family: 'Montserrat', sans-serif;
   }
   
+  @media (min-width: 992px) {
+    .serviceDetail {
+        flex-direction: row;
+    }
+  }
+  
+  .mainContent {
+      flex: 1; /* Takes up remaining space */
+      min-width: 0; /* Prevents overflow in flexbox */
+  }
+  
+  .sidebar {
+      flex-basis: 450px;
+      flex-shrink: 0;
+      position: sticky;
+      top: 2rem; /* Stick to the top of the viewport */
+      height: fit-content;
+  }
+
+  /* Remove the estimator from the sidebar on smaller screens */
+  @media (max-width: 991px) {
+    .sidebar .estimator {
+        position: static;
+        width: 100%;
+        margin-top: 2rem;
+    }
+  }
+  
   .header {
-    text-align: center;
-    margin-bottom: 3rem;
+    text-align: left;
+    margin-bottom: 2rem;
   }
   
   .title {
     font-family: 'Playfair Display', serif;
-    font-size: 3.5rem;
+    font-size: 3rem;
     color: #3E2723;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
   }
   
   .subtitle {
-    font-size: 1.4rem;
+    font-size: 1.3rem;
     color: #5D4037;
-    max-width: 800px;
-    margin: 0 auto;
-    line-height: 1.7;
+    line-height: 1.6;
   }
   
   .imageGallery {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 1.5rem;
-    margin: 3rem 0;
+    margin-bottom: 2rem;
   }
   
   .imageContainer {
@@ -50,61 +76,27 @@
   
   .content h2 {
     font-family: 'Playfair Display', serif;
-    font-size: 2.5rem;
-    margin: 3rem 0 1.5rem;
+    font-size: 2.2rem;
+    margin: 2.5rem 0 1.5rem;
     color: #3E2723;
     padding-bottom: 0.5rem;
     border-bottom: 3px solid #B8860B;
   }
   
+  /* Remove old CTA as estimator replaces it */
   .contactSection {
-    margin-top: 4rem;
-    text-align: center;
-    padding: 3rem;
-    background-color: #F5F5F5;
-    border-radius: 10px;
-  }
-  
-  .contactSection h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: 2.5rem;
-    color: #3E2723;
-    margin-bottom: 1rem;
-  }
-  
-  .contactSection p {
-    font-size: 1.2rem;
-    color: #5D4037;
-    margin-bottom: 2rem;
-  }
-  
-  .ctaButton {
-    display: inline-block;
-    padding: 1.2rem 2.8rem;
-    background-color: #B8860B;
-    color: white;
-    text-decoration: none;
-    border-radius: 8px;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: bold;
-    font-size: 1.1rem;
-    transition: background-color 0.3s, transform 0.3s;
-  }
-  
-  .ctaButton:hover {
-    background-color: #a0740a;
-    transform: translateY(-3px);
+    display: none;
   }
   
   /* Responsive Styles */
   @media (max-width: 992px) {
     .serviceDetail {
         margin: 3rem auto;
-        padding: 2rem;
+        padding: 1.5rem;
     }
 
     .title {
-        font-size: 2.8rem;
+        font-size: 2.5rem;
     }
 
     .subtitle {
@@ -114,24 +106,16 @@
   
   @media (max-width: 768px) {
     .serviceDetail {
-        margin: 2rem 1rem;
-        padding: 1.5rem;
+        margin: 1rem;
+        padding: 1rem;
     }
 
     .title {
-        font-size: 2.2rem;
+        font-size: 2rem;
     }
 
     .subtitle {
         font-size: 1.1rem;
-    }
-
-    .imageGallery {
-        grid-template-columns: 1fr;
-    }
-
-    .content h2 {
-        font-size: 2rem;
     }
   }
   
