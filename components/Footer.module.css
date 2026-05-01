@@ -1,3 +1,4 @@
+
 .footer {
     background-color: var(--dark-bg);
     color: var(--dark-text-primary);
@@ -46,6 +47,11 @@
     color: var(--accent-gold);
     transform: scale(1.1);
     text-shadow: 0 0 10px var(--accent-color-glow);
+}
+
+.legalLinks {
+    display: flex;
+    gap: var(--space-md);
 }
 
 .copyright {
