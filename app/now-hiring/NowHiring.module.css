@@ -1,0 +1,84 @@
+
+.pageContainer {
+  padding: 4rem 2rem;
+  background-color: #fff;
+}
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  background: #f9f9f9;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+.title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: #333;
+  text-align: center;
+}
+.jobDescription {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  color: #555;
+  text-align: center;
+}
+.details h3 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #005bb5;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 0.5rem;
+}
+.details ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+.details li {
+  font-size: 1rem;
+  line-height: 1.8;
+  margin-bottom: 0.5rem;
+  padding-left: 1.5rem;
+  position: relative;
+}
+.details li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: #005bb5;
+  font-weight: bold;
+}
+.legal, .apply {
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #ddd;
+  text-align: center;
+}
+.legal p, .apply p {
+  font-size: 0.9rem;
+  color: #666;
+  line-height: 1.5;
+}
+.apply a {
+  color: #005bb5;
+  text-decoration: none;
+  font-weight: bold;
+}
+.apply a:hover {
+  text-decoration: underline;
+}
+@media (max-width: 768px) {
+  .pageContainer {
+    padding: 2rem 1rem;
+  }
+  .title {
+    font-size: 2rem;
+  }
+  .container {
+    padding: 1.5rem;
+  }
+}
