@@ -6,25 +6,28 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "next lint"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.103.0",
     "framer-motion": "^12.31.0",
     "next": "^14.2.4",
-    "react": "^18",
-    "react-dom": "^18",
-    "react-icons": "^5.5.0",
-    "react-markdown": "^10.1.0",
-    "zod": "^4.3.6"
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-icons": "^5.2.1",
+    "react-markdown": "^9.0.1",
+    "zod": "^3.23.8"
   },
   "devDependencies": {
-    "@types/node": "20.11.20",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
+    "@types/glob": "^8.1.0",
+    "@types/node": "^20.14.2",
+    "@types/react": "^18.3.3",
+    "@types/react-axe": "^3.1.0",
+    "@types/react-dom": "^18.3.0",
     "eslint": "^8.57.0",
     "eslint-config-next": "^14.2.4",
+    "glob": "^10.3.10",
     "react-axe": "^3.5.4",
-    "typescript": "^5"
+    "typescript": "^5.4.5"
   }
 }

@@ -2,7 +2,7 @@
 'use client';
 import styles from './page.module.css';
 import Link from 'next/link';
-import { services } from '../../lib/services';
+import { services } from '@/app/lib/services';
 
 const ServicesPage = () => {
   return (
@@ -14,11 +14,9 @@ const ServicesPage = () => {
         </p>
         <div className={styles.servicesGrid}>
           {services.map((service, index) => {
-            const Icon = service.icon;
             return (
-              <Link key={index} href={service.link} legacyBehavior>
+              <Link key={index} href={`/services/${service.slug}`} legacyBehavior>
                 <a className={styles.serviceCard}>
-                  <div className={styles.serviceIcon}><Icon size={50} /></div>
                   <h3 className={styles.serviceTitle}>{service.title}</h3>
                   <p className={styles.serviceDescription}>{service.description}</p>
                 </a>

@@ -1,0 +1,39 @@
+# Dependencies
+node_modules/
+bower_components/
+
+# Build and Output
+dist/
+build/
+.next/
+.svelte-kit/
+out/
+bin/
+obj/
+
+# Firebase & Tooling
+.firebase/
+.firebaserc
+firebase-debug.log
+ui-debug.log
+.idea/
+.vscode/
+
+# Environment and Secrets
+.env
+.env.*
+*.pem
+*.key
+
+# Version Control
+.git/
+.gitignore
+
+# Media and Large Assets
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.svg
+*.mp4
+*.pdf

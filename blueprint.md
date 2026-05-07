@@ -1,65 +1,30 @@
-# Project Blueprint
+# DuMore Construction Website
 
 ## Overview
 
-A professional and sophisticated website for Dumore Construction and Remodeling, a general contracting company in Hawaii. The website is designed to be a visually stunning, high-end showcase that generates leads and builds immediate trust with potential clients. The design is anchored in the visual identity of the business, drawing inspiration directly from images of their work to create a sophisticated, cohesive, and luxurious design system.
+This is a Next.js website for DuMore Construction, a general contractor in Honolulu, Hawaii. The website showcases their services, provides information about the company, and allows potential clients to contact them.
 
-## Style and Design
+## Design and Features
 
-*   **Elegant Background:** A subtle, warm gradient from sandy white to a light, earthy beige provides a sophisticated and clean canvas for the content.
-*   **Refined Glassmorphism:** Key UI elements, including forms and cards, feature a refined frosted-glass effect. This creates a sense of depth and transparency, making them appear to float over the background.
-*   **Image-Derived Luxury Color Palette:** The color palette is extracted from the banner image to create a cohesive, high-end feel.
-    *   **Primary:** #5D4037 (Rich Wood Brown)
-    *   **Secondary:** #78909C (Elegant Stone Grey)
-    *   **Accent:** #B8860B (Sophisticated Gold)
-    *   **Background:** #F5F5F5 (Warm Sandy White) and #FFFFFF (Section Background)
-    *   **Text:** #3E2723 (Dark, Earthy Brown)
-*   **Luxurious Typography:** A new font hierarchy has been introduced to create a sense of luxury and improve readability.
-    *   **Headings:** `Playfair Display`, an elegant serif font, is used for headings to convey sophistication.
-    *   **Body:** `Montserrat`, a clean, modern sans-serif font, is used for body text for clarity and readability.
-*   **Layout:**
-    *   Clean, spacious, and responsive design for all devices.
-    *   Clear separation between sections.
-*   **Visuals & Interactivity:**
-    *   High-quality, professional images of construction projects.
-    *   Subtle and refined hover effects on cards and buttons to enhance user engagement.
+*   **Modern and Professional Design:** The website uses a clean and modern design with a professional color scheme and high-quality images.
+*   **Responsive Layout:** The website is fully responsive and works well on all devices, including desktops, tablets, and smartphones.
+*   **Services:** A detailed list of services offered by DuMore Construction, including:
+    *   New Construction
+    *   Home Remodeling
+    *   Kitchen Remodeling
+    *   Bathroom Remodeling
+    *   Additions
+    *   Pest Repair
+    *   Storm Damage Repair
+    *   House Moving
+*   **Blog:** A blog section with articles related to the construction industry.
+*   **Contact Form:** A contact form for potential clients to get in touch with DuMore Construction.
+*   **Interactive FAQ:** An interactive FAQ section to answer common questions.
+*   **Cost Estimator:** A cost estimator tool to help users get a rough estimate of their project costs.
 
-## Implemented Features
+## Plan
 
-*   **Homepage:** A single-page layout featuring the components listed below.
-*   **Navbar:** A redesigned navigation bar with the new luxury branding.
-*   **Banner:** A hero section with a prominent contact form.
-*   **Our Services:** A section showcasing the company's services.
-*   **Commitment to Quality:** A new section that reinforces the company's dedication to high standards.
-*   **Animated Why Choose Us:** A section highlighting the company's value proposition with animations.
-*   **Interactive Reviews:** A scrolling section of client testimonials.
-*   **Interactive FAQ:** An interactive FAQ section with a clean, easy-to-use accordion interface.
-*   **Call to Action:** A final section encouraging users to get in touch for a free quote.
-*   **Footer:** A footer with contact information, social media links, and a copyright notice.
-
-## Business Information
-
-*   **Business Name:** Dumore Construction and Remodeling
-*   **Phone Number:** +18082169956
-*   **Address:** 1253 S Beretania St. #1501, Honolulu, HI 96814, United States
-
-## Changelog
-
-*   **2024-07-25:**
-    *   Resolved linting warning for `<img>` tag in `components/Navbar.tsx` by adding `eslint-disable-next-line` comment.
-    *   Removed unused `@types/node` dependency.
-    *   Fixed a moderate severity vulnerability by running `npm audit fix`.
-
-## Production Readiness Plan (Vercel)
-
-*   [x] **Update Blueprint:** The blueprint will be updated to reflect the current state of the application.
-*   [ ] **SEO & Analytics Implementation:**
-    *   [ ] Create `robots.txt` for search engine crawlers.
-    *   [ ] Generate a dynamic `sitemap.xml` for better indexing.
-    *   [ ] Implement Google Analytics and Google Tag Manager.
-    *   [ ] Optimize metadata in `app/layout.tsx`.
-*   [ ] **Code & Dependency Audit:** Code will be reviewed, and all necessary dependencies will be put in place.
-*   [ ] **Accessibility (A11Y) Review:** The site will be reviewed for accessibility.
-*   [x] **Run Production Build:** The application will be compiled for production.
-*   [x] **Final Linting:** The code will be linted to ensure quality and consistency.
-*   [ ] **Vercel Deployment:** Provide guidance on deploying to Vercel.
+1.  **Fix Redirect Loop:** Remove the redirect configurations from `vercel.json` and `next.config.js` to resolve the "too many redirects" error.
+2.  **Configure Firebase MCP:** Set up the Firebase MCP server for deployment.
+3.  **Create `blueprint.md`:** Create a `blueprint.md` file to document the project and the current plan.
+4.  **Deploy to Firebase Hosting:** Deploy the application to Firebase Hosting to make it live.
