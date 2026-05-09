@@ -1,6 +1,7 @@
 
 import React from 'react';
 import styles from './HouseMoving.module.css';
+import CostEstimator from '../../../components/CostEstimator';
 
 const HouseMovingPage = () => {
   return (
@@ -84,6 +85,8 @@ const HouseMovingPage = () => {
           </p>
         </section>
 
+        <CostEstimator preselectedService="house-moving" />
+
         <section>
           <h2>Your Partner in a Complex Endeavor</h2>
           <p>
@@ -91,6 +94,7 @@ const HouseMovingPage = () => {
           </p>
         </section>
       </article>
+
     </div>
   );
 };

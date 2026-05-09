@@ -1,4 +1,5 @@
 'use client'
+import { FormDataState } from '../components/CostEstimator';
 
 // --- Island-based cost multipliers ---
 export const islands = [
@@ -76,18 +77,20 @@ export const servicePricing = {
 };
 
 // --- Main calculation function ---
-export function calculateEstimate(formData: any): [number, number] {
+export function calculateEstimate(formData: FormDataState): [number, number] {
     let baseCost: [number, number] = [0, 0];
     const islandMultiplier = islands.find(i => i.name === formData.island)?.priceMultiplier || 1;
 
-    const getTierCost = (service: keyof typeof servicePricing, quality: 'builder' | 'mid' | 'luxury') => {
-        // @ts-ignore
+    type QualityTier = 'builder' | 'mid' | 'luxury';
+
+    const getTierCost = (service: keyof typeof servicePricing, quality: QualityTier) => {
+        // @ts-expect-error - This is a safe way to handle the dynamic nature of the pricing object
         return servicePricing[service][quality] as [number, number];
     }
 
     switch (formData.service) {
         case 'new-construction': {
-            const quality = formData.newConstructionQuality as keyof typeof servicePricing['new-construction'];
+            const quality = formData.newConstructionQuality as QualityTier;
             const qualityCost = getTierCost('new-construction', quality);
             baseCost = [
                 qualityCost[0] * Number(formData.newConstructionSize),
@@ -96,7 +99,7 @@ export function calculateEstimate(formData: any): [number, number] {
             break;
         }
         case 'home-remodeling': {
-            const quality = formData.homeRemodelingQuality as keyof typeof servicePricing['home-remodeling'];
+            const quality = formData.homeRemodelingQuality as QualityTier;
             const qualityCost = getTierCost('home-remodeling', quality);
             baseCost = [
                 qualityCost[0] * Number(formData.homeRemodelingRooms),
@@ -105,7 +108,7 @@ export function calculateEstimate(formData: any): [number, number] {
             break;
         }
         case 'pest-repair': {
-            const quality = formData.pestRepairQuality as keyof typeof servicePricing['pest-repair'];
+            const quality = formData.pestRepairQuality as QualityTier;
             const qualityCost = getTierCost('pest-repair', quality);
             baseCost = [
                 qualityCost[0] * Number(formData.pestRepairRooms),
@@ -114,33 +117,33 @@ export function calculateEstimate(formData: any): [number, number] {
             break;
         }
         case 'kitchen-remodeling': {
-            const quality = formData.kitchenQuality as keyof typeof servicePricing['kitchen-remodeling'];
+            const quality = formData.kitchenQuality as QualityTier;
             const qualityCost = getTierCost('kitchen-remodeling', quality);
             baseCost = [
                 qualityCost[0] * Number(formData.kitchens),
                 qualityCost[1] * Number(formData.kitchens),
             ];
-            if (formData.kitchenLocation !== 'indoor') {
+            if (formData.kitchenLocation === 'outdoor') {
                 const multiplier = servicePricing['kitchen-remodeling'].outdoorMultiplier;
                 baseCost = baseCost.map(c => c * multiplier) as [number, number];
             }
             break;
         }
         case 'bathroom-remodeling': {
-            const quality = formData.bathroomQuality as keyof typeof servicePricing['bathroom-remodeling'];
+            const quality = formData.bathroomQuality as QualityTier;
             const qualityCost = getTierCost('bathroom-remodeling', quality);
             baseCost = [
                 qualityCost[0] * Number(formData.bathrooms),
                 qualityCost[1] * Number(formData.bathrooms),
             ];
-            if (formData.bathroomLocation !== 'indoor') {
+            if (formData.bathroomLocation === 'outdoor') {
                 const multiplier = servicePricing['bathroom-remodeling'].outdoorMultiplier;
                 baseCost = baseCost.map(c => c * multiplier) as [number, number];
             }
             break;
         }
         case 'storm-damage-repair': {
-            const quality = formData.stormDamageQuality as keyof typeof servicePricing['storm-damage-repair'];
+            const quality = formData.stormDamageQuality as QualityTier;
             const qualityCost = getTierCost('storm-damage-repair', quality);
             baseCost = [
                 qualityCost[0] * Number(formData.stormDamageRooms),
@@ -179,14 +182,14 @@ export function calculateEstimate(formData: any): [number, number] {
         }
         case 'additions': {
             const pricing = servicePricing.additions;
-            const quality = formData.additionsQuality as keyof typeof pricing.perSqFt;
+            const quality = formData.additionsQuality as QualityTier;
             const perSqFtCost = pricing.perSqFt[quality];
             const AVG_ROOM_SIZE = 200; // sq ft
 
             const roomSqFt = Number(formData.additionsRooms) * AVG_ROOM_SIZE;
             const roomCost = [
                 roomSqFt * perSqFtCost[0],
-                roomSqFt * perSqFt[1],
+                roomSqFt * perSqFtCost[1],
             ];
 
             const kitchenCost: [number, number] = [0, 0];

@@ -1,6 +1,7 @@
 
 import React from 'react';
 import styles from './HomeRemodeling.module.css';
+import CostEstimator from '../../../components/CostEstimator';
 
 const HomeRemodelingPage = () => {
   return (
@@ -91,6 +92,8 @@ const HomeRemodelingPage = () => {
           </ul>
         </section>
 
+        <CostEstimator preselectedService="home-remodeling" />
+
         <section>
           <h2>Your Partner in Creating the Home of Your Dreams</h2>
           <p>
@@ -98,6 +101,7 @@ const HomeRemodelingPage = () => {
           </p>
         </section>
       </article>
+
     </div>
   );
 };

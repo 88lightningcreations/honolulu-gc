@@ -1,6 +1,7 @@
 
 import React from 'react';
 import styles from './NewConstruction.module.css';
+import CostEstimator from '../../../components/CostEstimator';
 
 const NewConstructionPage = () => {
   return (
@@ -113,6 +114,8 @@ const NewConstructionPage = () => {
           </p>
         </section>
       </article>
+
+      <CostEstimator preselectedService="new-construction" />
     </div>
   );
 };

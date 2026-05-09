@@ -1,6 +1,7 @@
 
 import React from 'react';
 import styles from './KitchenRemodeling.module.css';
+import CostEstimator from '../../../components/CostEstimator';
 
 const KitchenRemodelingPage = () => {
   return (
@@ -39,6 +40,8 @@ const KitchenRemodelingPage = () => {
           </ol>
         </section>
 
+        <CostEstimator preselectedService="kitchen-remodeling" />
+
         <section>
           <h2>Why Choose Dumore Construction and Remodeling for Your Kitchen Remodel?</h2>
           <p>
@@ -46,6 +49,7 @@ const KitchenRemodelingPage = () => {
           </p>
         </section>
       </article>
+
     </div>
   );
 };

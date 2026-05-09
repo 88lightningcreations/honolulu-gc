@@ -1,6 +1,7 @@
 
 import React from 'react';
 import styles from './StormDamageRepair.module.css';
+import CostEstimator from '../../../components/CostEstimator';
 
 const StormDamageRepairPage = () => {
   return (
@@ -168,6 +169,8 @@ const StormDamageRepairPage = () => {
           </p>
         </section>
       </article>
+
+      <CostEstimator preselectedService="storm-damage-repair" />
     </div>
   );
 };

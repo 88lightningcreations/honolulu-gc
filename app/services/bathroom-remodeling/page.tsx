@@ -1,6 +1,7 @@
 
 import React from 'react';
 import styles from './BathroomRemodeling.module.css';
+import CostEstimator from '../../../components/CostEstimator';
 
 const BathroomRemodelingPage = () => {
   return (
@@ -39,6 +40,8 @@ const BathroomRemodelingPage = () => {
           </ol>
         </section>
 
+        <CostEstimator preselectedService="bathroom-remodeling" />
+
         <section>
           <h2>Why Choose Dumore Construction and Remodeling for Your Bathroom Remodel?</h2>
           <p>
@@ -46,6 +49,7 @@ const BathroomRemodelingPage = () => {
           </p>
         </section>
       </article>
+
     </div>
   );
 };

@@ -1,14 +1,68 @@
 'use client'
 
-import React, { useState, useTransition } from 'react';
+import React, { useState } from 'react';
 import styles from './CostEstimator.module.css';
 import { services } from '../lib/services';
 import { calculateEstimate, islands } from '../lib/pricing';
+import { useFormState, useFormStatus } from 'react-dom';
 import { submitEstimate } from '../app/actions';
+
+// Define a specific type for our form data
+export interface FormDataState {
+  service: string;
+  island: string;
+  kitchens: number | string;
+  kitchenLocation: string;
+  kitchenQuality: string;
+  bathrooms: number | string;
+  bathroomLocation: string;
+  bathroomQuality: string;
+  stormDamageRooms: number | string;
+  stormDamageCompleteReno: string;
+  stormDamageLocation: string;
+  stormDamageQuality: string;
+  houseMovingSameLot: string;
+  houseMovingDistance: number | string;
+  houseMovingSize: number | string;
+  additionsRooms: number | string;
+  additionsKitchens: number | string;
+  additionsKitchenLocation: string;
+  additionsQuality: string;
+  newConstructionSize: number | string;
+  newConstructionBedrooms: number | string;
+  newConstructionBathrooms: number | string;
+  newConstructionQuality: string;
+  homeRemodelingRooms: number | string;
+  homeRemodelingQuality: string;
+  pestRepairRooms: number | string;
+  pestRepairQuality: string;
+  name: string;
+  email: string;
+  phone: string;
+  address: string;
+}
+
+// Define a type for the validation errors object
+type FormErrors = Partial<Record<keyof FormDataState, string>>;
+
+const initialState = {
+    success: false,
+    message: '',
+};
+
+function SubmitButton() {
+    const { pending } = useFormStatus();
+  
+    return (
+      <button type="submit" className={styles.button} aria-disabled={pending}>
+        {pending ? 'Submitting...' : 'Submit Estimate'}
+      </button>
+    );
+  }
 
 const CostEstimator = ({ preselectedService }: { preselectedService?: string }) => {
   const [step, setStep] = useState(1);
-  const [formData, setFormData] = useState<any>({
+  const [formData, setFormData] = useState<FormDataState>({
     service: preselectedService || '',
     island: '',
     kitchens: 1,
@@ -42,10 +96,10 @@ const CostEstimator = ({ preselectedService }: { preselectedService?: string }) 
     address: '',
   });
 
-  const [errors, setErrors] = useState<any>({});
+  const [errors, setErrors] = useState<FormErrors>({});
   const [estimate, setEstimate] = useState<[number, number]>([0, 0]);
-  const [isPending, startTransition] = useTransition();
-  const [submissionResult, setSubmissionResult] = useState<{ success: boolean; message: string } | null>(null);
+  const [state, formAction] = useFormState(submitEstimate, initialState);
+
 
   const nextStep = () => {
     if (validateStep()) {
@@ -61,11 +115,11 @@ const CostEstimator = ({ preselectedService }: { preselectedService?: string }) 
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
-    setFormData((prev: any) => ({ ...prev, [name]: value }));
+    setFormData((prev: FormDataState) => ({ ...prev, [name]: value }));
   };
 
   const validateStep = () => {
-    const newErrors: any = {};
+    const newErrors: FormErrors = {};
     if (step === 1) {
       if (!formData.service) newErrors.service = 'Please select a service.';
       if (!formData.island) newErrors.island = 'Please select an island.';
@@ -78,19 +132,6 @@ const CostEstimator = ({ preselectedService }: { preselectedService?: string }) 
     }
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!validateStep()) return;
-
-    startTransition(async () => {
-        const result = await submitEstimate(formData);
-        setSubmissionResult(result);
-        if (result.success) {
-            setStep(4); // Move to success step
-        }
-    });
   };
 
   const renderStep = () => {
@@ -143,7 +184,7 @@ const CostEstimator = ({ preselectedService }: { preselectedService?: string }) 
               <p><strong>Island:</strong> {formData.island}</p>
               <h3>Estimated Cost: ${estimate[0].toLocaleString()} - ${estimate[1].toLocaleString()}</h3>
             </div>
-            <form onSubmit={handleSubmit}>
+            <form action={formAction}>
               <div className={styles.formGroup}>
                 <label htmlFor="name">Name</label>
                 <input type="text" name="name" id="name" value={formData.name} onChange={handleChange} />
@@ -164,14 +205,10 @@ const CostEstimator = ({ preselectedService }: { preselectedService?: string }) 
                 <input type="text" name="address" id="address" value={formData.address} onChange={handleChange} />
                 {errors.address && <p className={styles.error}>{errors.address}</p>}
               </div>
-              {submissionResult && !submissionResult.success && (
-                <p className={styles.error}>{submissionResult.message}</p>
-              )}
+              {state.message && <p className={state.success ? styles.success : styles.error}>{state.message}</p>}
               <div className={styles.navigationButtons}>
-                <button type="button" onClick={prevStep} className={styles.button} disabled={isPending}>Previous</button>
-                <button type="submit" className={styles.button} disabled={isPending}>
-                  {isPending ? 'Submitting...' : 'Submit Estimate'}
-                </button>
+                <button type="button" onClick={prevStep} className={styles.button}>Previous</button>
+                <SubmitButton />
               </div>
             </form>
           </div>
@@ -180,7 +217,7 @@ const CostEstimator = ({ preselectedService }: { preselectedService?: string }) 
         return (
             <div className={styles.thankYouStep}>
                 <h2>Thank You!</h2>
-                <p>{submissionResult?.message || "Your estimate has been submitted successfully. We will be in touch shortly."}</p>
+                <p>{state.message || "Your estimate has been submitted successfully. We will be in touch shortly."}</p>
             </div>
         )
       default:
@@ -225,9 +262,9 @@ const CostEstimator = ({ preselectedService }: { preselectedService?: string }) 
                     <div className={styles.formGroup}>
                         <label htmlFor="homeRemodelingQuality">Quality Grade for Finishes</label>
                         <select name="homeRemodelingQuality" id="homeRemodelingQuality" value={formData.homeRemodelingQuality} onChange={handleChange}>
-                            <option key="builder" value="builder">Builder Grade - Cosmetic updates, basic materials.</option>
-                            <option key="mid" value="mid">Mid-Tier - Significant updates, better materials.</option>
-                            <option key="luxury" value="luxury">Luxury - Complete gut and custom, high-end remodel.</option>
+                            <option key="builder" value="builder">Cosmetic updates, basic materials.</option>
+                            <option key="mid" value="mid">Significant updates, better materials.</option>
+                            <option key="luxury" value="luxury">Complete gut and custom, high-end remodel.</option>
                         </select>
                     </div>
                 </div>
@@ -242,9 +279,9 @@ const CostEstimator = ({ preselectedService }: { preselectedService?: string }) 
                     <div className={styles.formGroup}>
                         <label htmlFor="pestRepairQuality">Quality of Restoration</label>
                         <select name="pestRepairQuality" id="pestRepairQuality" value={formData.pestRepairQuality} onChange={handleChange}>
-                            <option key="builder" value="builder">Builder Grade - Basic structural repair and paint.</option>
-                            <option key="mid" value="mid">Mid-Tier - Repair with better, pest-resistant materials.</option>
-                            <option key="luxury" value="luxury">Luxury - Full restoration with high-end, durable finishes.</option>
+                            <option key="builder" value="builder">Basic structural repair and paint.</option>
+                            <option key="mid" value="mid">Repair with better, pest-resistant materials.</option>
+                            <option key="luxury" value="luxury">Full restoration with high-end, durable finishes.</option>
                         </select>
                     </div>
                 </div>
@@ -259,9 +296,8 @@ const CostEstimator = ({ preselectedService }: { preselectedService?: string }) 
                 <div className={styles.formGroup}>
                 <label htmlFor="kitchenLocation">Indoor or Outdoor?</label>
                 <select name="kitchenLocation" id="kitchenLocation" value={formData.kitchenLocation} onChange={handleChange}>
-                    <option key="indoor" value="indoor">Indoor</option>
-                    <option key="outdoor" value="outdoor">Outdoor</option>
-                    <option key="both" value="both">Both</option>
+                    <option value="indoor">Indoor</option>
+                    <option value="outdoor">Outdoor</option>
                 </select>
                 </div>
                 <div className={styles.formGroup}>
@@ -284,9 +320,8 @@ const CostEstimator = ({ preselectedService }: { preselectedService?: string }) 
                 <div className={styles.formGroup}>
                 <label htmlFor="bathroomLocation">Indoor or Outdoor?</label>
                 <select name="bathroomLocation" id="bathroomLocation" value={formData.bathroomLocation} onChange={handleChange}>
-                    <option key="indoor" value="indoor">Indoor</option>
-                    <option key="outdoor" value="outdoor">Outdoor</option>
-                    <option key="both" value="both">Both</option>
+                    <option value="indoor">Indoor</option>
+                    <option value="outdoor">Outdoor</option>
                 </select>
                 </div>
                 <div className={styles.formGroup}>
@@ -324,8 +359,8 @@ const CostEstimator = ({ preselectedService }: { preselectedService?: string }) 
                 <div className={styles.formGroup}>
                     <label htmlFor="stormDamageQuality">Quality Grade of Finishes</label>
                     <select name="stormDamageQuality" id="stormDamageQuality" value={formData.stormDamageQuality} onChange={handleChange}>
-                        <option key="builder" value="builder">Builder Grade - Matching existing basic finishes.</option>
-                        <option key="mid" value="mid">Mid-Tier - Upgraded, durable materials.</option>
+                        <option key="builder" value="builder">Matching existing basic finishes.</option>
+                        <option key="mid" value="mid">Upgraded, durable materials.</option>
                         <option key="luxury" value="luxury">Luxury - High-end, custom restoration.</option>
                     </select>
                 </div>
@@ -372,8 +407,8 @@ const CostEstimator = ({ preselectedService }: { preselectedService?: string }) 
                 <div className={styles.formGroup}>
                     <label htmlFor="additionsQuality">Quality Grade for the Addition</label>
                     <select name="additionsQuality" id="additionsQuality" value={formData.additionsQuality} onChange={handleChange}>
-                        <option key="builder" value="builder">Builder Grade - Standard, functional space.</option>
-                        <option key="mid" value="mid">Mid-Tier - Enhanced materials and finishes.</option>
+                        <option key="builder" value="builder">Standard, functional space.</option>
+                        <option key="mid" value="mid">Enhanced materials and finishes.</option>
                         <option key="luxury" value="luxury">Luxury - High-end, custom-designed space.</option>
                     </select>
                 </div>

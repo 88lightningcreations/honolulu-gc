@@ -56,11 +56,9 @@ export default async function ServiceDetailPage({ params }: { params: { slug: st
         <main className={styles.content}>
           <ReactMarkdown>{service.long_description || ''}</ReactMarkdown>
         </main>
+        
+        <CostEstimator preselectedService={params.slug} />
       </div>
-
-      <aside className={styles.sidebar}>
-        <CostEstimator preselectedService={service.slug} />
-      </aside>
     </div>
   )
 }

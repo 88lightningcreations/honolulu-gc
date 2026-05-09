@@ -3,7 +3,6 @@ import Banner from "../components/Banner";
 import BlogCarousel from "../components/BlogCarousel";
 import CallToAction from "../components/CallToAction";
 import CommitmentToQuality from "../components/CommitmentToQuality";
-import CostEstimator from "../components/CostEstimator";
 import InteractiveFAQ from "../components/InteractiveFAQ";
 import InteractiveReviews from "../components/InteractiveReviews";
 import OurServices from "../components/OurServices";
@@ -11,9 +10,7 @@ import OurServices from "../components/OurServices";
 export default function Home() {
   return (
     <>
-      <Banner>
-        <CostEstimator />
-      </Banner>
+      <Banner />
       <OurServices />
       <CommitmentToQuality />
       <AnimatedWhyChooseUs />

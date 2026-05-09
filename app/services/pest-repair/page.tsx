@@ -1,6 +1,7 @@
 
 import React from 'react';
 import styles from './PestRepair.module.css';
+import CostEstimator from '../../../components/CostEstimator';
 
 const PestRepairPage = () => {
   return (
@@ -138,6 +139,8 @@ const PestRepairPage = () => {
           </p>
         </section>
       </article>
+
+      <CostEstimator preselectedService="pest-repair" />
     </div>
   );
 };
