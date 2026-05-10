@@ -320,7 +320,7 @@ const CostEstimator = ({ preselectedService }: { preselectedService?: string }) 
                 <div>
                     <div className={styles.formGroup}>
                         <label htmlFor="pestRepairRooms">How many rooms show signs of pest damage?</label>
-                        <input type="range" name="pestRepairRooms" id="pestRepairRooms" value={formData.pestRepairRooms} onChange={handleChange} min="1" max="20"/>
+                        <input type="range" name="pestRepairRooms" id="pestRepairRooms" value={formData.pestRepairRooms} onChange={handleChange} min="1" max="10"/>
                         <span>{formData.pestRepairRooms}</span>
                     </div>
                     <div className={styles.formGroup}>
@@ -384,7 +384,7 @@ const CostEstimator = ({ preselectedService }: { preselectedService?: string }) 
             <div>
                 <div className={styles.formGroup}>
                     <label htmlFor="bathrooms">How many bathrooms?</label>
-                    <input type="range" name="bathrooms" id="bathrooms" value={formData.bathrooms} onChange={handleChange} min="1" max="8" />
+                    <input type="range" name="bathrooms" id="bathrooms" value={formData.bathrooms} onChange={handleChange} min="1" max="5" />
                     <span>{formData.bathrooms}</span>
                 </div>
                 <div className={styles.formGroup}>
@@ -423,7 +423,7 @@ const CostEstimator = ({ preselectedService }: { preselectedService?: string }) 
                 <div>
                     <div className={styles.formGroup}>
                         <label htmlFor="stormDamageRooms">How many rooms?</label>
-                        <input type="range" name="stormDamageRooms" id="stormDamageRooms" value={formData.stormDamageRooms} onChange={handleChange} min="1" max="20" />
+                        <input type="range" name="stormDamageRooms" id="stormDamageRooms" value={formData.stormDamageRooms} onChange={handleChange} min="1" max="10" />
                         <span>{formData.stormDamageRooms}</span>
                     </div>
                     <div className={styles.formGroup}>
@@ -485,7 +485,7 @@ const CostEstimator = ({ preselectedService }: { preselectedService?: string }) 
                 <div>
                     <div className={styles.formGroup}>
                         <label htmlFor="additionsRooms">How many new rooms (excluding kitchens)?</label>
-                        <input type="range" name="additionsRooms" id="additionsRooms" value={formData.additionsRooms} onChange={handleChange} min="1" max="10" />
+                        <input type="range" name="additionsRooms" id="additionsRooms" value={formData.additionsRooms} onChange={handleChange} min="1" max="5" />
                         <span>{formData.additionsRooms}</span>
                     </div>
                     <div className={styles.formGroup}>
