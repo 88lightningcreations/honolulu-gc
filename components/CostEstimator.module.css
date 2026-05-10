@@ -1,104 +1,306 @@
+/* Estimator Container */
 .estimator {
-    background-color: rgba(255, 255, 255, 0.95);
-    border: 1px solid #e0e0e0;
-    padding: 2rem;
-    border-radius: 12px;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
-    backdrop-filter: blur(10px);
-    width: 100%;
-    max-width: 500px;
-    margin: 0 auto; /* Center the component */
-  }
-  
-  .stepIndicator {
-    text-align: center;
+  background: linear-gradient(145deg, #ffffff, #f9f9f9);
+  border: 1px solid #e0e0e0;
+  padding: 2rem;
+  border-radius: 20px; /* Softer, more modern radius */
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08), 0 5px 15px rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(12px);
+  width: 100%;
+  max-width: 550px;
+  margin: 0 auto;
+  overflow: hidden; /* To contain the progress bar */
+}
+
+.estimator h2 {
+    font-size: 1.8rem;
+    color: #005bb5;
     margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+/* Progress Bar */
+.progressBar {
+  height: 8px;
+  background-color: #e9ecef;
+  border-radius: 4px;
+  margin-bottom: 1.5rem;
+  overflow: hidden;
+}
+
+.progress {
+  height: 100%;
+  background: linear-gradient(90deg, #0070f3, #005bb5);
+  border-radius: 4px;
+  transition: width 0.4s ease-in-out;
+}
+
+.stepIndicator {
+  text-align: center;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  color: #888;
+  font-weight: 500;
+}
+
+/* Form Groups */
+.formGroup {
+  margin-bottom: 2rem;
+}
+
+.formGroup label {
+  display: block;
+  margin-bottom: 0.75rem;
+  font-weight: 700;
+  color: #222;
+  font-size: 1.1rem;
+}
+
+/* Sliders */
+.formGroup input[type="range"] {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 8px;
+  background: #ddd;
+  border-radius: 5px;
+  outline: none;
+  opacity: 0.7;
+  transition: opacity .2s;
+}
+
+.formGroup input[type="range"]:hover {
+  opacity: 1;
+}
+
+.formGroup input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background: #0070f3;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 0 5px rgba(0, 112, 243, 0.5);
+}
+
+.formGroup input[type="range"]::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  background: #0070f3;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.formGroup span {
+  display: block;
+  text-align: right;
+  font-weight: 600;
+  color: #0070f3;
+  margin-top: 0.5rem;
+}
+
+/* Service Selection Cards */
+.serviceSelection {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.serviceCard {
+  background: #fff;
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 1rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  font-weight: 600;
+}
+
+.serviceCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.serviceCard.selected {
+  border-color: #0070f3;
+  background-color: #f0f8ff;
+  color: #0070f3;
+  box-shadow: 0 0 0 3px rgba(0, 112, 243, 0.2);
+}
+
+/* Quality Selection Cards */
+.qualitySelection {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.qualityCard {
+    background: #fff;
+    border: 2px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 1.5rem;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.qualityCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.qualityCard.selected {
+    border-color: #0070f3;
+    background-color: #f0f8ff;
+    color: #0070f3;
+    box-shadow: 0 0 0 3px rgba(0, 112, 243, 0.2);
+}
+
+.qualityCard h3 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+}
+
+.qualityCard p {
     font-size: 0.9rem;
     color: #666;
-    font-weight: 500;
-  }
-  
-  .formGroup {
-    margin-bottom: 1.5rem;
-  }
-  
-  .formGroup label {
-    display: block;
-    margin-bottom: 0.5rem;
-    font-weight: 600;
-    color: #333;
-  }
-  
-  .formGroup input,
-  .formGroup select {
-    width: 100%;
-    padding: 0.85rem;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    font-size: 1rem;
-    transition: border-color 0.2s, box-shadow 0.2s;
-  }
-  
-  .formGroup input:focus,
-  .formGroup select:focus {
-    border-color: #0070f3;
-    box-shadow: 0 0 0 3px rgba(0, 112, 243, 0.1);
-    outline: none;
-  }
-  
-  .error {
-    color: #d9534f;
-    font-size: 0.875rem;
-    margin-top: 0.5rem;
-  }
-  
-  .navigationButtons {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 2rem;
-  }
-  
-  .button {
-    padding: 0.8rem 1.5rem;
-    border: none;
-    border-radius: 8px;
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.2s;
-    background-color: #0070f3;
-    color: white;
-  }
-  
-  .button:hover {
-    background-color: #005bb5;
-    transform: translateY(-2px);
-  }
-  
-  .button:disabled {
-    background-color: #ccc;
-    cursor: not-allowed;
-    transform: none;
-  }
-  
-  .summary {
-    background-color: #f7f7f7;
-    padding: 1.5rem;
-    border-radius: 8px;
-    margin-bottom: 2rem;
-    border-left: 4px solid #0070f3;
-  }
-  
-  .summary h3 {
-      margin-top: 0;
-  }
-  
-  .thankYouStep {
-      text-align: center;
-      padding: 2rem;
-  }
+}
 
-  .thankYouStep h2 {
-      color: #0070f3;
-      margin-bottom: 1rem;
-  }
+
+/* Location Selection Cards */
+.locationSelection {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.locationCard {
+  background: #fff;
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 1rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  font-weight: 600;
+}
+
+.locationCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.locationCard.selected {
+  border-color: #0070f3;
+  background-color: #f0f8ff;
+  color: #0070f3;
+  box-shadow: 0 0 0 3px rgba(0, 112, 243, 0.2);
+}
+
+/* General input and select styles */
+.formGroup input[type="text"],
+.formGroup input[type="email"],
+.formGroup input[type="tel"],
+.formGroup select {
+  width: 100%;
+  padding: 0.85rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.formGroup input:focus,
+.formGroup select:focus {
+  border-color: #0070f3;
+  box-shadow: 0 0 0 3px rgba(0, 112, 243, 0.1);
+  outline: none;
+}
+
+
+/* Navigation Buttons */
+.navigationButtons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2.5rem;
+}
+
+.button {
+  padding: 0.9rem 1.8rem;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  background: linear-gradient(45deg, #0070f3, #005bb5);
+  color: white;
+}
+
+.button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(0, 112, 243, 0.3);
+}
+
+.button:disabled {
+    background: #ccc;
+    box-shadow: none;
+    transform: none;
+    cursor: not-allowed;
+}
+
+.previous {
+    background: #e0e0e0;
+    color: #333;
+}
+
+.previous:hover {
+    background: #d4d4d4;
+}
+
+
+/* Error and Success states */
+.error {
+  color: #e53e3e;
+  font-size: 0.875rem;
+  margin-top: 0.5rem;
+}
+
+.success {
+  color: #38a169;
+  font-size: 0.875rem;
+  margin-top: 0.5rem;
+}
+
+
+/* Summary Section */
+.summary {
+  background-color: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 12px;
+  margin-bottom: 2rem;
+  border-left: 5px solid #0070f3;
+}
+
+.summary h3 {
+  margin-top: 0;
+  color: #0070f3;
+}
+
+.thankYouStep {
+  text-align: center;
+  padding: 3rem 1rem;
+}
+
+.thankYouStep h2 {
+  color: #0070f3;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}

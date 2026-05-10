@@ -41,6 +41,34 @@ A multi-step form that allows clients to get an estimated cost for their constru
     *   Add the `CostEstimator` component to the homepage.
     *   Add the `CostEstimator` component to each service page, with the service pre-selected.
 
+## Cost Estimator Redesign: "Interactive Quote Studio"
+
+### Overview
+
+To create a more premium and engaging user experience, the Cost Estimator will be redesigned with a modern, interactive interface.
+
+### Design and Implementation Plan
+
+1.  **Layout:**
+    *   Implement a two-column layout. The main content will wrap around the `CostEstimator` form, which will be placed in an `aside` element for semantic correctness.
+    *   **Left Pane ("Inspiration Pane"):** This area will dynamically update based on user selections in the form. It will feature:
+        *   High-quality, relevant imagery that changes as the user selects different services.
+        *   Inspirational text snippets that highlight the value and possibilities of the selected service.
+        *   Icon-based benefit snippets (e.g., "Increased Home Value," "Modern Aesthetics").
+    *   **Right Pane ("Estimator Aside"):** This will be the form itself, with a sleek, modern design.
+        *   The `aside` will have a subtle background texture or gradient and a soft, multi-layered drop shadow to appear "lifted."
+
+2.  **Form Elements & Interactivity:**
+    *   **Progress Bar:** An animated progress bar will be added to show the user their progress through the form.
+    *   **Sliders:** Number inputs will be replaced with elegant sliders for a more tactile experience.
+    *   **Icon-based Choices:** Dropdown menus will be replaced with clickable cards that use icons for a more intuitive selection process.
+    *   **Glow Effects:** Interactive elements like buttons and active input fields will have a "glow" effect to guide the user's focus.
+    *   **Animated Transitions:** Smooth fade-in/fade-out transitions will be used for form steps.
+
+3.  **Typography & Color:**
+    *   **Fonts:** A clean, modern sans-serif font (e.g., Inter, Poppins) will be used. Font weights will be varied to create a clear visual hierarchy.
+    *   **Colors:** The existing color palette will be expanded with soft neutrals for backgrounds and containers, and a vibrant secondary color for calls to action. The final estimated cost will be displayed in a bold, celebratory color.
+
 ### Future Improvements
 
 *   **Headless CMS for Pricing:** To make it easier for the client to update pricing without touching the code, the pricing data could be fetched from a headless CMS like Contentful or Strapi.
