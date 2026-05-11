@@ -1,0 +1,64 @@
+
+.nowHiring {
+    background-color: #f9f9f9;
+    padding: 4rem 2rem;
+    text-align: center;
+  }
+  
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: #333;
+  }
+  
+  .location {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 0.5rem;
+  }
+  
+  .jobType {
+    font-size: 1rem;
+    color: #6B6B6B; /* Changed from #888 for better contrast */
+    margin-bottom: 2rem;
+  }
+  
+  .details p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    color: #555;
+  }
+  
+  .ctaButton {
+    display: inline-block;
+    background-color: #0070f3;
+    color: #fff;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .ctaButton:hover {
+    background-color: #005bb5;
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+    .nowHiring {
+      padding: 3rem 1rem;
+    }
+  
+    .title {
+      font-size: 2rem;
+    }
+  }
