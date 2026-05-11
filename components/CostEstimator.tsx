@@ -295,7 +295,7 @@ const CostEstimator = ({ preselectedService }: { preselectedService?: string }) 
                 <div>
                     <div className={styles.formGroup}>
                         <label htmlFor="homeRemodelingRooms">How many rooms are being remodeled?</label>
-                        <input type="range" name="homeRemodelingRooms" id="homeRemodelingRooms" value={formData.homeRemodelingRooms} onChange={handleChange} min="1" max="20" />
+                        <input type="range" name="homeRemodelingRooms" id="homeRemodelingRooms" value={formData.homeRemodelingRooms} onChange={handleChange} min="1" max="10" />
                         <span>{formData.homeRemodelingRooms}</span>
                     </div>
                     <div className={styles.formGroup}>
