@@ -33,29 +33,29 @@ export const servicePricing = {
     },
     'kitchen-remodeling': {
         // Per kitchen
-        builder: [35000, 55000],
-        mid: [55000, 90000],
-        luxury: [90000, 160000],
+        builder: [22000, 30000],
+        mid: [30000, 55000],
+        luxury: [55000, 90000],
         outdoorMultiplier: 1.25, // Outdoor kitchens require more robust materials and utilities
     },
     'bathroom-remodeling': {
         // Per bathroom
-        builder: [25000, 40000],
-        mid: [40000, 70000],
-        luxury: [70000, 130000],
+        builder: [22000, 30000],
+        mid: [30000, 55000],
+        luxury: [55000, 90000],
         outdoorMultiplier: 1.20, // Outdoor showers/bathrooms
     },
     'storm-damage-repair': {
         // Price per room
-        builder: [8000, 15000],
-        mid: [15000, 25000],
-        luxury: [25000, 45000],
+        builder: [22000, 30000],
+        mid: [30000, 55000],
+        luxury: [55000, 90000],
         completeRenoMultiplier: 2.5, // Complete renovation is more than just summing rooms
         outdoorMultiplier: 1.15, 
     },
     'house-moving': {
-        sameLotBase: [30000, 60000],      // Lifting, new foundation, etc.
-        offLotBase: [80000, 130000],     // Base cost for complex logistics of moving on roads
+        sameLotBase: [20000, 30000],      // Lifting, new foundation, etc.
+        offLotBase: [35000, 45000],     // Base cost for complex logistics of moving on roads
         perMile: 6000,                   // Cost per mile traveled
         perSqFt: [50, 80],               // Cost based on the size of the house
     },
