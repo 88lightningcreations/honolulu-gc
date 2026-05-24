@@ -47,6 +47,7 @@ interface FormState {
     message: string;
 }
 
+// This interface now mirrors FormDataState from the frontend
 interface EstimateFormData {
     name: string;
     email: string;
@@ -54,8 +55,33 @@ interface EstimateFormData {
     address: string;
     service: string;
     island: string;
-    [key: string]: any; // Allow for other dynamic form fields
+    kitchens: number | string;
+    kitchenLocation: string;
+    kitchenQuality: string;
+    bathrooms: number | string;
+    bathroomLocation: string;
+    bathroomQuality: string;
+    stormDamageRooms: number | string;
+    stormDamageCompleteReno: string;
+    stormDamageLocation: string;
+    stormDamageQuality: string;
+    houseMovingSameLot: string;
+    houseMovingDistance: number | string;
+    houseMovingSize: number | string;
+    additionsRooms: number | string;
+    additionsKitchens: number | string;
+    additionsKitchenLocation: string;
+    additionsQuality: string;
+    newConstructionSize: number | string;
+    newConstructionBedrooms: number | string;
+    newConstructionBathrooms: number | string;
+    newConstructionQuality: string;
+    homeRemodelingRooms: number | string;
+    homeRemodelingQuality: string;
+    pestRepairRooms: number | string;
+    pestRepairQuality: string;
 }
+
 
 interface ContactFormData {
     name: string;
@@ -88,10 +114,42 @@ const sendSms = async (phoneNumber: string, message: string) => {
 
 export async function submitEstimate(prevState: FormState, formData: FormData): Promise<FormState> {
     
-    const data: EstimateFormData = Array.from(formData.keys()).reduce((acc, key) => {
-        acc[key] = formData.get(key);
-        return acc;
-    }, {} as EstimateFormData);
+    // All values from formData are strings. We need to parse them correctly.
+    const rawData = Object.fromEntries(formData.entries());
+    const data: EstimateFormData = {
+        name: String(rawData.name),
+        email: String(rawData.email),
+        phone: String(rawData.phone),
+        address: String(rawData.address),
+        service: String(rawData.service),
+        island: String(rawData.island),
+        kitchens: Number(rawData.kitchens),
+        kitchenLocation: String(rawData.kitchenLocation),
+        kitchenQuality: String(rawData.kitchenQuality),
+        bathrooms: Number(rawData.bathrooms),
+        bathroomLocation: String(rawData.bathroomLocation),
+        bathroomQuality: String(rawData.bathroomQuality),
+        stormDamageRooms: Number(rawData.stormDamageRooms),
+        stormDamageCompleteReno: String(rawData.stormDamageCompleteReno),
+        stormDamageLocation: String(rawData.stormDamageLocation),
+        stormDamageQuality: String(rawData.stormDamageQuality),
+        houseMovingSameLot: String(rawData.houseMovingSameLot),
+        houseMovingDistance: Number(rawData.houseMovingDistance),
+        houseMovingSize: Number(rawData.houseMovingSize),
+        additionsRooms: Number(rawData.additionsRooms),
+        additionsKitchens: Number(rawData.additionsKitchens),
+        additionsKitchenLocation: String(rawData.additionsKitchenLocation),
+        additionsQuality: String(rawData.additionsQuality),
+        newConstructionSize: Number(rawData.newConstructionSize),
+        newConstructionBedrooms: Number(rawData.newConstructionBedrooms),
+        newConstructionBathrooms: Number(rawData.newConstructionBathrooms),
+        newConstructionQuality: String(rawData.newConstructionQuality),
+        homeRemodelingRooms: Number(rawData.homeRemodelingRooms),
+        homeRemodelingQuality: String(rawData.homeRemodelingQuality),
+        pestRepairRooms: Number(rawData.pestRepairRooms),
+        pestRepairQuality: String(rawData.pestRepairQuality),
+    };
+
 
     if (!isNotificationConfigured) {
         console.warn("\n### NOTIFICATION SERVICES INACTIVE ###");

@@ -286,14 +286,15 @@ const CostEstimator = ({ preselectedService }: { preselectedService?: string }) 
                     <label>Quality Grade</label>
                     <div className={styles.qualitySelection}>
                         {qualityOptions.map(option => (
-                            <div 
+                            <button 
+                                type="button"
                                 key={option.id} 
                                 className={`${styles.qualityCard} ${formData.newConstructionQuality === option.id ? styles.selected : ''}`}
                                 onClick={() => handleQualitySelection("newConstructionQuality", option.id)}
                             >
                                 <h3>{option.label}</h3>
                                 <p>{option.description}</p>
-                            </div>
+                            </button>
                         ))}
                     </div>
                 </div>
@@ -311,14 +312,15 @@ const CostEstimator = ({ preselectedService }: { preselectedService?: string }) 
                         <label>Quality Grade for Finishes</label>
                         <div className={styles.qualitySelection}>
                         {qualityOptions.map(option => (
-                            <div 
+                            <button 
+                                type="button"
                                 key={option.id} 
                                 className={`${styles.qualityCard} ${formData.homeRemodelingQuality === option.id ? styles.selected : ''}`}
                                 onClick={() => handleQualitySelection("homeRemodelingQuality", option.id)}
                             >
                                 <h3>{option.label}</h3>
                                 <p>{option.description}</p>
-                            </div>
+                            </button>
                         ))}
                     </div>
                     </div>
@@ -336,14 +338,15 @@ const CostEstimator = ({ preselectedService }: { preselectedService?: string }) 
                         <label>Quality of Restoration</label>
                         <div className={styles.qualitySelection}>
                         {qualityOptions.map(option => (
-                            <div 
+                            <button 
+                                type="button"
                                 key={option.id} 
                                 className={`${styles.qualityCard} ${formData.pestRepairQuality === option.id ? styles.selected : ''}`}
                                 onClick={() => handleQualitySelection("pestRepairQuality", option.id)}
                             >
                                 <h3>{option.label}</h3>
                                 <p>{option.description}</p>
-                            </div>
+                            </button>
                         ))}
                     </div>
                     </div>
@@ -361,13 +364,14 @@ const CostEstimator = ({ preselectedService }: { preselectedService?: string }) 
                     <label>Indoor or Outdoor?</label>
                     <div className={styles.locationSelection}>
                         {locationOptions.map(option => (
-                            <div 
+                            <button 
+                                type="button"
                                 key={option.id} 
                                 className={`${styles.locationCard} ${formData.kitchenLocation === option.id ? styles.selected : ''}`}
                                 onClick={() => handleLocationSelection('kitchenLocation', option.id)}
                             >
                                 <span>{option.label}</span>
-                            </div>
+                            </button>
                         ))}
                     </div>
                 </div>
@@ -375,14 +379,15 @@ const CostEstimator = ({ preselectedService }: { preselectedService?: string }) 
                     <label>Quality Grade</label>
                     <div className={styles.qualitySelection}>
                         {qualityOptions.map(option => (
-                            <div 
+                            <button 
+                                type="button"
                                 key={option.id} 
                                 className={`${styles.qualityCard} ${formData.kitchenQuality === option.id ? styles.selected : ''}`}
                                 onClick={() => handleQualitySelection("kitchenQuality", option.id)}
                             >
                                 <h3>{option.label}</h3>
                                 <p>{option.description}</p>
-                            </div>
+                            </button>
                         ))}
                     </div>
                 </div>
@@ -400,13 +405,14 @@ const CostEstimator = ({ preselectedService }: { preselectedService?: string }) 
                     <label>Indoor or Outdoor?</label>
                     <div className={styles.locationSelection}>
                         {locationOptions.map(option => (
-                            <div 
+                            <button 
+                                type="button"
                                 key={option.id} 
                                 className={`${styles.locationCard} ${formData.bathroomLocation === option.id ? styles.selected : ''}`}
                                 onClick={() => handleLocationSelection('bathroomLocation', option.id)}
                             >
                                 <span>{option.label}</span>
-                            </div>
+                            </button>
                         ))}
                     </div>
                 </div>
@@ -414,14 +420,15 @@ const CostEstimator = ({ preselectedService }: { preselectedService?: string }) 
                 <label>Quality Grade</label>
                 <div className={styles.qualitySelection}>
                         {qualityOptions.map(option => (
-                            <div 
+                            <button 
+                                type="button"
                                 key={option.id} 
                                 className={`${styles.qualityCard} ${formData.bathroomQuality === option.id ? styles.selected : ''}`}
                                 onClick={() => handleQualitySelection("bathroomQuality", option.id)}
                             >
                                 <h3>{option.label}</h3>
                                 <p>{option.description}</p>
-                            </div>
+                            </button>
                         ))}
                     </div>
                 </div>
@@ -454,14 +461,15 @@ const CostEstimator = ({ preselectedService }: { preselectedService?: string }) 
                         <label>Quality Grade of Finishes</label>
                         <div className={styles.qualitySelection}>
                         {qualityOptions.map(option => (
-                            <div 
+                            <button 
+                                type="button"
                                 key={option.id} 
                                 className={`${styles.qualityCard} ${formData.stormDamageQuality === option.id ? styles.selected : ''}`}
                                 onClick={() => handleQualitySelection("stormDamageQuality", option.id)}
                             >
                                 <h3>{option.label}</h3>
                                 <p>{option.description}</p>
-                            </div>
+                            </button>
                         ))}
                     </div>
                     </div>
@@ -513,14 +521,15 @@ const CostEstimator = ({ preselectedService }: { preselectedService?: string }) 
                         <label>Quality Grade for the Addition</label>
                         <div className={styles.qualitySelection}>
                         {qualityOptions.map(option => (
-                            <div 
+                            <button 
+                                type="button"
                                 key={option.id} 
                                 className={`${styles.qualityCard} ${formData.additionsQuality === option.id ? styles.selected : ''}`}
                                 onClick={() => handleQualitySelection("additionsQuality", option.id)}
                             >
                                 <h3>{option.label}</h3>
                                 <p>{option.description}</p>
-                            </div>
+                            </button>
                         ))}
                     </div>
                     </div>
