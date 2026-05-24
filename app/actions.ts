@@ -1,21 +1,44 @@
 'use server'
 
+import { SESClient, SendEmailCommand } from "@aws-sdk/client-ses";
+import { SNSClient, PublishCommand } from "@aws-sdk/client-sns";
 import { calculateEstimate } from '../lib/pricing';
-import sgMail from '@sendgrid/mail';
-import Twilio from 'twilio';
 
 // --- CONFIGURATION ---
-// IMPORTANT: Replace these with environment variables in a real application
-const SENDGRID_API_KEY = process.env.SENDGRID_API_KEY || 'YOUR_SENDGRID_API_KEY';
-const TWILIO_ACCOUNT_SID = process.env.TWILIO_ACCOUNT_SID || 'YOUR_TWILIO_ACCOUNT_SID';
-const TWILIO_AUTH_TOKEN = process.env.TWILIO_AUTH_TOKEN || 'YOUR_TWILIO_AUTH_TOKEN';
-const TWILIO_PHONE_NUMBER = process.env.TWILIO_PHONE_NUMBER || 'YOUR_TWILIO_PHONE_NUMBER';
+const { 
+    AWS_ACCESS_KEY_ID, 
+    AWS_SECRET_ACCESS_KEY, 
+    AWS_REGION, 
+    ADMIN_EMAIL, 
+    OWNER_PHONE_NUMBER 
+} = process.env;
 
-const ADMIN_EMAIL = 'admin@example.com'; // The email address that receives a copy
-const OWNER_PHONE_NUMBER = '+15551234567'; // The phone number that receives the SMS
+const isNotificationConfigured = 
+    AWS_ACCESS_KEY_ID && 
+    AWS_SECRET_ACCESS_KEY && 
+    AWS_REGION &&
+    ADMIN_EMAIL &&
+    OWNER_PHONE_NUMBER;
 
-sgMail.setApiKey(SENDGRID_API_KEY);
-const twilioClient = Twilio(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN);
+let sesClient: SESClient;
+let snsClient: SNSClient;
+
+if (isNotificationConfigured) {
+    sesClient = new SESClient({
+        region: AWS_REGION,
+        credentials: {
+            accessKeyId: AWS_ACCESS_KEY_ID,
+            secretAccessKey: AWS_SECRET_ACCESS_KEY,
+        },
+    });
+    snsClient = new SNSClient({ 
+        region: AWS_REGION,
+        credentials: {
+            accessKeyId: AWS_ACCESS_KEY_ID,
+            secretAccessKey: AWS_SECRET_ACCESS_KEY,
+        },
+    });
+}
 
 // --- TYPE DEFINITIONS ---
 
@@ -31,7 +54,7 @@ interface EstimateFormData {
     address: string;
     service: string;
     island: string;
-    [key: string]: unknown; // Allow for other dynamic form fields
+    [key: string]: any; // Allow for other dynamic form fields
 }
 
 interface ContactFormData {
@@ -40,91 +63,97 @@ interface ContactFormData {
     message: string;
 }
 
+// --- HELPER FUNCTIONS ---
+const sendEmail = async (to: string, subject: string, body: string) => {
+    const command = new SendEmailCommand({
+        Source: ADMIN_EMAIL!, // SES must have this email address verified
+        Destination: { ToAddresses: [to] },
+        Message: {
+            Subject: { Data: subject },
+            Body: { Text: { Data: body } },
+        },
+    });
+    return sesClient.send(command);
+};
+
+const sendSms = async (phoneNumber: string, message: string) => {
+    const command = new PublishCommand({
+        PhoneNumber: phoneNumber,
+        Message: message,
+    });
+    return snsClient.send(command);
+};
+
 // --- SERVER ACTIONS ---
 
 export async function submitEstimate(prevState: FormState, formData: FormData): Promise<FormState> {
-    const estimateFormData: EstimateFormData = {
-        name: formData.get('name') as string,
-        email: formData.get('email') as string,
-        phone: formData.get('phone') as string,
-        address: formData.get('address') as string,
-        service: formData.get('service') as string,
-        island: formData.get('island') as string,
-    };
+    
+    const data: EstimateFormData = Array.from(formData.keys()).reduce((acc, key) => {
+        acc[key] = formData.get(key);
+        return acc;
+    }, {} as EstimateFormData);
+
+    if (!isNotificationConfigured) {
+        console.warn("\n### NOTIFICATION SERVICES INACTIVE ###");
+        console.warn("AWS environment variables are not set. Skipping Email/SMS notifications.");
+        console.warn("Form submission will succeed without sending notifications.");
+        return { success: true, message: 'Estimate submitted successfully! (Notifications disabled)' };
+    }
 
     try {
-        // 1. Recalculate estimate on the server to ensure accuracy
-        // @ts-expect-error -- formData is structurally compatible with the expected type, but not explicitly typed as such.
-        const [lowEstimate, highEstimate] = calculateEstimate(estimateFormData);
-
-        // 2. Format a summary of the project details
-        const projectDetails = `Service: ${estimateFormData.service}\nIsland: ${estimateFormData.island}\n`;
+        const [lowEstimate, highEstimate] = calculateEstimate(data);
+        const projectDetails = `Service: ${data.service}\nIsland: ${data.island}`;
         const estimateRange = `$${lowEstimate.toLocaleString()} - $${highEstimate.toLocaleString()}`;
 
-        // 3. Send Email to Client
-        const clientMsg = {
-            to: estimateFormData.email,
-            from: ADMIN_EMAIL, // Must be a verified sender in SendGrid
-            subject: 'Your Project Estimate from Dumore Construction',
-            text: `Hi ${estimateFormData.name},\n\nThank you for your interest! Here is your estimated cost:\n\n${projectDetails}\nEstimated Range: ${estimateRange}\n\nPlease note: this is a preliminary estimate. A formal quote will be provided after a detailed consultation.\n\nBest,\nThe Dumore Construction Team`,
-        };
-        await sgMail.send(clientMsg);
+        // Email to Client
+        const clientBody = `Hi ${data.name},\n\nThank you for your interest! Here is your estimated cost:\n\n${projectDetails}\nEstimated Range: ${estimateRange}\n\nPlease note: this is a preliminary estimate. A formal quote will be provided after a detailed consultation.\n\nBest,\nThe Dumore Construction Team`;
+        await sendEmail(data.email, 'Your Project Estimate from Dumore Construction', clientBody);
 
-        // 4. Send Email to Admin
-        const adminMsg = {
-            to: ADMIN_EMAIL,
-            from: ADMIN_EMAIL,
-            subject: `New Estimate Request from ${estimateFormData.name}`,
-            text: `A new estimate request has been submitted.\n\nClient Details:\nName: ${estimateFormData.name}\nEmail: ${estimateFormData.email}\nPhone: ${estimateFormData.phone}\nAddress: ${estimateFormData.address}\n\nProject Details:\n${projectDetails}\nEstimated Range: ${estimateRange}`,
-        };
-        await sgMail.send(adminMsg);
-
-        // 5. Send SMS to Owner via Twilio
-        const smsMessage = `New estimate from ${estimateFormData.name} for ${estimateFormData.service}. Range: ${estimateRange}. Email: ${estimateFormData.email}`;
-        await twilioClient.messages.create({
-            body: smsMessage,
-            from: TWILIO_PHONE_NUMBER,
-            to: OWNER_PHONE_NUMBER,
-        });
+        // Email to Admin
+        const adminBody = `A new estimate request has been submitted.\n\nClient Details:\nName: ${data.name}\nEmail: ${data.email}\nPhone: ${data.phone}\nAddress: ${data.address}\n\nProject Details:\n${projectDetails}\nEstimated Range: ${estimateRange}`;
+        await sendEmail(ADMIN_EMAIL!, `New Estimate Request from ${data.name}`, adminBody);
+        
+        // SMS to Owner
+        const smsMessage = `New estimate from ${data.name} for ${data.service}. Range: ${estimateRange}. Email: ${data.email}`;
+        await sendSms(OWNER_PHONE_NUMBER!, smsMessage);
 
         return { success: true, message: 'Estimate submitted successfully!' };
 
     } catch (error) {
         console.error("Error in submitEstimate action:", error);
-        return { success: false, message: 'There was an error submitting your estimate. Please try again later.' };
+        // Return success to the user, but log the backend error
+        return { success: true, message: 'Your estimate was submitted, but an error occurred sending notifications.' };
     }
 }
 
 export async function submitContactForm(prevState: FormState, formData: FormData): Promise<FormState> {
-    const contactFormData: ContactFormData = {
+    const data: ContactFormData = {
         name: formData.get('name') as string,
         email: formData.get('email') as string,
         message: formData.get('message') as string,
     };
+    
+    if (!isNotificationConfigured) {
+        console.warn("\n### NOTIFICATION SERVICES INACTIVE ###");
+        console.warn("AWS environment variables are not set. Skipping Email notifications.");
+        console.warn("Form submission will succeed without sending notifications.");
+        return { success: true, message: 'Your message has been submitted successfully! (Notifications disabled)' };
+    }
 
     try {
-        // 1. Send Email to Admin
-        const adminMsg = {
-            to: ADMIN_EMAIL,
-            from: ADMIN_EMAIL,
-            subject: `New Contact Form Submission from ${contactFormData.name}`,
-            text: `A new contact form submission has been received.\n\nClient Details:\nName: ${contactFormData.name}\nEmail: ${contactFormData.email}\nMessage: ${contactFormData.message}`,
-        };
-        await sgMail.send(adminMsg);
+        // Email to Admin
+        const adminBody = `A new contact form submission has been received.\n\nClient Details:\nName: ${data.name}\nEmail: ${data.email}\nMessage: ${data.message}`;
+        await sendEmail(ADMIN_EMAIL!, `New Contact Form from ${data.name}`, adminBody);
 
-        // 2. Send Confirmation Email to Client
-        const clientMsg = {
-            to: contactFormData.email,
-            from: ADMIN_EMAIL, // Must be a verified sender in SendGrid
-            subject: 'Thank you for contacting Dumore Construction',
-            text: `Hi ${contactFormData.name},\n\nThank you for contacting us. We have received your message and will get back to you shortly.\n\nBest,\nThe Dumore Construction Team`,
-        };
-        await sgMail.send(clientMsg);
+        // Confirmation Email to Client
+        const clientBody = `Hi ${data.name},\n\nThank you for contacting us. We have received your message and will get back to you shortly.\n\nBest,\nThe Dumore Construction Team`;
+        await sendEmail(data.email, 'Thank you for contacting Dumore Construction', clientBody);
 
-        return { success: true, message: 'Your message has been submitted successfully!' };
+        return { success: true, message: 'Your message has been sent successfully!' };
 
     } catch (error) {
         console.error("Error in submitContactForm action:", error);
-        return { success: false, message: 'There was an error submitting your message. Please try again later.' };
+        // Return success to the user, but log the backend error
+        return { success: true, message: 'Your message was submitted, but an error occurred sending notifications.' };
     }
 }

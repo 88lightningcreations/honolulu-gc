@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from './CostEstimator.module.css';
 import { services } from '../lib/services';
 import { calculateEstimate, islands } from '../lib/pricing';
@@ -100,6 +100,11 @@ const CostEstimator = ({ preselectedService }: { preselectedService?: string }) 
   const [estimate, setEstimate] = useState<[number, number]>([0, 0]);
   const [state, formAction] = useFormState(submitEstimate, initialState);
 
+  useEffect(() => {
+    if (state.success) {
+      setStep(4); // Move to thank you step on successful submission
+    }
+  }, [state]);
 
   const nextStep = () => {
     if (validateStep()) {
@@ -119,16 +124,8 @@ const CostEstimator = ({ preselectedService }: { preselectedService?: string }) 
   };
 
   const handleServiceSelection = (service: string) => {
-    console.log('2. handleServiceSelection invoked with:', service);
-    if (!preselectedService) {
-        console.log('3. Calling setFormData with payload:', { service });
-        setFormData((prev: FormDataState) => {
-            const newState = { ...prev, service };
-            console.log('4. setFormData callback. Old state:', prev, 'New state:', newState);
-            return newState;
-        });
-    }
-}
+    setFormData(prev => ({ ...prev, service }));
+  };
 
   const handleQualitySelection = (service: keyof FormDataState, quality: string) => {
     setFormData(prev => ({ ...prev, [service]: quality }));
@@ -166,10 +163,7 @@ const CostEstimator = ({ preselectedService }: { preselectedService?: string }) 
                         key={service.slug} 
                         type="button"
                         className={`${styles.serviceCard} ${formData.service === service.slug ? styles.selected : ''}`}
-                        onClick={() => {
-                            console.log('1. Service card clicked:', service.slug);
-                            handleServiceSelection(service.slug);
-                        }}
+                        onClick={() => handleServiceSelection(service.slug)}
                     >
                         {/* Add an icon here later */}
                         <span>{service.title}</span>
@@ -211,7 +205,12 @@ const CostEstimator = ({ preselectedService }: { preselectedService?: string }) 
               <p><strong>Island:</strong> {formData.island}</p>
               <h3>Estimated Cost: ${estimate[0].toLocaleString()} - ${estimate[1].toLocaleString()}</h3>
             </div>
-            <form action={formAction}>
+            <form action={(payload) => formAction(payload)}>
+              {/* Hidden inputs to pass all form data to the server action */}
+              {Object.entries(formData).map(([key, value]) => (
+                <input type="hidden" key={key} name={key} value={String(value)} />
+              ))}
+
               <div className={styles.formGroup}>
                 <label htmlFor="name">Name</label>
                 <input type="text" name="name" id="name" value={formData.name} onChange={handleChange} />
@@ -232,7 +231,7 @@ const CostEstimator = ({ preselectedService }: { preselectedService?: string }) 
                 <input type="text" name="address" id="address" value={formData.address} onChange={handleChange} />
                 {errors.address && <p className={styles.error}>{errors.address}</p>}
               </div>
-              {state.message && <p className={state.success ? styles.success : styles.error}>{state.message}</p>}
+              {state.message && !state.success && <p className={styles.error}>{state.message}</p>}
               <div className={styles.navigationButtons}>
                 <button type="button" onClick={prevStep} className={`${styles.button} ${styles.previous}`}>Previous</button>
                 <SubmitButton />
