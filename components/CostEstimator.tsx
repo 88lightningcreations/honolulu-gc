@@ -119,10 +119,16 @@ const CostEstimator = ({ preselectedService }: { preselectedService?: string }) 
   };
 
   const handleServiceSelection = (service: string) => {
+    console.log('2. handleServiceSelection invoked with:', service);
     if (!preselectedService) {
-        setFormData((prev: FormDataState) => ({ ...prev, service }));
+        console.log('3. Calling setFormData with payload:', { service });
+        setFormData((prev: FormDataState) => {
+            const newState = { ...prev, service };
+            console.log('4. setFormData callback. Old state:', prev, 'New state:', newState);
+            return newState;
+        });
     }
-  }
+}
 
   const handleQualitySelection = (service: keyof FormDataState, quality: string) => {
     setFormData(prev => ({ ...prev, [service]: quality }));
@@ -156,14 +162,18 @@ const CostEstimator = ({ preselectedService }: { preselectedService?: string }) 
               <h2>Step 1: Select Your Service and Location</h2>
               <div className={styles.serviceSelection}>
                 {services.map(service => (
-                    <div 
+                    <button 
                         key={service.slug} 
+                        type="button"
                         className={`${styles.serviceCard} ${formData.service === service.slug ? styles.selected : ''}`}
-                        onClick={() => handleServiceSelection(service.slug)}
+                        onClick={() => {
+                            console.log('1. Service card clicked:', service.slug);
+                            handleServiceSelection(service.slug);
+                        }}
                     >
                         {/* Add an icon here later */}
                         <span>{service.title}</span>
-                    </div>
+                    </button>
                 ))}
               </div>
                 {errors.service && <p className={styles.error}>{errors.service}</p>}

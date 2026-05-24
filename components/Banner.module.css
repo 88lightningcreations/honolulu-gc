@@ -24,6 +24,7 @@
   bottom: 0;
   background: linear-gradient(to top, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.2) 50%, rgba(0, 0, 0, 0) 100%);
   z-index: 1;
+  pointer-events: none; /* This is the fix */
 }
 
 .textContainer,
