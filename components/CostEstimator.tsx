@@ -17,13 +17,6 @@ export interface FormDataState {
   bathrooms: number | string;
   bathroomLocation: string;
   bathroomQuality: string;
-  stormDamageRooms: number | string;
-  stormDamageCompleteReno: string;
-  stormDamageLocation: string;
-  stormDamageQuality: string;
-  houseMovingSameLot: string;
-  houseMovingDistance: number | string;
-  houseMovingSize: number | string;
   additionsRooms: number | string;
   additionsKitchens: number | string;
   additionsKitchenLocation: string;
@@ -32,10 +25,8 @@ export interface FormDataState {
   newConstructionBedrooms: number | string;
   newConstructionBathrooms: number | string;
   newConstructionQuality: string;
-  homeRemodelingRooms: number | string;
+  homeRemodelingSqft: number | string;
   homeRemodelingQuality: string;
-  pestRepairRooms: number | string;
-  pestRepairQuality: string;
   name: string;
   email: string;
   phone: string;
@@ -71,13 +62,6 @@ const CostEstimator = ({ preselectedService }: { preselectedService?: string }) 
     bathrooms: 1,
     bathroomLocation: 'indoor',
     bathroomQuality: 'builder',
-    stormDamageRooms: 1,
-    stormDamageCompleteReno: 'no',
-    stormDamageLocation: 'indoor',
-    stormDamageQuality: 'builder',
-    houseMovingSameLot: 'yes',
-    houseMovingDistance: 0,
-    houseMovingSize: 1000,
     additionsRooms: 1,
     additionsKitchens: 0,
     additionsKitchenLocation: 'indoor',
@@ -86,10 +70,8 @@ const CostEstimator = ({ preselectedService }: { preselectedService?: string }) 
     newConstructionBedrooms: 3,
     newConstructionBathrooms: 2,
     newConstructionQuality: 'builder',
-    homeRemodelingRooms: 1,
+    homeRemodelingSqft: 1000,
     homeRemodelingQuality: 'builder',
-    pestRepairRooms: 1,
-    pestRepairQuality: 'builder',
     name: '',
     email: '',
     phone: '',
@@ -99,6 +81,8 @@ const CostEstimator = ({ preselectedService }: { preselectedService?: string }) 
   const [errors, setErrors] = useState<FormErrors>({});
   const [estimate, setEstimate] = useState<[number, number]>([0, 0]);
   const [state, formAction] = useFormState(submitEstimate, initialState);
+
+  console.log('Component rendered. formData.service:', formData.service);
 
   useEffect(() => {
     if (state.success) {
@@ -124,6 +108,7 @@ const CostEstimator = ({ preselectedService }: { preselectedService?: string }) 
   };
 
   const handleServiceSelection = (service: string) => {
+    console.log('handleServiceSelection triggered with service:', service);
     setFormData(prev => ({ ...prev, service }));
   };
 
@@ -136,6 +121,7 @@ const CostEstimator = ({ preselectedService }: { preselectedService?: string }) 
   }
 
   const validateStep = () => {
+    console.log('Validating step 1 with formData.service:', formData.service);
     const newErrors: FormErrors = {};
     if (step === 1) {
       if (!formData.service) newErrors.service = 'Please select a service.';
@@ -148,17 +134,21 @@ const CostEstimator = ({ preselectedService }: { preselectedService?: string }) 
         if (!formData.address) newErrors.address = 'Please enter your address.';
     }
     setErrors(newErrors);
+    console.log('Validation result:', Object.keys(newErrors).length === 0);
     return Object.keys(newErrors).length === 0;
   };
 
   const renderStep = () => {
+    const availableServices = services.filter(service => 
+        !['pest-repair', 'storm-damage-repair', 'house-moving'].includes(service.slug)
+    );
     switch (step) {
       case 1:
         return (
             <div>
               <h2>Step 1: Select Your Service and Location</h2>
               <div className={styles.serviceSelection}>
-                {services.map(service => (
+                {availableServices.map(service => (
                     <button 
                         key={service.slug} 
                         type="button"
@@ -198,13 +188,13 @@ const CostEstimator = ({ preselectedService }: { preselectedService?: string }) 
       case 3:
         return (
           <div>
-            <h2>Step 3: Contact Information and Estimate</h2>
+            <h2>Step 3: Contact Information</h2>
             <div className={styles.summary}>
               <h3>Project Summary</h3>
               <p><strong>Service:</strong> {services.find(s => s.slug === formData.service)?.title}</p>
               <p><strong>Island:</strong> {formData.island}</p>
-              <h3>Estimated Cost: ${estimate[0].toLocaleString()} - ${estimate[1].toLocaleString()}</h3>
             </div>
+            <h3 className={styles.finalHeading}>You will receive a free written estimate when we get onsite.</h3>
             <form action={(payload) => formAction(payload)}>
               {/* Hidden inputs to pass all form data to the server action */}
               {Object.entries(formData).map(([key, value]) => (
@@ -254,8 +244,8 @@ const CostEstimator = ({ preselectedService }: { preselectedService?: string }) 
   const renderServiceFields = () => {
     const qualityOptions = [
         { id: 'builder', label: 'Builder', description: 'Standard, cost-effective finishes.' },
-        { id: 'mid', label: 'Mid-Tier', description: 'Upgraded materials and design.' },
-        { id: 'luxury', label: 'Luxury', description: 'High-end, custom, and premium features.' },
+        { id: 'selective-grade', label: 'Selective-Grade', description: 'Upgraded materials and design.' },
+        { id: 'high-end', label: 'High-End', description: 'High-end, custom, and premium features.' },
     ];
 
     const locationOptions = [
@@ -304,9 +294,9 @@ const CostEstimator = ({ preselectedService }: { preselectedService?: string }) 
             return (
                 <div>
                     <div className={styles.formGroup}>
-                        <label htmlFor="homeRemodelingRooms">How many rooms are being remodeled?</label>
-                        <input type="range" name="homeRemodelingRooms" id="homeRemodelingRooms" value={formData.homeRemodelingRooms} onChange={handleChange} min="1" max="10" />
-                        <span>{formData.homeRemodelingRooms}</span>
+                        <label htmlFor="homeRemodelingSqft">Approximate Square Footage</label>
+                        <input type="range" name="homeRemodelingSqft" id="homeRemodelingSqft" value={formData.homeRemodelingSqft} onChange={handleChange} min="100" max="5000" step="50"/>
+                        <span>{formData.homeRemodelingSqft} sq ft</span>
                     </div>
                     <div className={styles.formGroup}>
                         <label>Quality Grade for Finishes</label>
@@ -317,32 +307,6 @@ const CostEstimator = ({ preselectedService }: { preselectedService?: string }) 
                                 key={option.id} 
                                 className={`${styles.qualityCard} ${formData.homeRemodelingQuality === option.id ? styles.selected : ''}`}
                                 onClick={() => handleQualitySelection("homeRemodelingQuality", option.id)}
-                            >
-                                <h3>{option.label}</h3>
-                                <p>{option.description}</p>
-                            </button>
-                        ))}
-                    </div>
-                    </div>
-                </div>
-            );
-        case 'pest-repair':
-            return (
-                <div>
-                    <div className={styles.formGroup}>
-                        <label htmlFor="pestRepairRooms">How many rooms show signs of pest damage?</label>
-                        <input type="range" name="pestRepairRooms" id="pestRepairRooms" value={formData.pestRepairRooms} onChange={handleChange} min="1" max="10"/>
-                        <span>{formData.pestRepairRooms}</span>
-                    </div>
-                    <div className={styles.formGroup}>
-                        <label>Quality of Restoration</label>
-                        <div className={styles.qualitySelection}>
-                        {qualityOptions.map(option => (
-                            <button 
-                                type="button"
-                                key={option.id} 
-                                className={`${styles.qualityCard} ${formData.pestRepairQuality === option.id ? styles.selected : ''}`}
-                                onClick={() => handleQualitySelection("pestRepairQuality", option.id)}
                             >
                                 <h3>{option.label}</h3>
                                 <p>{option.description}</p>
@@ -433,69 +397,6 @@ const CostEstimator = ({ preselectedService }: { preselectedService?: string }) 
                     </div>
                 </div>
             </div>
-            );
-            case 'storm-damage-repair':
-            return (
-                <div>
-                    <div className={styles.formGroup}>
-                        <label htmlFor="stormDamageRooms">How many rooms?</label>
-                        <input type="range" name="stormDamageRooms" id="stormDamageRooms" value={formData.stormDamageRooms} onChange={handleChange} min="1" max="10" />
-                        <span>{formData.stormDamageRooms}</span>
-                    </div>
-                    <div className={styles.formGroup}>
-                        <label>Is this a complete renovation of the affected area?</label>
-                        <input key="yes" type="radio" id="yes" name="stormDamageCompleteReno" value="yes" onChange={handleChange} checked={formData.stormDamageCompleteReno === 'yes'} />
-                        <label htmlFor="yes">Yes</label>
-                        <input key="no" type="radio" id="no" name="stormDamageCompleteReno" value="no" onChange={handleChange} checked={formData.stormDamageCompleteReno === 'no'}/>
-                        <label htmlFor="no">No</label>
-                    </div>
-                    <div className={styles.formGroup}>
-                        <label htmlFor="stormDamageLocation">Is the primary damage to an indoor or outdoor area?</label>
-                        <select name="stormDamageLocation" id="stormDamageLocation" value={formData.stormDamageLocation} onChange={handleChange}>
-                        <option key="indoor" value="indoor">Indoor</option>
-                        <option key="outdoor" value="outdoor">Outdoor</option>
-                        <option key="both" value="both">Both</option>
-                        </select>
-                    </div>
-                    <div className={styles.formGroup}>
-                        <label>Quality Grade of Finishes</label>
-                        <div className={styles.qualitySelection}>
-                        {qualityOptions.map(option => (
-                            <button 
-                                type="button"
-                                key={option.id} 
-                                className={`${styles.qualityCard} ${formData.stormDamageQuality === option.id ? styles.selected : ''}`}
-                                onClick={() => handleQualitySelection("stormDamageQuality", option.id)}
-                            >
-                                <h3>{option.label}</h3>
-                                <p>{option.description}</p>
-                            </button>
-                        ))}
-                    </div>
-                    </div>
-                </div>
-            );
-            case 'house-moving':
-            return (
-                <div>
-                <div className={styles.formGroup}>
-                    <label>Is the house staying on the same lot?</label>
-                    <input key="yes" type="radio" id="yes" name="houseMovingSameLot" value="yes" onChange={handleChange} checked={formData.houseMovingSameLot === 'yes'} />
-                    <label htmlFor="yes">Yes</label>
-                    <input key="no" type="radio" id="no" name="houseMovingSameLot" value="no" onChange={handleChange} checked={formData.houseMovingSameLot === 'no'}/>
-                    <label htmlFor="no">No</label>
-                </div>
-                <div className={styles.formGroup}>
-                    <label htmlFor="houseMovingDistance">Distance to new lot (in miles)</label>
-                    <input type="range" name="houseMovingDistance" id="houseMovingDistance" value={formData.houseMovingDistance} onChange={handleChange} min="0" max="200" disabled={formData.houseMovingSameLot === 'yes'}/>
-                    <span>{formData.houseMovingDistance} miles</span>
-                </div>
-                <div className={styles.formGroup}>
-                    <label htmlFor="houseMovingSize">Size of house (in sq ft)</label>
-                    <input type="range" name="houseMovingSize" id="houseMovingSize" value={formData.houseMovingSize} onChange={handleChange} min="500" max="10000" step="100"/>
-                    <span>{formData.houseMovingSize} sq ft</span>
-                </div>
-                </div>
             );
             case 'additions':
             return (

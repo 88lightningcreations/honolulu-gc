@@ -5,12 +5,16 @@ import { SNSClient, PublishCommand } from "@aws-sdk/client-sns";
 import { calculateEstimate } from '../lib/pricing';
 
 // --- CONFIGURATION ---
+// Check for all required environment variables for notifications
 const { 
     AWS_ACCESS_KEY_ID, 
     AWS_SECRET_ACCESS_KEY, 
     AWS_REGION, 
     ADMIN_EMAIL, 
-    OWNER_PHONE_NUMBER 
+    OWNER_EMAIL, 
+    CLIENT_EMAIL, 
+    OWNER_PHONE_NUMBER, 
+    SENDER_EMAIL
 } = process.env;
 
 const isNotificationConfigured = 
@@ -18,7 +22,10 @@ const isNotificationConfigured =
     AWS_SECRET_ACCESS_KEY && 
     AWS_REGION &&
     ADMIN_EMAIL &&
-    OWNER_PHONE_NUMBER;
+    OWNER_EMAIL && 
+    CLIENT_EMAIL && 
+    OWNER_PHONE_NUMBER &&
+    SENDER_EMAIL;
 
 let sesClient: SESClient;
 let snsClient: SNSClient;
@@ -27,15 +34,15 @@ if (isNotificationConfigured) {
     sesClient = new SESClient({
         region: AWS_REGION,
         credentials: {
-            accessKeyId: AWS_ACCESS_KEY_ID,
-            secretAccessKey: AWS_SECRET_ACCESS_KEY,
+            accessKeyId: AWS_ACCESS_KEY_ID!,
+            secretAccessKey: AWS_SECRET_ACCESS_KEY!,
         },
     });
     snsClient = new SNSClient({ 
         region: AWS_REGION,
         credentials: {
-            accessKeyId: AWS_ACCESS_KEY_ID,
-            secretAccessKey: AWS_SECRET_ACCESS_KEY,
+            accessKeyId: AWS_ACCESS_KEY_ID!,
+            secretAccessKey: AWS_SECRET_ACCESS_KEY!,
         },
     });
 }
@@ -55,19 +62,12 @@ interface EstimateFormData {
     address: string;
     service: string;
     island: string;
-    kitchens: number | string;
+    kitchens: number | string; 
     kitchenLocation: string;
     kitchenQuality: string;
     bathrooms: number | string;
     bathroomLocation: string;
     bathroomQuality: string;
-    stormDamageRooms: number | string;
-    stormDamageCompleteReno: string;
-    stormDamageLocation: string;
-    stormDamageQuality: string;
-    houseMovingSameLot: string;
-    houseMovingDistance: number | string;
-    houseMovingSize: number | string;
     additionsRooms: number | string;
     additionsKitchens: number | string;
     additionsKitchenLocation: string;
@@ -76,10 +76,8 @@ interface EstimateFormData {
     newConstructionBedrooms: number | string;
     newConstructionBathrooms: number | string;
     newConstructionQuality: string;
-    homeRemodelingRooms: number | string;
+    homeRemodelingSqft: number | string;
     homeRemodelingQuality: string;
-    pestRepairRooms: number | string;
-    pestRepairQuality: string;
 }
 
 
@@ -90,9 +88,14 @@ interface ContactFormData {
 }
 
 // --- HELPER FUNCTIONS ---
+// Modified to use SENDER_EMAIL as the source
 const sendEmail = async (to: string, subject: string, body: string) => {
+    if (!isNotificationConfigured) {
+        console.warn("sendEmail called but notifications are not configured.");
+        return; // Exit if not configured
+    }
     const command = new SendEmailCommand({
-        Source: ADMIN_EMAIL!, // SES must have this email address verified
+        Source: SENDER_EMAIL!, // Use SENDER_EMAIL as the verified source
         Destination: { ToAddresses: [to] },
         Message: {
             Subject: { Data: subject },
@@ -102,7 +105,12 @@ const sendEmail = async (to: string, subject: string, body: string) => {
     return sesClient.send(command);
 };
 
+// SMS helper remains the same, assuming snsClient is configured
 const sendSms = async (phoneNumber: string, message: string) => {
+     if (!isNotificationConfigured) {
+        console.warn("sendSms called but notifications are not configured.");
+        return; // Exit if not configured
+    }
     const command = new PublishCommand({
         PhoneNumber: phoneNumber,
         Message: message,
@@ -114,75 +122,104 @@ const sendSms = async (phoneNumber: string, message: string) => {
 
 export async function submitEstimate(prevState: FormState, formData: FormData): Promise<FormState> {
     
-    // All values from formData are strings. We need to parse them correctly.
     const rawData = Object.fromEntries(formData.entries());
+    
     const data: EstimateFormData = {
-        name: String(rawData.name),
-        email: String(rawData.email),
-        phone: String(rawData.phone),
-        address: String(rawData.address),
-        service: String(rawData.service),
-        island: String(rawData.island),
-        kitchens: Number(rawData.kitchens),
-        kitchenLocation: String(rawData.kitchenLocation),
-        kitchenQuality: String(rawData.kitchenQuality),
-        bathrooms: Number(rawData.bathrooms),
-        bathroomLocation: String(rawData.bathroomLocation),
-        bathroomQuality: String(rawData.bathroomQuality),
-        stormDamageRooms: Number(rawData.stormDamageRooms),
-        stormDamageCompleteReno: String(rawData.stormDamageCompleteReno),
-        stormDamageLocation: String(rawData.stormDamageLocation),
-        stormDamageQuality: String(rawData.stormDamageQuality),
-        houseMovingSameLot: String(rawData.houseMovingSameLot),
-        houseMovingDistance: Number(rawData.houseMovingDistance),
-        houseMovingSize: Number(rawData.houseMovingSize),
-        additionsRooms: Number(rawData.additionsRooms),
-        additionsKitchens: Number(rawData.additionsKitchens),
-        additionsKitchenLocation: String(rawData.additionsKitchenLocation),
-        additionsQuality: String(rawData.additionsQuality),
-        newConstructionSize: Number(rawData.newConstructionSize),
-        newConstructionBedrooms: Number(rawData.newConstructionBedrooms),
-        newConstructionBathrooms: Number(rawData.newConstructionBathrooms),
-        newConstructionQuality: String(rawData.newConstructionQuality),
-        homeRemodelingRooms: Number(rawData.homeRemodelingRooms),
-        homeRemodelingQuality: String(rawData.homeRemodelingQuality),
-        pestRepairRooms: Number(rawData.pestRepairRooms),
-        pestRepairQuality: String(rawData.pestRepairQuality),
+        name: String(rawData.name ?? ''),
+        email: String(rawData.email ?? ''),
+        phone: String(rawData.phone ?? ''),
+        address: String(rawData.address ?? ''),
+        service: String(rawData.service ?? ''),
+        island: String(rawData.island ?? ''),
+        kitchens: Number(rawData.kitchens ?? 0),
+        kitchenLocation: String(rawData.kitchenLocation ?? ''),
+        kitchenQuality: String(rawData.kitchenQuality ?? ''),
+        bathrooms: Number(rawData.bathrooms ?? 0),
+        bathroomLocation: String(rawData.bathroomLocation ?? ''),
+        bathroomQuality: String(rawData.bathroomQuality ?? ''),
+        additionsRooms: Number(rawData.additionsRooms ?? 0),
+        additionsKitchens: Number(rawData.additionsKitchens ?? 0),
+        additionsKitchenLocation: String(rawData.additionsKitchenLocation ?? ''),
+        additionsQuality: String(rawData.additionsQuality ?? ''),
+        newConstructionSize: Number(rawData.newConstructionSize ?? 0),
+        newConstructionBedrooms: Number(rawData.newConstructionBedrooms ?? 0),
+        newConstructionBathrooms: Number(rawData.newConstructionBathrooms ?? 0),
+        newConstructionQuality: String(rawData.newConstructionQuality ?? ''),
+        homeRemodelingSqft: Number(rawData.homeRemodelingSqft ?? 0),
+        homeRemodelingQuality: String(rawData.homeRemodelingQuality ?? ''),
     };
 
-
+    // If notifications are not configured, log a warning and return success.
     if (!isNotificationConfigured) {
         console.warn("\n### NOTIFICATION SERVICES INACTIVE ###");
-        console.warn("AWS environment variables are not set. Skipping Email/SMS notifications.");
+        console.warn("AWS environment variables or application-specific details (like ADMIN_EMAIL, SENDER_EMAIL) are not fully set. Skipping Email/SMS notifications.");
         console.warn("Form submission will succeed without sending notifications.");
-        return { success: true, message: 'Estimate submitted successfully! (Notifications disabled)' };
+        // Simulate success for the user, but indicate notifications are off.
+        return { success: true, message: 'Estimate submitted successfully! (Notifications disabled due to missing configuration)' };
     }
 
     try {
+        // Calculate estimate using the data object
         const [lowEstimate, highEstimate] = calculateEstimate(data);
         const projectDetails = `Service: ${data.service}\nIsland: ${data.island}`;
         const estimateRange = `$${lowEstimate.toLocaleString()} - $${highEstimate.toLocaleString()}`;
 
-        // Email to Client
-        const clientBody = `Hi ${data.name},\n\nThank you for your interest! Here is your estimated cost:\n\n${projectDetails}\nEstimated Range: ${estimateRange}\n\nPlease note: this is a preliminary estimate. A formal quote will be provided after a detailed consultation.\n\nBest,\nThe Dumore Construction Team`;
-        await sendEmail(data.email, 'Your Project Estimate from Dumore Construction', clientBody);
-
-        // Email to Admin
-        const adminBody = `A new estimate request has been submitted.\n\nClient Details:\nName: ${data.name}\nEmail: ${data.email}\nPhone: ${data.phone}\nAddress: ${data.address}\n\nProject Details:\n${projectDetails}\nEstimated Range: ${estimateRange}`;
-        await sendEmail(ADMIN_EMAIL!, `New Estimate Request from ${data.name}`, adminBody);
+        // --- Email Notifications ---
+        // Define recipient list dynamically
+        const toAddresses: string[] = [];
+        if (data.email) toAddresses.push(data.email); // Client email
+        if (ADMIN_EMAIL) toAddresses.push(ADMIN_EMAIL); // Admin email
+        // Use OWNER_EMAIL if available, otherwise fall back to ADMIN_EMAIL
+        const ownerRecipient = OWNER_EMAIL || ADMIN_EMAIL; 
+        if (ownerRecipient && !toAddresses.includes(ownerRecipient)) {
+            toAddresses.push(ownerRecipient);
+        }
         
-        // SMS to Owner
+        // Ensure SENDER_EMAIL is available for SES
+        if (!SENDER_EMAIL) {
+            throw new Error("SENDER_EMAIL environment variable is not set. Cannot send emails.");
+        }
+
+        // Email to Client and Admin/Owner
+        const clientBody = `Hi ${data.name},\n\nThank you for your interest! Here is your estimated cost:\n\n${projectDetails}\nEstimated Range: ${estimateRange}\n\nPlease note: this is a preliminary estimate. A formal quote will be provided after a detailed consultation.\n\nBest,\nThe Dumore Construction Team`;
+        const adminBody = `A new estimate request has been submitted.\n\nClient Details:\nName: ${data.name}\nEmail: ${data.email}\nPhone: ${data.phone}\nAddress: ${data.address}\n\nProject Details:\n${projectDetails}\nEstimated Range: ${estimateRange}`;
+
+        // Send to client's email and admin/owner emails
+        await sendEmail(data.email, 'Your Project Estimate from Dumore Construction', clientBody);
+        if (ADMIN_EMAIL && ADMIN_EMAIL !== data.email) { // Avoid sending duplicate email if admin is also the client
+             await sendEmail(ADMIN_EMAIL, `New Estimate Request from ${data.name}`, adminBody);
+        }
+        // Send to owner if different from client and admin
+        if (ownerRecipient && ownerRecipient !== data.email && ownerRecipient !== ADMIN_EMAIL) {
+             await sendEmail(ownerRecipient, `New Estimate Request from ${data.name}`, adminBody);
+        }
+
+
+        // --- SMS Notification ---
         const smsMessage = `New estimate from ${data.name} for ${data.service}. Range: ${estimateRange}. Email: ${data.email}`;
-        await sendSms(OWNER_PHONE_NUMBER!, smsMessage);
+        
+        // Use OWNER_PHONE_NUMBER from environment, or fallback to a hardcoded number for development if not set.
+        const smsTargetNumber = process.env.NODE_ENV === 'development' ? 
+            (OWNER_PHONE_NUMBER || '+15551234567') // Replace with your dev phone number if OWNER_PHONE_NUMBER is missing
+            : OWNER_PHONE_NUMBER; 
+
+        if (smsTargetNumber) {
+            await sendSms(smsTargetNumber, smsMessage);
+        } else {
+            console.warn("OWNER_PHONE_NUMBER not set. Skipping SMS notification.");
+        }
 
         return { success: true, message: 'Estimate submitted successfully!' };
 
     } catch (error) {
         console.error("Error in submitEstimate action:", error);
-        // Return success to the user, but log the backend error
-        return { success: true, message: 'Your estimate was submitted, but an error occurred sending notifications.' };
+        // Log the detailed error for backend debugging
+        console.error("AWS Error Details:", JSON.stringify(error, null, 2)); 
+        
+        // Return success to the user, but indicate a notification issue.
+        return { success: true, message: 'Estimate submitted, but there was an issue sending notifications. Please check your configuration.' };
     }
-}
+} 
 
 export async function submitContactForm(prevState: FormState, formData: FormData): Promise<FormState> {
     const data: ContactFormData = {
@@ -193,9 +230,9 @@ export async function submitContactForm(prevState: FormState, formData: FormData
     
     if (!isNotificationConfigured) {
         console.warn("\n### NOTIFICATION SERVICES INACTIVE ###");
-        console.warn("AWS environment variables are not set. Skipping Email notifications.");
+        console.warn("AWS environment variables or application-specific details are not fully set. Skipping Email notifications.");
         console.warn("Form submission will succeed without sending notifications.");
-        return { success: true, message: 'Your message has been submitted successfully! (Notifications disabled)' };
+        return { success: true, message: 'Your message has been submitted successfully! (Notifications disabled due to missing configuration)' };
     }
 
     try {
@@ -211,7 +248,7 @@ export async function submitContactForm(prevState: FormState, formData: FormData
 
     } catch (error) {
         console.error("Error in submitContactForm action:", error);
-        // Return success to the user, but log the backend error
-        return { success: true, message: 'Your message was submitted, but an error occurred sending notifications.' };
+        console.error("AWS Error Details:", JSON.stringify(error, null, 2)); 
+        return { success: true, message: 'Your message was submitted, but an error occurred sending notifications. Please check your configuration.' };
     }
 }

@@ -15,15 +15,15 @@ export const islands = [
 export const servicePricing = {
     'new-construction': {
         // Per square foot
-        builder: [450, 600],
-        mid: [600, 850],
-        luxury: [850, 1200],
+        builder: [250, 600],
+        selective_grade: [350, 850],
+        high_end: [650, 1200],
     },
     'home-remodeling': {
-        // Per room, assuming an average size room
-        builder: [15000, 25000],
-        mid: [25000, 50000],
-        luxury: [50000, 100000],
+        // Per square foot
+        builder: [250, 500],
+        selective_grade: [500, 800],
+        high_end: [800, 1500],
     },
     'pest-repair': {
         // Per room, focused on repair and restoration
@@ -33,16 +33,16 @@ export const servicePricing = {
     },
     'kitchen-remodeling': {
         // Per kitchen
-        builder: [22000, 30000],
-        mid: [30000, 55000],
-        luxury: [55000, 90000],
+        builder: [20000, 50000],
+        selective_grade: [30000, 65000],
+        high_end: [75000, 150000],
         outdoorMultiplier: 1.25, // Outdoor kitchens require more robust materials and utilities
     },
     'bathroom-remodeling': {
         // Per bathroom
-        builder: [22000, 30000],
-        mid: [30000, 55000],
-        luxury: [55000, 90000],
+        builder: [8000, 15000],
+        selective_grade: [12000, 25000],
+        high_end: [30000, 85000],
         outdoorMultiplier: 1.20, // Outdoor showers/bathrooms
     },
     'storm-damage-repair': {
@@ -62,15 +62,15 @@ export const servicePricing = {
     'additions': {
         // Price per square foot, assuming average room size of ~200 sq ft for calculations
         perSqFt: {
-            builder: [400, 550],
-            mid: [550, 750],
-            luxury: [750, 1000],
+            builder: [200, 300],
+            selective_grade: [300, 500],
+            high_end: [500, 700],
         },
         // Kitchens in an addition have their own significant, separate cost
         kitchenAddition: {
-            builder: [35000, 50000],
-            mid: [50000, 85000],
-            luxury: [85000, 150000],
+            builder: [20000, 50000],
+            selective_grade: [30000, 65000],
+            high_end: [75000, 150000],
         },
         outdoorMultiplier: 1.1, // Decks, lanais are extensions of living space
     }
@@ -81,7 +81,7 @@ export function calculateEstimate(formData: FormDataState): [number, number] {
     let baseCost: [number, number] = [0, 0];
     const islandMultiplier = islands.find(i => i.name === formData.island)?.priceMultiplier || 1;
 
-    type QualityTier = 'builder' | 'mid' | 'luxury';
+    type QualityTier = 'builder' | 'selective_grade' | 'high_end'; // Updated to match new keys
 
     const getTierCost = (service: keyof typeof servicePricing, quality: QualityTier) => {
         // @ts-expect-error - This is a safe way to handle the dynamic nature of the pricing object
@@ -102,17 +102,8 @@ export function calculateEstimate(formData: FormDataState): [number, number] {
             const quality = formData.homeRemodelingQuality as QualityTier;
             const qualityCost = getTierCost('home-remodeling', quality);
             baseCost = [
-                qualityCost[0] * Number(formData.homeRemodelingRooms),
-                qualityCost[1] * Number(formData.homeRemodelingRooms),
-            ];
-            break;
-        }
-        case 'pest-repair': {
-            const quality = formData.pestRepairQuality as QualityTier;
-            const qualityCost = getTierCost('pest-repair', quality);
-            baseCost = [
-                qualityCost[0] * Number(formData.pestRepairRooms),
-                qualityCost[1] * Number(formData.pestRepairRooms),
+                qualityCost[0] * Number(formData.homeRemodelingSqft), 
+                qualityCost[1] * Number(formData.homeRemodelingSqft),
             ];
             break;
         }
@@ -142,48 +133,10 @@ export function calculateEstimate(formData: FormDataState): [number, number] {
             }
             break;
         }
-        case 'storm-damage-repair': {
-            const quality = formData.stormDamageQuality as QualityTier;
-            const qualityCost = getTierCost('storm-damage-repair', quality);
-            baseCost = [
-                qualityCost[0] * Number(formData.stormDamageRooms),
-                qualityCost[1] * Number(formData.stormDamageRooms),
-            ];
-            if (formData.stormDamageCompleteReno === 'yes') {
-                const multiplier = servicePricing['storm-damage-repair'].completeRenoMultiplier;
-                baseCost = baseCost.map(c => c * multiplier) as [number, number];
-            }
-            if (formData.stormDamageLocation !== 'indoor') {
-                const multiplier = servicePricing['storm-damage-repair'].outdoorMultiplier;
-                baseCost = baseCost.map(c => c * multiplier) as [number, number];
-            }
-            break;
-        }
-        case 'house-moving': {
-            const pricing = servicePricing['house-moving'];
-            const sizeCost = [
-                Number(formData.houseMovingSize) * pricing.perSqFt[0],
-                Number(formData.houseMovingSize) * pricing.perSqFt[1],
-            ];
-
-            if (formData.houseMovingSameLot === 'yes') {
-                baseCost = [
-                    pricing.sameLotBase[0] + sizeCost[0],
-                    pricing.sameLotBase[1] + sizeCost[1],
-                ];
-            } else {
-                const distanceCost = Number(formData.houseMovingDistance) * pricing.perMile;
-                baseCost = [
-                    pricing.offLotBase[0] + sizeCost[0] + distanceCost,
-                    pricing.offLotBase[1] + sizeCost[1] + distanceCost,
-                ];
-            }
-            break;
-        }
         case 'additions': {
             const pricing = servicePricing.additions;
             const quality = formData.additionsQuality as QualityTier;
-            const perSqFtCost = pricing.perSqFt[quality];
+            const perSqFtCost = pricing.perSqFt[quality]; 
             const AVG_ROOM_SIZE = 200; // sq ft
 
             const roomSqFt = Number(formData.additionsRooms) * AVG_ROOM_SIZE;
@@ -195,7 +148,7 @@ export function calculateEstimate(formData: FormDataState): [number, number] {
             const kitchenCost: [number, number] = [0, 0];
             if (Number(formData.additionsKitchens) > 0) {
                 // For kitchens in additions, we use the addition-specific kitchen costs
-                const kitchenQuality = formData.additionsQuality as keyof typeof pricing.kitchenAddition;
+                const kitchenQuality = formData.additionsQuality as QualityTier;
                 const kitchenAdditionCost = pricing.kitchenAddition[kitchenQuality];
                 kitchenCost[0] = kitchenAdditionCost[0] * Number(formData.additionsKitchens);
                 kitchenCost[1] = kitchenAdditionCost[1] * Number(formData.additionsKitchens);

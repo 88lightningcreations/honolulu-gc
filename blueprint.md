@@ -73,3 +73,69 @@ To create a more premium and engaging user experience, the Cost Estimator will b
 
 *   **Headless CMS for Pricing:** To make it easier for the client to update pricing without touching the code, the pricing data could be fetched from a headless CMS like Contentful or Strapi.
 *   **Advanced Form Library:** For more complex forms, a library like `react-hook-form` or `formik` could be used to provide more advanced features for validation and state management.
+
+---
+
+## **Updated Cost Estimator Implementation Plan: Pricing, Notifications, and UI Refinements**
+
+This section details the specific modifications to the Cost Estimator and related backend services, building upon the existing blueprint.
+
+### **Phase 1: Dependency and Environment Configuration**
+
+*   **Goal:** Ensure the project is configured for AWS SES and SNS, and remove all references to Twilio.
+*   **Steps:**
+    1.  Inspect `package.json` for Twilio. If present, uninstall it (`npm uninstall twilio`).
+    2.  Verify `@aws-sdk/client-ses` and `@aws-sdk/client-sns` are installed in `package.json` using stable (LTS) versions. Install if missing (`npm install @aws-sdk/client-ses @aws-sdk/client-sns`).
+    3.  Review `app/actions.ts` to ensure `isNotificationConfigured` checks for necessary AWS environment variables (`AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, `AWS_REGION`) and application-specific variables (`ADMIN_EMAIL`, `OWNER_EMAIL`, `CLIENT_EMAIL`, `OWNER_PHONE_NUMBER`, `SENDER_EMAIL`). Development overrides will be handled within the code.
+*   **Verification:** Confirm Twilio is removed, AWS SDKs are present, and environment variable checks are robust.
+
+### **Phase 2: Pricing Data and Calculation Logic Updates**
+
+*   **Goal:** Update pricing data in `lib/pricing.ts` and calculation logic in `app/actions.ts` for production-level quality and sustainability.
+*   **Steps:**
+    1.  **Modify `lib/pricing.ts`:**
+        *   Rename quality tiers: `'mid-tier'` to `'selective-grade'`, `'luxury'` to `'high-end'`.
+        *   Update `servicePricing` for:
+            *   `new-construction`: `builder`: [250, 600], `selective-grade`: [350, 850], `high-end`: [650, 1200]
+            *   `home-remodeling`: `builder`: [250, 500], `selective-grade`: [500, 800], `high-end`: [800, 1500] (per sqft)
+            *   `kitchen-remodeling`: `builder`: [20000, 50000], `selective-grade`: [30000, 65000], `high-end`: [75000, 150000]
+            *   `bathroom-remodeling`: `builder`: [8000, 15000], `selective-grade`: [12000, 25000], `high-end`: [30000, 85000]
+            *   `additions`: `builder`: [200, 300], `selective-grade`: [300, 500], `high-end`: [500, 700]
+    2.  **Modify `app/actions.ts`:**
+        *   In the `calculateEstimate` function, remove calculation cases for `'pest-repair'`, `'storm-damage-repair'`, and `'house-moving'`.
+        *   Update the `'home-remodeling'` logic to use `formData.homeRemodelingSqft` for calculation.
+*   **Verification:** Ensure pricing data and calculation logic are accurate and syntactically correct. No styling impact expected.
+
+### **Phase 3: Cost Estimator Component Refinements**
+
+*   **Goal:** Directly remove services, update UI text, modify input for 'home remodeling', and overhaul the final step's UI and messaging in `components/CostEstimator.tsx`.
+*   **Steps:**
+    1.  **Direct Service Removal:** Within `CostEstimator.tsx`, locate the array/map generating service selection options. Remove the entries corresponding to `'pest-repair'`, `'storm-damage-repair'`, and `'house-moving'` directly from this list.
+    2.  **UI Text Update (Quality Tiers):** Update internal quality tier definitions (e.g., `qualityOptions`) in `CostEstimator.tsx`:
+        *   `'mid-tier'` -> `'Selective-Grade'`
+        *   `'luxury'` -> `'High-End'`
+    3.  **Input Change for Home Remodeling:** In `renderServiceFields()` within `CostEstimator.tsx`, change the `homeRemodelingRooms` input's `name` attribute to `homeRemodelingSqft`. Update its label and `htmlFor` to "Square Footage". Adjust component state management accordingly.
+    4.  **Final Step UI Overhaul:**
+        *   In `CostEstimator.tsx`'s `return` statement (case 3), delete the `Estimated Cost` heading line.
+        *   Add the new heading below the project summary: `<h3 className={styles.finalHeading}>You will receive a free written estimate when we get onsite.</h3>`.
+    5.  **Styling:** Add the `.finalHeading` class to `components/CostEstimator.module.css` with styles for professionalism and confidence (bold, larger font, accent color border, subtle background/shadow).
+*   **Verification:** Visually confirm service removal, updated labels, correct input for remodeling, and the new heading. Ensure styling consistency and that functionality remains intact.
+
+### **Phase 4: AWS Notification Logic Implementation**
+
+*   **Goal:** Implement multi-recipient email via SES and SMS via SNS, ensuring all Twilio references are gone and using production-ready AWS services.
+*   **Steps:**
+    1.  **SES Email Recipients:** In `app/actions.ts`, configure `SendEmailCommand`'s `ToAddresses` array using `process.env.CLIENT_EMAIL`, `process.env.ADMIN_EMAIL`, and `process.env.OWNER_EMAIL` (with fallback to `ADMIN_EMAIL`). Use development overrides for testing.
+    2.  **SNS SMS Implementation:** Construct the SMS message and use `PublishCommand` with `PhoneNumber: process.env.OWNER_PHONE_NUMBER`. Use development overrides for testing. Log warnings if production `OWNER_PHONE_NUMBER` is missing.
+    3.  **Error Handling:** Wrap SES and SNS calls in `try...catch` blocks, logging errors. Ensure `isNotificationConfigured` correctly gates notification logic.
+*   **Verification:** Confirm Twilio is completely removed. Test email and SMS notifications in the development environment. Verify production configuration relies on environment variables.
+
+### **Final Production Quality and Sustainability Check**
+
+*   **Code Linting:** Execute `npm run lint -- --fix`.
+*   **Dependency Review:** Ensure `package.json` reflects only necessary AWS SDK packages.
+*   **Styling Review:** Visually inspect all modified UI elements for consistency with `globals.css` and the established design guide.
+*   **Functional Testing:** Perform end-to-end testing of the Cost Estimator in the development environment. Verify all steps, calculations, notifications, and UI elements.
+*   **Sustainability:** Confirm all sensitive configurations (emails, phone numbers, AWS keys) are managed via environment variables.
+
+---
