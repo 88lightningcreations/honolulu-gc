@@ -1,4 +1,3 @@
-'use client'
 import { FormDataState } from '../components/CostEstimator';
 
 // --- Island-based cost multipliers ---
