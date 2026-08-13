@@ -1,13 +1,12 @@
 'use client'
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useReducer } from 'react';
 import styles from './CostEstimator.module.css';
 import { services } from '../lib/services';
 import { calculateEstimate, islands } from '../lib/pricing';
 import { useFormState, useFormStatus } from 'react-dom';
 import { submitEstimate } from '../app/actions';
 
-// Define a specific type for our form data
 export interface FormDataState {
   service: string;
   island: string;
@@ -33,10 +32,9 @@ export interface FormDataState {
   address: string;
 }
 
-// Define a type for the validation errors object
 type FormErrors = Partial<Record<keyof FormDataState, string>>;
 
-const initialState = {
+const serverActionInitialState = {
     success: false,
     message: '',
 };
@@ -49,11 +47,31 @@ function SubmitButton() {
         {pending ? 'Submitting...' : 'Submit Estimate'}
       </button>
     );
+}
+
+type Action =
+  | { type: 'SET_FIELD'; field: keyof FormDataState; value: any }
+  | { type: 'RESET_FORM'; payload: FormDataState };
+
+const formReducer = (state: FormDataState, action: Action): FormDataState => {
+  switch (action.type) {
+    case 'SET_FIELD':
+      console.log(`Reducer: Setting ${action.field} to`, action.value);
+      return {
+        ...state,
+        [action.field]: action.value,
+      };
+    case 'RESET_FORM':
+      return action.payload;
+    default:
+      return state;
   }
+};
 
 const CostEstimator = ({ preselectedService }: { preselectedService?: string }) => {
   const [step, setStep] = useState(1);
-  const [formData, setFormData] = useState<FormDataState>({
+
+  const initialFormData: FormDataState = {
     service: preselectedService || '',
     island: '',
     kitchens: 1,
@@ -76,17 +94,20 @@ const CostEstimator = ({ preselectedService }: { preselectedService?: string }) 
     email: '',
     phone: '',
     address: '',
-  });
+  };
 
+  const [formData, dispatch] = useReducer(formReducer, initialFormData);
   const [errors, setErrors] = useState<FormErrors>({});
   const [estimate, setEstimate] = useState<[number, number]>([0, 0]);
-  const [state, formAction] = useFormState(submitEstimate, initialState);
+  const [state, formAction] = useFormState(submitEstimate, serverActionInitialState);
 
-  console.log('Component rendered. formData.service:', formData.service);
+  useEffect(() => {
+    console.log('formData state updated:', JSON.stringify(formData));
+  }, [formData]);
 
   useEffect(() => {
     if (state.success) {
-      setStep(4); // Move to thank you step on successful submission
+      setStep(4);
     }
   }, [state]);
 
@@ -102,26 +123,30 @@ const CostEstimator = ({ preselectedService }: { preselectedService?: string }) 
 
   const prevStep = () => setStep(prev => prev - 1);
 
+  const handleStartOver = () => {
+    setStep(1);
+    dispatch({ type: 'RESET_FORM', payload: initialFormData });
+    setErrors({});
+    setEstimate([0, 0]);
+  };
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
-    const { name, value } = e.target;
-    setFormData((prev: FormDataState) => ({ ...prev, [name]: value }));
+    dispatch({ type: 'SET_FIELD', field: e.target.name as keyof FormDataState, value: e.target.value });
   };
 
   const handleServiceSelection = (service: string) => {
-    console.log('handleServiceSelection triggered with service:', service);
-    setFormData(prev => ({ ...prev, service }));
+    dispatch({ type: 'SET_FIELD', field: 'service', value: service });
   };
 
   const handleQualitySelection = (service: keyof FormDataState, quality: string) => {
-    setFormData(prev => ({ ...prev, [service]: quality }));
+    dispatch({ type: 'SET_FIELD', field: service, value: quality });
   }
 
   const handleLocationSelection = (service: keyof FormDataState, location: string) => {
-    setFormData(prev => ({ ...prev, [service]: location }));
+    dispatch({ type: 'SET_FIELD', field: service, value: location });
   }
 
   const validateStep = () => {
-    console.log('Validating step 1 with formData.service:', formData.service);
     const newErrors: FormErrors = {};
     if (step === 1) {
       if (!formData.service) newErrors.service = 'Please select a service.';
@@ -134,7 +159,6 @@ const CostEstimator = ({ preselectedService }: { preselectedService?: string }) 
         if (!formData.address) newErrors.address = 'Please enter your address.';
     }
     setErrors(newErrors);
-    console.log('Validation result:', Object.keys(newErrors).length === 0);
     return Object.keys(newErrors).length === 0;
   };
 
@@ -155,7 +179,6 @@ const CostEstimator = ({ preselectedService }: { preselectedService?: string }) 
                         className={`${styles.serviceCard} ${formData.service === service.slug ? styles.selected : ''}`}
                         onClick={() => handleServiceSelection(service.slug)}
                     >
-                        {/* Add an icon here later */}
                         <span>{service.title}</span>
                     </button>
                 ))}
@@ -196,7 +219,6 @@ const CostEstimator = ({ preselectedService }: { preselectedService?: string }) 
             </div>
             <h3 className={styles.finalHeading}>You will receive a free written estimate when we get onsite.</h3>
             <form action={(payload) => formAction(payload)}>
-              {/* Hidden inputs to pass all form data to the server action */}
               {Object.entries(formData).map(([key, value]) => (
                 <input type="hidden" key={key} name={key} value={String(value)} />
               ))}
@@ -234,6 +256,7 @@ const CostEstimator = ({ preselectedService }: { preselectedService?: string }) 
             <div className={styles.thankYouStep}>
                 <h2>Thank You!</h2>
                 <p>{state.message || "Your estimate has been submitted successfully. We will be in touch shortly."}</p>
+                <button onClick={handleStartOver} className={`${styles.button} ${styles.startOver}`}>Start New Estimate</button>
             </div>
         )
       default:

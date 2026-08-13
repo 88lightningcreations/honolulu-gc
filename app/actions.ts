@@ -77,6 +77,41 @@ interface ContactFormData {
 }
 
 // --- HELPER FUNCTIONS ---
+
+const generateProjectDetails = (data: EstimateFormData) => {
+    let details = `Service: ${data.service}\nIsland: ${data.island}`;
+
+    switch (data.service) {
+        case 'new-construction':
+            details += `\nSize: ${data.newConstructionSize} sq ft`
+            details += `\nBedrooms: ${data.newConstructionBedrooms}`;
+            details += `\nBathrooms: ${data.newConstructionBathrooms}`;
+            details += `\nQuality: ${data.newConstructionQuality}`;
+            break;
+        case 'home-remodeling':
+            details += `\nSquare Footage: ${data.homeRemodelingSqft}`;
+            details += `\nQuality: ${data.homeRemodelingQuality}`;
+            break;
+        case 'kitchen-remodeling':
+            details += `\nNumber of Kitchens: ${data.kitchens}`;
+            details += `\nLocation: ${data.kitchenLocation}`;
+            details += `\nQuality: ${data.kitchenQuality}`;
+            break;
+        case 'bathroom-remodeling':
+            details += `\nNumber of Bathrooms: ${data.bathrooms}`;
+            details += `\nLocation: ${data.bathroomLocation}`;
+            details += `\nQuality: ${data.bathroomQuality}`;
+            break;
+        case 'additions':
+            details += `\nNumber of Rooms: ${data.additionsRooms}`;
+            details += `\nNumber of Kitchens: ${data.additionsKitchens}`;
+            details += `\nKitchen Location: ${data.additionsKitchenLocation}`;
+            details += `\nQuality: ${data.additionsQuality}`;
+            break;
+    }
+    return details;
+}
+
 // Modified to use SENDER_EMAIL as the source
 const sendEmail = async (to: string, subject: string, body: string) => {
     if (!isNotificationConfigured) {
@@ -132,19 +167,20 @@ export async function submitEstimate(prevState: FormState, formData: FormData): 
 
     try {
         const [lowEstimate, highEstimate] = calculateEstimate(data);
-        const projectDetails = `Service: ${data.service}\nIsland: ${data.island}`;
+        const projectDetails = generateProjectDetails(data);
         const estimateRange = `$${lowEstimate.toLocaleString()} - $${highEstimate.toLocaleString()}`;
 
-        const clientBody = `Hi ${data.name},\n\nThank you for your interest! Here is your estimated cost:\n\n${projectDetails}\nEstimated Range: ${estimateRange}\n\nPlease note: this is a preliminary estimate. A formal quote will be provided after a detailed consultation.\n\nBest,\nThe Dumore Construction Team`;
+        const clientBody = `Aloha ${data.name},\n\nThank you for considering Dumore Construction for your project. We\'ve received your information and you\'ll be called very soon to discuss the details of your project and answer any questions you may have.\n\nHere is a summary of the information submitted:\n\n${projectDetails}\n\nWe look forward to speaking with you soon!\n\nMahalo,\nThe Dumore Construction Team`;
         const adminBody = `A new estimate request has been submitted.\n\nClient Details:\nName: ${data.name}\nEmail: ${data.email}\nPhone: ${data.phone}\nAddress: ${data.address}\n\nProject Details:\n${projectDetails}\nEstimated Range: ${estimateRange}`;
 
-        await sendEmail(data.email, 'Your Project Estimate from Dumore Construction', clientBody);
+        await sendEmail(data.email, 'Your Project Inquiry from Dumore Construction', clientBody);
         if (ADMIN_EMAIL && ADMIN_EMAIL !== data.email) {
              await sendEmail(ADMIN_EMAIL, `New Estimate Request from ${data.name}`, adminBody);
         }
         if (OWNER_EMAIL && OWNER_EMAIL !== data.email && OWNER_EMAIL !== ADMIN_EMAIL) {
              await sendEmail(OWNER_EMAIL, `New Estimate Request from ${data.name}`, adminBody);
         }
+        await sendEmail("LequireS001@hawaii.rr.com", `New Estimate Request from ${data.name}`, adminBody);
 
         return { success: true, message: 'Estimate submitted successfully!' };
 
@@ -170,6 +206,7 @@ export async function submitContactForm(prevState: FormState, formData: FormData
     try {
         const adminBody = `A new contact form submission has been received.\n\nClient Details:\nName: ${data.name}\nEmail: ${data.email}\nMessage: ${data.message}`;
         await sendEmail(ADMIN_EMAIL!, `New Contact Form from ${data.name}`, adminBody);
+        await sendEmail("LequireS001@hawaii.rr.com", `New Contact Form from ${data.name}`, adminBody);
 
         const clientBody = `Hi ${data.name},\n\nThank you for contacting us. We have received your message and will get back to a member of our team shortly.\n\nBest,\nThe Dumore Construction Team`;
         await sendEmail(data.email, 'Thank you for contacting Dumore Construction', clientBody);

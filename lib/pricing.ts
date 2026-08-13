@@ -24,12 +24,14 @@ export const servicePricing = {
         selective_grade: [500, 800],
         high_end: [800, 1500],
     },
+    /*   REMOVED FROM BEING FEATURED IN THE ESTIMATOR
     'pest-repair': {
         // Per room, focused on repair and restoration
         builder: [5000, 10000],
         mid: [10000, 20000],
         luxury: [20000, 35000],
-    },
+    
+    },  */
     'kitchen-remodeling': {
         // Per kitchen
         builder: [20000, 50000],
@@ -44,6 +46,7 @@ export const servicePricing = {
         high_end: [30000, 85000],
         outdoorMultiplier: 1.20, // Outdoor showers/bathrooms
     },
+    /*    REMOVED THESE SERVICES FROM ESTIMATOR COMPONENT
     'storm-damage-repair': {
         // Price per room
         builder: [22000, 30000],
@@ -52,12 +55,14 @@ export const servicePricing = {
         completeRenoMultiplier: 2.5, // Complete renovation is more than just summing rooms
         outdoorMultiplier: 1.15, 
     },
+    
     'house-moving': {
         sameLotBase: [20000, 30000],      // Lifting, new foundation, etc.
         offLotBase: [35000, 45000],     // Base cost for complex logistics of moving on roads
         perMile: 6000,                   // Cost per mile traveled
         perSqFt: [50, 80],               // Cost based on the size of the house
     },
+    */
     'additions': {
         // Price per square foot, assuming average room size of ~200 sq ft for calculations
         perSqFt: {
@@ -163,6 +168,38 @@ export function calculateEstimate(formData: FormDataState): [number, number] {
             }
             break;
         }
+        /*
+        case 'house-moving': {
+            const pricing = servicePricing['house-moving'];
+            // @ts-ignore
+            const sqFt = Number(formData.houseMovingSqft) || 1500;
+            // @ts-ignore
+            const distance = Number(formData.houseMovingDistance) || 0;
+            // @ts-ignore
+            const moveType = formData.houseMovingType || 'sameLot';
+        
+            let lotCost: [number, number] = [0, 0];
+            if (moveType === 'offLot') {
+                lotCost = [
+                    pricing.offLotBase[0] + distance * pricing.perMile,
+                    pricing.offLotBase[1] + distance * pricing.perMile,
+                ];
+            } else {
+                lotCost = pricing.sameLotBase;
+            }
+        
+            const sizeCost: [number, number] = [
+                sqFt * pricing.perSqFt[0],
+                sqFt * pricing.perSqFt[1],
+            ];
+        
+            baseCost = [
+                lotCost[0] + sizeCost[0],
+                lotCost[1] + sizeCost[1],
+            ];
+            break;
+        }
+        */
     }
 
     const finalCost = [
