@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState, useEffect, useReducer } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from './CostEstimator.module.css';
 import { services } from '../lib/services';
 import { calculateEstimate, islands } from '../lib/pricing';
@@ -49,25 +49,6 @@ function SubmitButton() {
     );
 }
 
-type Action =
-  | { type: 'SET_FIELD'; field: keyof FormDataState; value: any }
-  | { type: 'RESET_FORM'; payload: FormDataState };
-
-const formReducer = (state: FormDataState, action: Action): FormDataState => {
-  switch (action.type) {
-    case 'SET_FIELD':
-      console.log(`Reducer: Setting ${action.field} to`, action.value);
-      return {
-        ...state,
-        [action.field]: action.value,
-      };
-    case 'RESET_FORM':
-      return action.payload;
-    default:
-      return state;
-  }
-};
-
 const CostEstimator = ({ preselectedService }: { preselectedService?: string }) => {
   const [step, setStep] = useState(1);
 
@@ -96,14 +77,10 @@ const CostEstimator = ({ preselectedService }: { preselectedService?: string }) 
     address: '',
   };
 
-  const [formData, dispatch] = useReducer(formReducer, initialFormData);
+  const [formData, setFormData] = useState<FormDataState>(initialFormData);
   const [errors, setErrors] = useState<FormErrors>({});
   const [estimate, setEstimate] = useState<[number, number]>([0, 0]);
   const [state, formAction] = useFormState(submitEstimate, serverActionInitialState);
-
-  useEffect(() => {
-    console.log('formData state updated:', JSON.stringify(formData));
-  }, [formData]);
 
   useEffect(() => {
     if (state.success) {
@@ -125,25 +102,25 @@ const CostEstimator = ({ preselectedService }: { preselectedService?: string }) 
 
   const handleStartOver = () => {
     setStep(1);
-    dispatch({ type: 'RESET_FORM', payload: initialFormData });
+    setFormData(initialFormData);
     setErrors({});
     setEstimate([0, 0]);
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
-    dispatch({ type: 'SET_FIELD', field: e.target.name as keyof FormDataState, value: e.target.value });
+    setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
   const handleServiceSelection = (service: string) => {
-    dispatch({ type: 'SET_FIELD', field: 'service', value: service });
+    setFormData(prev => ({ ...prev, service }));
   };
 
-  const handleQualitySelection = (service: keyof FormDataState, quality: string) => {
-    dispatch({ type: 'SET_FIELD', field: service, value: quality });
+  const handleQualitySelection = (field: keyof FormDataState, quality: string) => {
+    setFormData(prev => ({ ...prev, [field]: quality }));
   }
 
-  const handleLocationSelection = (service: keyof FormDataState, location: string) => {
-    dispatch({ type: 'SET_FIELD', field: service, value: location });
+  const handleLocationSelection = (field: keyof FormDataState, location: string) => {
+    setFormData(prev => ({ ...prev, [field]: location }));
   }
 
   const validateStep = () => {
@@ -216,6 +193,7 @@ const CostEstimator = ({ preselectedService }: { preselectedService?: string }) 
               <h3>Project Summary</h3>
               <p><strong>Service:</strong> {services.find(s => s.slug === formData.service)?.title}</p>
               <p><strong>Island:</strong> {formData.island}</p>
+              <p><strong>Estimated Cost:</strong> ${estimate[0].toLocaleString()} - ${estimate[1].toLocaleString()}</p>
             </div>
             <h3 className={styles.finalHeading}>You will receive a free written estimate when we get onsite.</h3>
             <form action={(payload) => formAction(payload)}>
@@ -267,8 +245,8 @@ const CostEstimator = ({ preselectedService }: { preselectedService?: string }) 
   const renderServiceFields = () => {
     const qualityOptions = [
         { id: 'builder', label: 'Builder', description: 'Standard, cost-effective finishes.' },
-        { id: 'selective-grade', label: 'Selective-Grade', description: 'Upgraded materials and design.' },
-        { id: 'high-end', label: 'High-End', description: 'High-end, custom, and premium features.' },
+        { id: 'selective_grade', label: 'Selective-Grade', description: 'Upgraded materials and design.' },
+        { id: 'high_end', label: 'High-End', description: 'High-end, custom, and premium features.' },
     ];
 
     const locationOptions = [

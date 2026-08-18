@@ -126,7 +126,7 @@
 .serviceCard.selected {
   border-color: #0070f3;
   background-color: #f0f8ff;
-  color: #0070f3;
+  color: #005bb5;
   box-shadow: 0 0 0 3px rgba(0, 112, 243, 0.2);
 }
 
@@ -155,7 +155,7 @@
 .qualityCard.selected {
     border-color: #0070f3;
     background-color: #f0f8ff;
-    color: #0070f3;
+    color: #005bb5;
     box-shadow: 0 0 0 3px rgba(0, 112, 243, 0.2);
 }
 
@@ -198,7 +198,7 @@
 .locationCard.selected {
   border-color: #0070f3;
   background-color: #f0f8ff;
-  color: #0070f3;
+  color: #005bb5;
   box-shadow: 0 0 0 3px rgba(0, 112, 243, 0.2);
 }
 

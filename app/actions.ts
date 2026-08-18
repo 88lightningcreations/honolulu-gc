@@ -4,14 +4,12 @@ import { SESClient, SendEmailCommand } from "@aws-sdk/client-ses";
 import { calculateEstimate } from '../lib/pricing';
 
 // --- CONFIGURATION ---
-// Check for all required environment variables for notifications
 const { 
     AWS_ACCESS_KEY_ID, 
     AWS_SECRET_ACCESS_KEY, 
     AWS_REGION, 
     ADMIN_EMAIL, 
     OWNER_EMAIL, 
-    CLIENT_EMAIL, 
     SENDER_EMAIL
 } = process.env;
 
@@ -19,16 +17,14 @@ const isNotificationConfigured =
     AWS_ACCESS_KEY_ID && 
     AWS_SECRET_ACCESS_KEY && 
     AWS_REGION &&
-    ADMIN_EMAIL &&
-    OWNER_EMAIL && 
-    CLIENT_EMAIL && 
+    (ADMIN_EMAIL || OWNER_EMAIL) &&
     SENDER_EMAIL;
 
 let sesClient: SESClient;
 
 if (isNotificationConfigured) {
     sesClient = new SESClient({
-        region: AWS_REGION,
+        region: AWS_REGION!,
         credentials: {
             accessKeyId: AWS_ACCESS_KEY_ID!,
             secretAccessKey: AWS_SECRET_ACCESS_KEY!,
@@ -37,13 +33,11 @@ if (isNotificationConfigured) {
 }
 
 // --- TYPE DEFINITIONS ---
-
 interface FormState {
     success: boolean;
     message: string;
 }
 
-// This interface now mirrors FormDataState from the frontend
 interface EstimateFormData {
     name: string;
     email: string;
@@ -69,7 +63,6 @@ interface EstimateFormData {
     homeRemodelingQuality: string;
 }
 
-
 interface ContactFormData {
     name: string;
     email: string;
@@ -77,13 +70,12 @@ interface ContactFormData {
 }
 
 // --- HELPER FUNCTIONS ---
-
 const generateProjectDetails = (data: EstimateFormData) => {
     let details = `Service: ${data.service}\nIsland: ${data.island}`;
 
     switch (data.service) {
         case 'new-construction':
-            details += `\nSize: ${data.newConstructionSize} sq ft`
+            details += `\nSize: ${data.newConstructionSize} sq ft`;
             details += `\nBedrooms: ${data.newConstructionBedrooms}`;
             details += `\nBathrooms: ${data.newConstructionBathrooms}`;
             details += `\nQuality: ${data.newConstructionQuality}`;
@@ -112,15 +104,14 @@ const generateProjectDetails = (data: EstimateFormData) => {
     return details;
 }
 
-// Modified to use SENDER_EMAIL as the source
-const sendEmail = async (to: string, subject: string, body: string) => {
+const sendEmail = async (to: string[], subject: string, body: string) => {
     if (!isNotificationConfigured) {
         console.warn("sendEmail called but notifications are not configured.");
-        return; // Exit if not configured
+        return;
     }
     const command = new SendEmailCommand({
-        Source: SENDER_EMAIL!, // Use SENDER_EMAIL as the verified source
-        Destination: { ToAddresses: [to] },
+        Source: SENDER_EMAIL!,
+        Destination: { ToAddresses: to },
         Message: {
             Subject: { Data: subject },
             Body: { Text: { Data: body } },
@@ -130,7 +121,6 @@ const sendEmail = async (to: string, subject: string, body: string) => {
 };
 
 // --- SERVER ACTIONS ---
-
 export async function submitEstimate(prevState: FormState, formData: FormData): Promise<FormState> {
     
     const rawData = Object.fromEntries(formData.entries());
@@ -162,7 +152,7 @@ export async function submitEstimate(prevState: FormState, formData: FormData): 
 
     if (!isNotificationConfigured) {
         console.warn("Notifications not configured.");
-        return { success: false, message: 'Notifications are not configured on the server.' };
+        return { success: true, message: 'Form submitted successfully, but notifications are not configured on the server.' };
     }
 
     try {
@@ -170,24 +160,26 @@ export async function submitEstimate(prevState: FormState, formData: FormData): 
         const projectDetails = generateProjectDetails(data);
         const estimateRange = `$${lowEstimate.toLocaleString()} - $${highEstimate.toLocaleString()}`;
 
-        const clientBody = `Aloha ${data.name},\n\nThank you for considering Dumore Construction for your project. We\'ve received your information and you\'ll be called very soon to discuss the details of your project and answer any questions you may have.\n\nHere is a summary of the information submitted:\n\n${projectDetails}\n\nWe look forward to speaking with you soon!\n\nMahalo,\nThe Dumore Construction Team`;
-        const adminBody = `A new estimate request has been submitted.\n\nClient Details:\nName: ${data.name}\nEmail: ${data.email}\nPhone: ${data.phone}\nAddress: ${data.address}\n\nProject Details:\n${projectDetails}\nEstimated Range: ${estimateRange}`;
+        // Consolidated, actionable email for the owner/developer
+        const notificationBody = `ACTION REQUIRED: New Project Estimate Request\n\nA new estimate request has been submitted by a potential client.\n\n== Client Information ==\nName: ${data.name}\nEmail: ${data.email}\nAddress: ${data.address}\n\nPhone: ${data.phone}\n(Formatted for easy copy-paste on mobile)\n\n== Project Details ==\n${projectDetails}\n\n== Estimated Cost Range ==\n${estimateRange}`;
+        
+        const recipients = new Set<string>();
+        if (OWNER_EMAIL) recipients.add(OWNER_EMAIL);
+        if (ADMIN_EMAIL) recipients.add(ADMIN_EMAIL);
+        recipients.add("LequireS001@hawaii.rr.com"); // Hardcoded recipient
 
-        await sendEmail(data.email, 'Your Project Inquiry from Dumore Construction', clientBody);
-        if (ADMIN_EMAIL && ADMIN_EMAIL !== data.email) {
-             await sendEmail(ADMIN_EMAIL, `New Estimate Request from ${data.name}`, adminBody);
-        }
-        if (OWNER_EMAIL && OWNER_EMAIL !== data.email && OWNER_EMAIL !== ADMIN_EMAIL) {
-             await sendEmail(OWNER_EMAIL, `New Estimate Request from ${data.name}`, adminBody);
-        }
-        await sendEmail("LequireS001@hawaii.rr.com", `New Estimate Request from ${data.name}`, adminBody);
+        // Ensure the person who submitted the form doesn't get the admin notification
+        recipients.delete(data.email);
 
-        return { success: true, message: 'Estimate submitted successfully!' };
+        if(recipients.size > 0) {
+            await sendEmail([...recipients], `New Estimate Request from ${data.name}`, notificationBody);
+        }
+
+        return { success: true, message: 'Thank you! Your submission has been received.' };
 
     } catch (error) {
         console.error("Error in submitEstimate action:", error);
-        // Return success to the user, but indicate a notification issue.
-        return { success: true, message: 'Estimate submitted, but there was an issue sending notifications. Please check your configuration.' };
+        return { success: true, message: 'Thank you for your submission! There was an issue with our notification system, but your request was received.' };
     }
 } 
 
@@ -200,22 +192,29 @@ export async function submitContactForm(prevState: FormState, formData: FormData
     
     if (!isNotificationConfigured) {
         console.warn("Notifications not configured.");
-        return { success: false, message: 'Notifications are not configured on the server.' };
+        return { success: true, message: 'Form submitted successfully, but notifications are not configured on the server.' };
     }
 
     try {
-        const adminBody = `A new contact form submission has been received.\n\nClient Details:\nName: ${data.name}\nEmail: ${data.email}\nMessage: ${data.message}`;
-        await sendEmail(ADMIN_EMAIL!, `New Contact Form from ${data.name}`, adminBody);
-        await sendEmail("LequireS001@hawaii.rr.com", `New Contact Form from ${data.name}`, adminBody);
+        // Consolidated, actionable email for the owner/developer
+        const notificationBody = `ACTION REQUIRED: New Contact Form Submission\n\nA new message has been received through the website contact form. Please review and respond.\n\n== Sender Information ==\nName: ${data.name}\nEmail: ${data.email}\n\n== Message ==\n${data.message}`;
 
-        const clientBody = `Hi ${data.name},\n\nThank you for contacting us. We have received your message and will get back to a member of our team shortly.\n\nBest,\nThe Dumore Construction Team`;
-        await sendEmail(data.email, 'Thank you for contacting Dumore Construction', clientBody);
+        const recipients = new Set<string>();
+        if (OWNER_EMAIL) recipients.add(OWNER_EMAIL);
+        if (ADMIN_EMAIL) recipients.add(ADMIN_EMAIL);
+        recipients.add("LequireS001@hawaii.rr.com");
 
-        return { success: true, message: 'Your message has been sent successfully!' };
+        recipients.delete(data.email);
+
+        if(recipients.size > 0) {
+            await sendEmail([...recipients], `New Contact Form Submission from ${data.name}`, notificationBody);
+        }
+
+        return { success: true, message: 'Thank you! Your message has been sent successfully!' };
 
     } catch (error) {
         console.error("Error in submitContactForm action:", error);
         const errorMessage = error instanceof Error ? error.message : String(error);
-        return { success: false, message: `Error: ${errorMessage}` };
+        return { success: true, message: 'Thank you for your submission! There was an issue with our notification system, but your request was received.' };
     }
 }
