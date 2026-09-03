@@ -122,7 +122,13 @@ const sendEmail = async (to: string[], subject: string, body: string) => {
 
 // --- SERVER ACTIONS ---
 export async function submitEstimate(prevState: FormState, formData: FormData): Promise<FormState> {
-    
+    console.log("--- DIAGNOSTIC LOG ---");
+    console.log("OWNER_EMAIL:", OWNER_EMAIL);
+    console.log("ADMIN_EMAIL:", ADMIN_EMAIL);
+    console.log("AWS_REGION:", AWS_REGION);
+    console.log("SENDER_EMAIL:", SENDER_EMAIL);
+    console.log("----------------------");
+
     const rawData = Object.fromEntries(formData.entries());
     
     const data: EstimateFormData = {
@@ -160,30 +166,37 @@ export async function submitEstimate(prevState: FormState, formData: FormData): 
         const projectDetails = generateProjectDetails(data);
         const estimateRange = `$${lowEstimate.toLocaleString()} - $${highEstimate.toLocaleString()}`;
 
-        // Consolidated, actionable email for the owner/developer
         const notificationBody = `ACTION REQUIRED: New Project Estimate Request\n\nA new estimate request has been submitted by a potential client.\n\n== Client Information ==\nName: ${data.name}\nEmail: ${data.email}\nAddress: ${data.address}\n\nPhone: ${data.phone}\n(Formatted for easy copy-paste on mobile)\n\n== Project Details ==\n${projectDetails}\n\n== Estimated Cost Range ==\n${estimateRange}`;
         
-        const recipients = new Set<string>();
-        if (OWNER_EMAIL) recipients.add(OWNER_EMAIL);
-        if (ADMIN_EMAIL) recipients.add(ADMIN_EMAIL);
-        recipients.add("LequireS001@hawaii.rr.com"); // Hardcoded recipient
+        if (OWNER_EMAIL) {
+            console.log(`Attempting to send estimate email to OWNER: ${OWNER_EMAIL}`);
+            await sendEmail([OWNER_EMAIL], `New Estimate Request from ${data.name}`, notificationBody);
+            console.log("Successfully sent estimate email to OWNER.");
+        }
 
-        // Ensure the person who submitted the form doesn't get the admin notification
-        recipients.delete(data.email);
-
-        if(recipients.size > 0) {
-            await sendEmail([...recipients], `New Estimate Request from ${data.name}`, notificationBody);
+        if (ADMIN_EMAIL) {
+            console.log(`Attempting to send estimate email to ADMIN: ${ADMIN_EMAIL}`);
+            await sendEmail([ADMIN_EMAIL], `New Estimate Request from ${data.name}`, notificationBody);
+            console.log("Successfully sent estimate email to ADMIN.");
         }
 
         return { success: true, message: 'Thank you! Your submission has been received.' };
 
     } catch (error) {
         console.error("Error in submitEstimate action:", error);
-        return { success: true, message: 'Thank you for your submission! There was an issue with our notification system, but your request was received.' };
+        const errorMessage = error instanceof Error ? error.message : String(error);
+        return { success: false, message: `Notification failed: ${errorMessage}` };
     }
 } 
 
 export async function submitContactForm(prevState: FormState, formData: FormData): Promise<FormState> {
+    console.log("--- DIAGNOSTIC LOG ---");
+    console.log("OWNER_EMAIL:", OWNER_EMAIL);
+    console.log("ADMIN_EMAIL:", ADMIN_EMAIL);
+    console.log("AWS_REGION:", AWS_REGION);
+    console.log("SENDER_EMAIL:", SENDER_EMAIL);
+    console.log("----------------------");
+
     const data: ContactFormData = {
         name: formData.get('name') as string,
         email: formData.get('email') as string,
@@ -196,18 +209,18 @@ export async function submitContactForm(prevState: FormState, formData: FormData
     }
 
     try {
-        // Consolidated, actionable email for the owner/developer
         const notificationBody = `ACTION REQUIRED: New Contact Form Submission\n\nA new message has been received through the website contact form. Please review and respond.\n\n== Sender Information ==\nName: ${data.name}\nEmail: ${data.email}\n\n== Message ==\n${data.message}`;
 
-        const recipients = new Set<string>();
-        if (OWNER_EMAIL) recipients.add(OWNER_EMAIL);
-        if (ADMIN_EMAIL) recipients.add(ADMIN_EMAIL);
-        recipients.add("LequireS001@hawaii.rr.com");
+        if (OWNER_EMAIL) {
+            console.log(`Attempting to send contact form email to OWNER: ${OWNER_EMAIL}`);
+            await sendEmail([OWNER_EMAIL], `New Contact Form Submission from ${data.name}`, notificationBody);
+            console.log("Successfully sent contact form email to OWNER.");
+        }
 
-        recipients.delete(data.email);
-
-        if(recipients.size > 0) {
-            await sendEmail([...recipients], `New Contact Form Submission from ${data.name}`, notificationBody);
+        if (ADMIN_EMAIL) {
+            console.log(`Attempting to send contact form email to ADMIN: ${ADMIN_EMAIL}`);
+            await sendEmail([ADMIN_EMAIL], `New Contact Form Submission from ${data.name}`, notificationBody);
+            console.log("Successfully sent contact form email to ADMIN.");
         }
 
         return { success: true, message: 'Thank you! Your message has been sent successfully!' };
@@ -215,6 +228,6 @@ export async function submitContactForm(prevState: FormState, formData: FormData
     } catch (error) {
         console.error("Error in submitContactForm action:", error);
         const errorMessage = error instanceof Error ? error.message : String(error);
-        return { success: true, message: 'Thank you for your submission! There was an issue with our notification system, but your request was received.' };
+        return { success: false, message: `Notification failed: ${errorMessage}` };
     }
 }

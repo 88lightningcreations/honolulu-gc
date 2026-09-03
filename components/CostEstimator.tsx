@@ -52,7 +52,7 @@ function SubmitButton() {
 const CostEstimator = ({ preselectedService }: { preselectedService?: string }) => {
   const [step, setStep] = useState(1);
 
-  const initialFormData: FormDataState = {
+  const getInitialFormData = (): FormDataState => ({
     service: preselectedService || '',
     island: '',
     kitchens: 1,
@@ -75,9 +75,9 @@ const CostEstimator = ({ preselectedService }: { preselectedService?: string }) 
     email: '',
     phone: '',
     address: '',
-  };
+  });
 
-  const [formData, setFormData] = useState<FormDataState>(initialFormData);
+  const [formData, setFormData] = useState<FormDataState>(getInitialFormData());
   const [errors, setErrors] = useState<FormErrors>({});
   const [estimate, setEstimate] = useState<[number, number]>([0, 0]);
   const [state, formAction] = useFormState(submitEstimate, serverActionInitialState);
@@ -102,7 +102,7 @@ const CostEstimator = ({ preselectedService }: { preselectedService?: string }) 
 
   const handleStartOver = () => {
     setStep(1);
-    setFormData(initialFormData);
+    setFormData(getInitialFormData());
     setErrors({});
     setEstimate([0, 0]);
   };
