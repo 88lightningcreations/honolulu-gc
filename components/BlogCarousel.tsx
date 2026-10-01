@@ -130,6 +130,7 @@ const BlogCarousel = () => {
                         src={post.image}
                         alt={post.title}
                         fill
+                        sizes="(max-width: 768px) 100vw, 430px"
                         style={{ objectFit: 'cover' }}
                         />
                     </div>
