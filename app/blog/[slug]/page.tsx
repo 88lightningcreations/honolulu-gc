@@ -72,7 +72,7 @@ export default async function BlogPostPage({ params }: Props) {
         <div className={styles.container}>
             {faqs.length > 0 && <JsonLdFaq faqs={faqs} />}
             <article className={styles.blogPost}>
-                {post.image && faqs.length === 0 && (
+                {post.image && (
                     <div className={styles.imageContainer}>
                         <Image 
                             src={post.image} 
@@ -94,7 +94,6 @@ export default async function BlogPostPage({ params }: Props) {
             
             {faqs.length > 0 && (
                 <div className={styles.faqContainer}>
-                    <h2 className={styles.faqTitle}>Frequently Asked Questions</h2>
                     <InteractiveFAQ faqs={faqs} />
                 </div>
             )}
