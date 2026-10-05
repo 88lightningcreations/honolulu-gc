@@ -23,6 +23,7 @@
 
   /* Universal Accent */
   --accent-gold: #D4AF37;
+  --accent-link: #B8860B;
   
   /* Refined Glassmorphism Effect */
   --glass-blur: backdrop-filter: blur(12px);
