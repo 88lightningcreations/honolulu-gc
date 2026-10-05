@@ -1,16 +1,24 @@
 
 import React from 'react';
-import styles from '../ServicePage.module.css';
+import styles from '../page.module.css';
+import InteractiveFAQ from '@/components/InteractiveFAQ';
+import JsonLdFaq from '@/components/JsonLdFaq';
+
+const faqs = [
+  { question: "What is the return on investment for a home remodel?", answer: "The ROI for a home remodel can vary, but kitchen and bathroom remodels typically offer the highest returns." },
+  { question: "How can I ensure my remodel stays on budget?", answer: "Clear planning, a detailed contract, and setting aside a contingency fund of 10-15% are the best ways to stay on budget." }
+];
 
 const HomeRemodelingPage = () => {
   return (
-    <div className={styles.container}>
-      <header className={styles.header}>
-        <h1>Home Remodeling in Hawaii</h1>
-        <p>Transforming Your Space to Fit Your Lifestyle</p>
+    <div className={styles.servicePageContainer}>
+      <JsonLdFaq faqs={faqs} />
+      <header>
+        <h1 className={styles.servicePageTitle}>Home Remodeling in Hawaii</h1>
+        <p className={styles.servicePageDescription}>Transforming Your Space to Fit Your Lifestyle</p>
       </header>
 
-      <article className={styles.article}>
+      <article className={styles.servicePageContent}>
         <section>
           <h2>Reimagine Your Home</h2>
           <p>
@@ -48,6 +56,11 @@ const HomeRemodelingPage = () => {
           </p>
         </section>
       </article>
+
+      <div className={styles.faqContainer}>
+        <h2 className={styles.faqTitle}>Frequently Asked Questions</h2>
+        <InteractiveFAQ faqs={faqs} />
+      </div>
     </div>
   );
 };

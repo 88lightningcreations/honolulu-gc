@@ -1,16 +1,30 @@
 
 import React from 'react';
-import styles from '../ServicePage.module.css';
+import styles from '../page.module.css';
+import InteractiveFAQ from '@/components/InteractiveFAQ';
+import JsonLdFaq from '@/components/JsonLdFaq';
+
+const faqs = [
+  {
+    "question": "What should I do immediately after a storm damages my home?",
+    "answer": "First, ensure your family is safe. Then, if possible, take photos of the damage for your insurance claim and call a professional for emergency board-up and tarping services."
+  },
+  {
+    "question": "Will my homeowner's insurance cover storm damage?",
+    "answer": "In most cases, yes. However, coverage can vary depending on your policy and the type of storm. It's important to review your policy and contact your insurance agent as soon as possible."
+  }
+];
 
 const StormDamageRepairPage = () => {
   return (
-    <div className={styles.container}>
-      <header className={styles.header}>
-        <h1>Storm Damage Repair in Hawaii</h1>
-        <p>Restoring Your Home After the Storm</p>
+    <div className={styles.servicePageContainer}>
+      <JsonLdFaq faqs={faqs} />
+      <header>
+        <h1 className={styles.servicePageTitle}>Storm Damage Repair in Hawaii</h1>
+        <p className={styles.servicePageDescription}>Restoring Your Home After the Storm</p>
       </header>
 
-      <article className={styles.article}>
+      <article className={styles.servicePageContent}>
         <section>
           <h2>When the Unthinkable Happens, We&apos;re Here to Help</h2>
           <p>
@@ -48,6 +62,11 @@ const StormDamageRepairPage = () => {
           </p>
         </section>
       </article>
+
+      <div className={styles.faqContainer}>
+        <h2 className={styles.faqTitle}>Frequently Asked Questions</h2>
+        <InteractiveFAQ faqs={faqs} />
+      </div>
     </div>
   );
 };

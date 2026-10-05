@@ -1,16 +1,30 @@
 
 import React from 'react';
-import styles from '../ServicePage.module.css';
+import styles from '../page.module.css';
+import InteractiveFAQ from '@/components/InteractiveFAQ';
+import JsonLdFaq from '@/components/JsonLdFaq';
+
+const faqs = [
+  {
+    "question": "Is it possible to live in the house while it's being moved?",
+    "answer": "For safety reasons, it is not possible to occupy the house during the move. You will need to arrange for temporary accommodation."
+  },
+  {
+    "question": "How much does it cost to move a house in Hawaii?",
+    "answer": "The cost of moving a house is highly variable and depends on the size and weight of the house, the distance of the move, and the complexity of the route. A starting estimate would be in the tens of thousands of dollars."
+  }
+];
 
 const HouseMovingPage = () => {
   return (
-    <div className={styles.container}>
-      <header className={styles.header}>
-        <h1>House Moving Services in Hawaii</h1>
-        <p>Relocating Your Home with Precision and Care</p>
+    <div className={styles.servicePageContainer}>
+      <JsonLdFaq faqs={faqs} />
+      <header>
+        <h1 className={styles.servicePageTitle}>House Moving Services in Hawaii</h1>
+        <p className={styles.servicePageDescription}>Relocating Your Home with Precision and Care</p>
       </header>
 
-      <article className={styles.article}>
+      <article className={styles.servicePageContent}>
         <section>
           <h2>A Unique Solution for a Unique Situation</h2>
           <p>
@@ -48,6 +62,11 @@ const HouseMovingPage = () => {
           </p>
         </section>
       </article>
+
+      <div className={styles.faqContainer}>
+        <h2 className={styles.faqTitle}>Frequently Asked Questions</h2>
+        <InteractiveFAQ faqs={faqs} />
+      </div>
     </div>
   );
 };

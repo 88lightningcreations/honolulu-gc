@@ -1,16 +1,24 @@
 
 import React from 'react';
-import styles from '../ServicePage.module.css';
+import styles from '../page.module.css';
+import InteractiveFAQ from '@/components/InteractiveFAQ';
+import JsonLdFaq from '@/components/JsonLdFaq';
+
+const faqs = [
+  { question: "What are the most common signs of termite damage?", answer: "Some common signs include mud tubes on exterior walls, hollow-sounding wood, and swarms of termites." },
+  { question: "Does homeowner's insurance cover pest damage?", answer: "Typically, homeowner's insurance does not cover pest damage, as it is considered a preventable issue." }
+];
 
 const PestRepairPage = () => {
   return (
-    <div className={styles.container}>
-      <header className={styles.header}>
-        <h1>Pest Damage Repair in Hawaii</h1>
-        <p>Protecting Your Home from Unwanted Intruders</p>
+    <div className={styles.servicePageContainer}>
+      <JsonLdFaq faqs={faqs} />
+      <header>
+        <h1 className={styles.servicePageTitle}>Pest Damage Repair in Hawaii</h1>
+        <p className={styles.servicePageDescription}>Protecting Your Home from Unwanted Intruders</p>
       </header>
 
-      <article className={styles.article}>
+      <article className={styles.servicePageContent}>
         <section>
           <h2>The Hidden Threat of Pests in Paradise</h2>
           <p>
@@ -48,6 +56,11 @@ const PestRepairPage = () => {
           </p>
         </section>
       </article>
+
+      <div className={styles.faqContainer}>
+        <h2 className={styles.faqTitle}>Frequently Asked Questions</h2>
+        <InteractiveFAQ faqs={faqs} />
+      </div>
     </div>
   );
 };
