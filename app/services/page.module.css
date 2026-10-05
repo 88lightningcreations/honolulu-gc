@@ -1,3 +1,4 @@
+/* Styles for the main services grid page */
 .pageContainer {
   background-color: var(--background-dark-blue);
   min-height: 100vh;
@@ -58,4 +59,48 @@
 
 .serviceDescription {
   color: var(--text-gray);
+}
+
+/* Styles for individual service pages, merged from ServicePage.module.css */
+.servicePageContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+}
+
+.imageContainer {
+  width: 100%;
+  max-width: 800px;
+  height: 400px;
+  position: relative;
+  margin-bottom: 2rem;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.servicePageContent {
+  max-width: 800px;
+}
+
+.servicePageTitle {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.servicePageDescription {
+  font-size: 1.2rem;
+  line-height: 1.6;
+}
+
+.faqContainer {
+  width: 100%;
+  max-width: 800px;
+  margin-top: 2rem;
+}
+
+.faqTitle {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  text-align: center;
 }

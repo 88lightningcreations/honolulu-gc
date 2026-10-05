@@ -12,9 +12,9 @@ const StormDamageRepairPage = () => {
 
       <article className={styles.article}>
         <section>
-          <h2>When the Unthinkable Happens, We're Here to Help</h2>
+          <h2>When the Unthinkable Happens, We&apos;re Here to Help</h2>
           <p>
-            Hawaii's beautiful weather can sometimes turn severe, with tropical storms and hurricanes causing significant damage to homes. When your home is damaged by a storm, it can be a stressful and overwhelming experience. At Dumore Construction and Remodeling, we provide fast, reliable storm damage repair services to help you get your life back to normal as quickly as possible.
+            Hawaii&apos;s beautiful weather can sometimes turn severe, with tropical storms and hurricanes causing significant damage to homes. When your home is damaged by a storm, it can be a stressful and overwhelming experience. At Dumore Construction and Remodeling, we provide fast, reliable storm damage repair services to help you get your life back to normal as quickly as possible.
           </p>
         </section>
 

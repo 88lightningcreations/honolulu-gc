@@ -14,7 +14,7 @@ const PestRepairPage = () => {
         <section>
           <h2>The Hidden Threat of Pests in Paradise</h2>
           <p>
-            Hawaii's tropical climate, while a paradise for us, is also a breeding ground for a wide variety of pests. From termites and rodents to roaches and ants, these unwelcome guests can cause significant damage to your home, often unseen until it's too late. At Dumore Construction and Remodeling, we specialize in repairing the damage caused by these pests, restoring the safety and integrity of your home.
+            Hawaii&apos;s tropical climate, while a paradise for us, is also a breeding ground for a wide variety of pests. From termites and rodents to roaches and ants, these unwelcome guests can cause significant damage to your home, often unseen until it&apos;s too late. At Dumore Construction and Remodeling, we specialize in repairing the damage caused by these pests, restoring the safety and integrity of your home.
           </p>
         </section>
 

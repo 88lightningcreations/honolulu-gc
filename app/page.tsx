@@ -9,6 +9,7 @@ import InteractiveReviews from "../components/InteractiveReviews";
 import OurServices from "../components/OurServices";
 import NowHiring from "./homepage/NowHiring";
 import BusinessForSale from "../components/BusinessForSale";
+import { faqs } from '@/app/lib/homepage-faqs';
 
 export default function Home() {
   return (
@@ -20,7 +21,7 @@ export default function Home() {
       <AnimatedWhyChooseUs />
       <InteractiveReviews />
       <BlogCarousel />
-      <InteractiveFAQ />
+      <InteractiveFAQ faqs={faqs} />
       <BusinessForSale />
       <CallToAction />
     </>

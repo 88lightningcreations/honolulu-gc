@@ -1,16 +1,24 @@
 
 import React from 'react';
-import styles from '../ServicePage.module.css';
+import styles from '../page.module.css';
+import InteractiveFAQ from '@/components/InteractiveFAQ';
+import JsonLdFaq from '@/components/JsonLdFaq';
+
+const faqs = [
+  { question: "What are the most popular features in a bathroom remodel?", answer: "The most popular features are large, walk-in showers, freestanding tubs, and double vanities." },
+  { question: "How much does a bathroom remodel cost?", answer: "The cost of a bathroom remodel can vary widely, but a good starting estimate for a complete remodel is between $10,000 and $25,000." }
+];
 
 const BathroomRemodelingPage = () => {
   return (
-    <div className={styles.container}>
-      <header className={styles.header}>
-        <h1>Bathroom Remodeling in Hawaii</h1>
-        <p>Your Personal Spa-Like Retreat</p>
+    <div className={styles.servicePageContainer}>
+      <JsonLdFaq faqs={faqs} />
+      <header>
+        <h1 className={styles.servicePageTitle}>Bathroom Remodeling in Hawaii</h1>
+        <p className={styles.servicePageDescription}>Your Personal Spa-Like Retreat</p>
       </header>
 
-      <article className={styles.article}>
+      <article className={styles.servicePageContent}>
         <section>
           <h2>Transform Your Bathroom into an Oasis</h2>
           <p>
@@ -37,17 +45,22 @@ const BathroomRemodelingPage = () => {
         <section>
           <h2>A Stress-Free Remodeling Experience</h2>
           <p>
-            We understand that a bathroom remodel can be a major undertaking. That's why we are committed to providing a stress-free experience from start to finish. Our team of experienced professionals will handle every aspect of the project, from the initial design to the final installation, ensuring a smooth and efficient process.
+            We understand that a bathroom remodel can be a major undertaking. That&apos;s why we are committed to providing a stress-free experience from start to finish. Our team of experienced professionals will handle every aspect of the project, from the initial design to the final installation, ensuring a smooth and efficient process.
           </p>
         </section>
 
         <section>
           <h2>Your Dream Bathroom Awaits</h2>
           <p>
-            If you're ready to transform your bathroom into the spa-like retreat you've always dreamed of, contact us today. Our team is ready to help you create a space that you will love for years to come.
+            If you&apos;re ready to transform your bathroom into the spa-like retreat you&apos;ve always dreamed of, contact us today. Our team is ready to help you create a space that you will love for years to come.
           </p>
         </section>
       </article>
+
+      <div className={styles.faqContainer}>
+        <h2 className={styles.faqTitle}>Frequently Asked Questions</h2>
+        <InteractiveFAQ faqs={faqs} />
+      </div>
     </div>
   );
 };

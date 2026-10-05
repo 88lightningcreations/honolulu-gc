@@ -1,16 +1,24 @@
 
 import React from 'react';
-import styles from '../ServicePage.module.css';
+import styles from '../page.module.css';
+import InteractiveFAQ from '@/components/InteractiveFAQ';
+import JsonLdFaq from '@/components/JsonLdFaq';
+
+const faqs = [
+  { question: "How long does it take to build a new home in Hawaii?", answer: "The timeline for a new home build can vary from 9 to 18 months, depending on the complexity of the design and the permitting process." },
+  { question: "What are the key factors that affect the cost of a new home build?", answer: "The primary factors are the size and complexity of the home, the quality of materials, and the location." }
+];
 
 const NewConstructionPage = () => {
   return (
-    <div className={styles.container}>
-      <header className={styles.header}>
-        <h1>New Construction in Hawaii</h1>
-        <p>Building Your Dream Home from the Ground Up</p>
+    <div className={styles.servicePageContainer}>
+      <JsonLdFaq faqs={faqs} />
+      <header>
+        <h1 className={styles.servicePageTitle}>New Construction in Hawaii</h1>
+        <p className={styles.servicePageDescription}>Building Your Dream Home from the Ground Up</p>
       </header>
 
-      <article className={styles.article}>
+      <article className={styles.servicePageContent}>
         <section>
           <h2>Your Vision, Our Expertise</h2>
           <p>
@@ -41,6 +49,11 @@ const NewConstructionPage = () => {
           </p>
         </section>
       </article>
+
+      <div className={styles.faqContainer}>
+        <h2 className={styles.faqTitle}>Frequently Asked Questions</h2>
+        <InteractiveFAQ faqs={faqs} />
+      </div>
     </div>
   );
 };

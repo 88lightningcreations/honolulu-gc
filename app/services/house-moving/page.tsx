@@ -14,7 +14,7 @@ const HouseMovingPage = () => {
         <section>
           <h2>A Unique Solution for a Unique Situation</h2>
           <p>
-            House moving, while not a common service, is a complex and delicate process that requires specialized expertise. Whether you're looking to move your home to a new location on your property or to a different island entirely, Dumore Construction and Remodeling has the experience and equipment to handle the job safely and efficiently.
+            House moving, while not a common service, is a complex and delicate process that requires specialized expertise. Whether you&apos;re looking to move your home to a new location on your property or to a different island entirely, Dumore Construction and Remodeling has the experience and equipment to handle the job safely and efficiently.
           </p>
         </section>
 
@@ -26,7 +26,7 @@ const HouseMovingPage = () => {
           </p>
           <h3>Transportation</h3>
           <p>
-            Once your home is secured, we use specialized transporters to move it to its new location. Our experienced drivers are experts in navigating the unique challenges of Hawaii's roads and terrain, ensuring a safe and smooth journey for your home.
+            Once your home is secured, we use specialized transporters to move it to its new location. Our experienced drivers are experts in navigating the unique challenges of Hawaii&apos;s roads and terrain, ensuring a safe and smooth journey for your home.
           </p>
           <h3>New Foundation and Re-integration</h3>
           <p>

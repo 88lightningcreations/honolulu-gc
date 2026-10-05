@@ -22,15 +22,15 @@ const HomeRemodelingPage = () => {
           <h2>Our Home Remodeling Services</h2>
           <h3>Whole-Home Renovations</h3>
           <p>
-            Whether you're looking to update an older home or completely reconfigure your layout, we can handle whole-home renovations of any scale. We work with you to create a cohesive design that flows seamlessly from room to room.
+            Whether you&apos;re looking to update an older home or completely reconfigure your layout, we can handle whole-home renovations of any scale. We work with you to create a cohesive design that flows seamlessly from room to room.
           </p>
           <h3>Room-Specific Remodels</h3>
           <p>
-            From updating a single room to remodeling multiple areas of your home, we can help you create the space you've always dreamed of. We have extensive experience in kitchen and bathroom remodeling, basement finishing, and more.
+            From updating a single room to remodeling multiple areas of your home, we can help you create the space you&apos;ve always dreamed of. We have extensive experience in kitchen and bathroom remodeling, basement finishing, and more.
           </p>
           <h3>Exterior Renovations</h3>
           <p>
-            Enhance your home's curb appeal and protect it from the elements with our exterior renovation services. We offer everything from siding and window replacement to new roof installation and lanai enclosures.
+            Enhance your home&apos;s curb appeal and protect it from the elements with our exterior renovation services. We offer everything from siding and window replacement to new roof installation and lanai enclosures.
           </p>
         </section>
 
@@ -44,7 +44,7 @@ const HomeRemodelingPage = () => {
         <section>
           <h2>Experience the Dumore Difference</h2>
           <p>
-            With our commitment to quality, craftsmanship, and customer satisfaction, we have earned a reputation as one of Hawaii's premier remodeling contractors. Contact us today to learn how we can help you transform your house into the home of your dreams.
+            With our commitment to quality, craftsmanship, and customer satisfaction, we have earned a reputation as one of Hawaii&apos;s premier remodeling contractors. Contact us today to learn how we can help you transform your house into the home of your dreams.
           </p>
         </section>
       </article>
