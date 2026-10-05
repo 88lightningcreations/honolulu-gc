@@ -64,7 +64,6 @@ const HouseMovingPage = () => {
       </article>
 
       <div className={styles.faqContainer}>
-        <h2 className={styles.faqTitle}>Frequently Asked Questions</h2>
         <InteractiveFAQ faqs={faqs} />
       </div>
     </div>
