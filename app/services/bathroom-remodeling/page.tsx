@@ -23,32 +23,6 @@ const faqs = [
   }
 ];
 
-const tableStyle: React.CSSProperties = {
-  width: '100%',
-  borderCollapse: 'collapse',
-  marginTop: '2rem',
-  marginBottom: '2rem',
-  fontSize: '1rem',
-  boxShadow: '0 2px 15px rgba(0, 0, 0, 0.1)',
-  borderRadius: '8px',
-  overflow: 'hidden'
-};
-
-const thStyle: React.CSSProperties = {
-  borderBottom: '2px solid #ddd',
-  padding: '16px',
-  textAlign: 'left',
-  backgroundColor: '#f8f9fa',
-  fontWeight: '600',
-  color: '#333'
-};
-
-const tdStyle: React.CSSProperties = {
-  borderBottom: '1px solid #eee',
-  padding: '16px',
-};
-
-
 const BathroomRemodelingPage = () => {
   return (
     <div className={styles.servicePageContainer}>
@@ -65,29 +39,29 @@ const BathroomRemodelingPage = () => {
           <h2>Section 1: The Three Service Tiers</h2>
           <p>Every property owner approaches a bathroom renovation with a unique financial strategy and property lifecycle goal. Whether you are updating a rental unit in Pearl City, renovating a primary residence in Kailua, or constructing an ultra-luxury retreat in Kukio, we structure our work into three distinct service budgets.</p>
           <div style={{ overflowX: 'auto' }}>
-            <table style={tableStyle}>
+            <table className={styles.table}>
               <thead>
                 <tr>
-                  <th style={thStyle}>Tier Level</th>
-                  <th style={thStyle}>Core Focus</th>
-                  <th style={thStyle}>Common Applications</th>
+                  <th>Tier Level</th>
+                  <th>Core Focus</th>
+                  <th>Common Applications</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td style={tdStyle}>1. Builder Grade</td>
-                  <td style={tdStyle}>Clean, Code-Compliant, High Durability, Value</td>
-                  <td style={tdStyle}>Rental Turnover, Flipping, Base Residential Upgrades</td>
+                  <td>1. Builder Grade</td>
+                  <td>Clean, Code-Compliant, High Durability, Value</td>
+                  <td>Rental Turnover, Flipping, Base Residential Upgrades</td>
                 </tr>
                 <tr>
-                  <td style={tdStyle}>2. Select Grade</td>
-                  <td style={tdStyle}>Modern Comfort, Custom Finishes, Accent Tile</td>
-                  <td style={tdStyle}>Primary Residences, Mid-Tier Commercial Restrooms, Condos</td>
+                  <td>2. Select Grade</td>
+                  <td>Modern Comfort, Custom Finishes, Accent Tile</td>
+                  <td>Primary Residences, Mid-Tier Commercial Restrooms, Condos</td>
                 </tr>
-                <tr style={{ borderBottom: 'none' }}>
-                  <td style={{ ...tdStyle, borderBottom: 'none' }}>3. Luxury Grade</td>
-                  <td style={{ ...tdStyle, borderBottom: 'none' }}>Architectural Custom, Natural Stone, Smart Tech</td>
-                  <td style={{ ...tdStyle, borderBottom: 'none' }}>High-End Estates, Boutique Hotels, Executive Suites</td>
+                <tr>
+                  <td>3. Luxury Grade</td>
+                  <td>Architectural Custom, Natural Stone, Smart Tech</td>
+                  <td>High-End Estates, Boutique Hotels, Executive Suites</td>
                 </tr>
               </tbody>
             </table>
@@ -155,39 +129,39 @@ const BathroomRemodelingPage = () => {
           <h2>Section 2: Island-by-Island Logistical & Environmental Breakdown</h2>
           <p>Executing construction projects across Hawaii requires an understanding of microclimates, shipping harbor schedules, county-level permitting workflows, and localized infrastructure challenges.</p>
           <div style={{ overflowX: 'auto' }}>
-            <table style={tableStyle}>
+            <table className={styles.table}>
               <thead>
                 <tr>
-                  <th style={thStyle}>Island</th>
-                  <th style={thStyle}>Primary Harbor</th>
-                  <th style={thStyle}>Key Environmental Stress</th>
-                  <th style={thStyle}>Building Authority</th>
+                  <th>Island</th>
+                  <th>Primary Harbor</th>
+                  <th>Key Environmental Stress</th>
+                  <th>Building Authority</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td style={tdStyle}>Oahu</td>
-                  <td style={tdStyle}>Honolulu Harbor</td>
-                  <td style={tdStyle}>High Humidity, High-Rise Salt Air Corrosion</td>
-                  <td style={tdStyle}>City & County of Honolulu Dept of Permitting</td>
+                  <td>Oahu</td>
+                  <td>Honolulu Harbor</td>
+                  <td>High Humidity, High-Rise Salt Air Corrosion</td>
+                  <td>City & County of Honolulu Dept of Permitting</td>
                 </tr>
                 <tr>
-                  <td style={tdStyle}>Maui</td>
-                  <td style={tdStyle}>Kahului Harbor</td>
-                  <td style={tdStyle}>High Winds, Salt Spray, Volcanic Dust (Upcountry)</td>
-                  <td style={tdStyle}>County of Maui Dept of Planning & Housing</td>
+                  <td>Maui</td>
+                  <td>Kahului Harbor</td>
+                  <td>High Winds, Salt Spray, Volcanic Dust (Upcountry)</td>
+                  <td>County of Maui Dept of Planning & Housing</td>
                 </tr>
                 <tr>
-                  <td style={tdStyle}>Hawaii Island (Big Island)</td>
-                  <td style={tdStyle}>Hilo & Kawaihae Harbors</td>
-                  <td style={tdStyle}>Acid Rain (Vog), High Rainfall / Extreme Arid</td>
-                  <td style={tdStyle}>County of Hawaii Public Works & Planning</td>
+                  <td>Hawaii Island (Big Island)</td>
+                  <td>Hilo & Kawaihae Harbors</td>
+                  <td>Acid Rain (Vog), High Rainfall / Extreme Arid</td>
+                  <td>County of Hawaii Public Works & Planning</td>
                 </tr>
-                <tr style={{ borderBottom: 'none' }}>
-                  <td style={{...tdStyle, borderBottom: 'none'}}>Kauai</td>
-                  <td style={{...tdStyle, borderBottom: 'none'}}>Nawiliwili Harbor</td>
-                  <td style={{...tdStyle, borderBottom: 'none'}}>Extreme Rainfall, High Moisture, Red Dirt Dust</td>
-                  <td style={{...tdStyle, borderBottom: 'none'}}>County of Kauai Planning Department</td>
+                <tr>
+                  <td>Kauai</td>
+                  <td>Nawiliwili Harbor</td>
+                  <td>Extreme Rainfall, High Moisture, Red Dirt Dust</td>
+                  <td>County of Kauai Planning Department</td>
                 </tr>
               </tbody>
             </table>
@@ -242,34 +216,34 @@ const BathroomRemodelingPage = () => {
           <h2>Section 3: Neighborhood Socioeconomic & Real Estate Profiles</h2>
           <p>Successful remodeling requires tailoring material selections to the neighborhood's real estate values. Below is a profile of primary socioeconomic zones across the four major islands.</p>
           <div style={{ overflowX: 'auto' }}>
-            <table style={tableStyle}>
+            <table className={styles.table}>
                 <thead>
                     <tr>
-                        <th style={thStyle}>Island</th>
-                        <th style={thStyle}>Entry / Value Zones (Builder / Select Grade)</th>
-                        <th style={thStyle}>High-Net-Worth / Luxury Zones (Luxury Grade Tiers)</th>
+                        <th>Island</th>
+                        <th>Entry / Value Zones (Builder / Select Grade)</th>
+                        <th>High-Net-Worth / Luxury Zones (Luxury Grade Tiers)</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td style={tdStyle}>Oahu</td>
-                        <td style={tdStyle}>Kalihi, Waipahu, Ewa Beach, Pearl City, Kaneohe</td>
-                        <td style={tdStyle}>Kahala, Diamond Head, Portlock, Lanikai, Hawaii Loa Ridge</td>
+                        <td>Oahu</td>
+                        <td>Kalihi, Waipahu, Ewa Beach, Pearl City, Kaneohe</td>
+                        <td>Kahala, Diamond Head, Portlock, Lanikai, Hawaii Loa Ridge</td>
                     </tr>
                     <tr>
-                        <td style={tdStyle}>Maui</td>
-                        <td style={tdStyle}>Kahului, Wailuku, Kihei</td>
-                        <td style={tdStyle}>Wailea, Makena, Kapalua, Kaanapali Coastal Estates</td>
+                        <td>Maui</td>
+                        <td>Kahului, Wailuku, Kihei</td>
+                        <td>Wailea, Makena, Kapalua, Kaanapali Coastal Estates</td>
                     </tr>
                     <tr>
-                        <td style={tdStyle}>Big Island</td>
-                        <td style={tdStyle}>Hilo, Puna, Ocean View, Waikoloa Village</td>
-                        <td style={tdStyle}>Kukio, Hualalai, Mauna Lani, Kohala Waterfront</td>
+                        <td>Big Island</td>
+                        <td>Hilo, Puna, Ocean View, Waikoloa Village</td>
+                        <td>Kukio, Hualalai, Mauna Lani, Kohala Waterfront</td>
                     </tr>
-                    <tr style={{ borderBottom: 'none' }}>
-                        <td style={{...tdStyle, borderBottom: 'none'}}>Kauai</td>
-                        <td style={{...tdStyle, borderBottom: 'none'}}>Lihue, Kapaa, Hanapepe</td>
-                        <td style={{...tdStyle, borderBottom: 'none'}}>Princeville, Kukui'ula, Poipu, Hanalei</td>
+                    <tr>
+                        <td>Kauai</td>
+                        <td>Lihue, Kapaa, Hanapepe</td>
+                        <td>Princeville, Kukui'ula, Poipu, Hanalei</td>
                     </tr>
                 </tbody>
             </table>
@@ -315,39 +289,39 @@ const BathroomRemodelingPage = () => {
           <h2>Section 4: Residential vs. Commercial Sector Modeling</h2>
           <p>Bathroom renovations differ substantially depending on whether the asset is a private residential home or an operating commercial property. Our 30-year operational experience ensures compliance with the distinct regulatory and functional demands of both sectors.</p>
           <div style={{ overflowX: 'auto' }}>
-            <table style={tableStyle}>
+            <table className={styles.table}>
                 <thead>
                     <tr>
-                        <th style={thStyle}>Operational Vector</th>
-                        <th style={thStyle}>Residential Sector</th>
-                        <th style={thStyle}>Commercial Sector</th>
+                        <th>Operational Vector</th>
+                        <th>Residential Sector</th>
+                        <th>Commercial Sector</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td style={tdStyle}>Primary Goal</td>
-                        <td style={tdStyle}>Personal Comfort, Style, Home Equity</td>
-                        <td style={tdStyle}>ADA Compliance, Durability, Rapid Sanitation, Low Vandal</td>
+                        <td>Primary Goal</td>
+                        <td>Personal Comfort, Style, Home Equity</td>
+                        <td>ADA Compliance, Durability, Rapid Sanitation, Low Vandal</td>
                     </tr>
                     <tr>
-                        <td style={tdStyle}>Code Requirements</td>
-                        <td style={tdStyle}>IRC Code, Local Zoning</td>
-                        <td style={tdStyle}>ADA Title III, IBC, ROH, Commercial Plumbing Codes</td>
+                        <td>Code Requirements</td>
+                        <td>IRC Code, Local Zoning</td>
+                        <td>ADA Title III, IBC, ROH, Commercial Plumbing Codes</td>
                     </tr>
                     <tr>
-                        <td style={tdStyle}>Fixture Hardware</td>
-                        <td style={tdStyle}>Manual / Thermostatic, Residential Aesthetics</td>
-                        <td style={tdStyle}>Sensor Touchless, Heavy-Duty Commercial Ratings</td>
+                        <td>Fixture Hardware</td>
+                        <td>Manual / Thermostatic, Residential Aesthetics</td>
+                        <td>Sensor Touchless, Heavy-Duty Commercial Ratings</td>
                     </tr>
                     <tr>
-                        <td style={tdStyle}>Usage Cycle</td>
-                        <td style={tdStyle}>5–15 uses / day</td>
-                        <td style={tdStyle}>100–1000+ uses / day</td>
+                        <td>Usage Cycle</td>
+                        <td>5–15 uses / day</td>
+                        <td>100–1000+ uses / day</td>
                     </tr>
-                    <tr style={{ borderBottom: 'none' }}>
-                        <td style={{...tdStyle, borderBottom: 'none'}}>Schedule Constraints</td>
-                        <td style={{...tdStyle, borderBottom: 'none'}}>Standard Work Hours (8:00 AM – 5:00 PM)</td>
-                        <td style={{...tdStyle, borderBottom: 'none'}}>Night Shifts, Off-Hours, Phased Sectional Closures</td>
+                    <tr>
+                        <td>Schedule Constraints</td>
+                        <td>Standard Work Hours (8:00 AM – 5:00 PM)</td>
+                        <td>Night Shifts, Off-Hours, Phased Sectional Closures</td>
                     </tr>
                 </tbody>
             </table>
