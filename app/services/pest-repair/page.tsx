@@ -12,20 +12,24 @@ export const metadata: Metadata = {
 const PestRepairPage = () => {
   const pageFaqs: faqData[] = [
     {
-      question: 'My pest inspector found damage. What determines if the repair is simple or a major structural problem?',
-      answer: 'The true extent of pest damage often reveals itself only after we begin work. A small sign like termite pellets might lead to a minor trim replacement, or it could expose extensive damage within your walls requiring structural support. Our process involves careful, exploratory openings to define the full scope of repairs before proceeding with major work. This ensures we address the root problem, not just the visible signs.',
+      question: 'Do we need tenting before opening the walls?',
+      answer: 'Tenting isn\'t always necessary before starting wall repairs, as the appropriate treatment depends on the termite type and infestation severity. Localized treatments can work for some drywood termite cases, while subterranean termites require different strategies. We coordinate with a licensed pest professional to determine the best course of action. This ensures the right treatment is applied before reconstruction begins.',
     },
     {
-      question: 'How do you decide what materials to use for my repair, and how does that affect the cost?',
-      answer: 'We offer three finish levels—Builder, Select, and Luxury—to match your budget and property needs. Builder Grade uses standard, readily available materials for essential, cost-effective restoration suitable for rentals or utility spaces. Select Grade offers upgraded, durable products for a more coordinated appearance in primary homes and offices. Luxury Grade involves custom-fabricated materials to seamlessly match the unique finishes of high-end properties.',
+      question: 'Can a small repair avoid permits?',
+      answer: 'A small repair is not automatically exempt from permits, as regulations vary by county. While Honolulu has some exemptions for minor maintenance, we always confirm the requirements for your specific project. This is especially important for work involving framing, structural changes, or utilities. Our process ensures all work is fully compliant with local laws and ordinances.',
     },
     {
-      question: 'I live on a neighbor island. Does that make my pest damage repair project more complicated?',
-      answer: 'Yes, island logistics are a significant factor in planning and cost. We meticulously plan projects on the neighbor islands to minimize travel and shipping delays. This includes detailed pre-mobilization documentation, material procurement, and scheduling to ensure efficiency. While a remote location can add complexity, our thorough planning process is designed to deliver a smooth and predictable repair experience.',
+      question: 'Who handles a condo wall repair?',
+      answer: 'In a condominium, the first step is to determine ownership of the damaged component based on your association\'s governing documents. Responsibility for a wall may be shared, and it is not always straightforward. We review these documents to clarify who authorizes and pays for the work. This coordination prevents conflicting instructions and ensures a smooth repair process.',
     },
     {
-      question: 'My property is a condominium. How does that change the pest damage repair process?',
-      answer: 'In a condominium, we must first determine which building components are your responsibility versus the association\'s. Shared walls, framing, and other elements are often governed by your condo documents. We review these requirements early to clarify the scope of work you can authorize and to coordinate with the association. This ensures the repair process is smooth and complies with all building rules.',
+      question: 'How do we control hidden-damage costs?',
+      answer: 'We control hidden costs with a defined exploratory phase, rather than assuming the visible damage is all there is. Our agreement outlines the initial scope and a clear process for approving any additional work if new damage is found. We document all findings and get your approval before proceeding with any non-emergency work. This transparency keeps you in control of the budget.',
+    },
+    {
+      question: 'How do we avoid paying twice?',
+      answer: 'To avoid paying twice, we keep pest treatment and construction repair as separate but coordinated tasks. Repairing the wood doesn\'t solve the infestation, and treating the pests doesn\'t fix the structural damage. We follow a property-specific plan and provide comprehensive closeout documentation for both the construction and pest treatment. This ensures the job is done completely and correctly the first time.',
     },
   ];
 
