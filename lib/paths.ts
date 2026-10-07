@@ -3,7 +3,7 @@ export const PATHS = {
   home: '/',
   services: {
     base: '/services',
-    additions: '/services/home-additions',
+    additions: '/services/additions-home-and-commercial',
     bathroomRemodeling: '/services/bathroom-remodeling',
     homeRemodeling: '/services/home-remodeling',
     houseMoving: '/services/house-moving',
