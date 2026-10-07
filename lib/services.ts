@@ -38,12 +38,12 @@ export const services: Service[] = [
     icon: FaPlus,
     title: 'Additions',
     description: 'Expanding your home to create more space for your growing family or changing needs.',
-    link: '/services/additions'
+    link: '/services/home-additions'
   },
   {
     icon: FaBroom,
     title: 'Pest Repair',
-    description: 'Comprehensive pest damage repair services to restore the integrity of your home.',
+    description: 'Comprehensive pest damage repair to restore the integrity of your home.',
     link: '/services/pest-repair'
   },
   {
