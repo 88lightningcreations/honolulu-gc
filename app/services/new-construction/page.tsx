@@ -10,11 +10,11 @@ const faqs = [
     answer: "The most effective strategy is completing design decisions early, identifying long-lead items, and consolidating orders to avoid late changes and emergency freight. For residences, this means selecting all finishes and fixtures upfront, while for commercial projects, it includes major systems like elevators and HVAC. A detailed procurement schedule and a realistic budget for freight and contingencies are essential to prevent delays and cost overruns."
   },
   {
-    question: "What construction features matter most for a coastal home or commercial building in Hawaiʻi?",
+    question: "What construction features matter most for a coastal home or commercial building in Hawai&apos;i?",
     answer: "The highest-value features are those that protect the building envelope and reduce maintenance, such as corrosion-resistant fasteners, durable roofing, and effective drainage. For homes, focus on lanais, windows, and doors, while for commercial buildings, protect storefronts and rooftop equipment. Proper material selection and installation are critical for long-term durability in salt-air environments."
   },
   {
-    question: "How do lava zones, steep lots, drainage, or remote access change a project on Hawaiʻi Island or another outer island?",
+    question: "How do lava zones, steep lots, drainage, or remote access change a project on Hawai&apos;i Island or another outer island?",
     answer: "These conditions significantly impact design, engineering, and costs, often requiring geotechnical reviews, retaining walls, or specialized drainage. Remote properties demand careful planning for access, utilities, and worker transportation. A thorough site evaluation before finalizing the design is crucial to address these challenges and avoid unforeseen expenses."
   },
   {
@@ -32,19 +32,19 @@ const NewConstructionPage = () => {
     <div className={styles.servicePageContainer}>
       <JsonLdFaq faqs={faqs} />
       <header>
-        <h1 className={styles.servicePageTitle}>New Construction Across Hawaiʻi</h1>
+        <h1 className={styles.servicePageTitle}>New Construction Across Hawai&apos;i</h1>
         <p className={styles.servicePageDescription}>Three Service Levels for Homes and Entire Commercial Buildings</p>
       </header>
 
       <article className={styles.servicePageContent}>
         <p>
-          For nearly 30 years, our general contracting team has helped property owners build, expand, and improve projects across the Hawaiian Islands. From Oʻahu’s urban neighborhoods to the remote communities of Molokaʻi and Lānaʻi, we understand that construction in Hawaiʻi is never one-size-fits-all: each island has different terrain, weather exposure, shipping conditions, labor availability, permitting requirements, and community needs.
+          For nearly 30 years, our general contracting team has helped property owners build, expand, and improve projects across the Hawaiian Islands. From O&apos;ahu’s urban neighborhoods to the remote communities of Moloka&apos;i and Lāna&apos;i, we understand that construction in Hawai&apos;i is never one-size-fits-all: each island has different terrain, weather exposure, shipping conditions, labor availability, permitting requirements, and community needs.
         </p>
         <p>
           Our role is to coordinate the entire project—from early budgeting and site planning through construction, inspections, finish work, and final handover. We serve both residential clients, where the focus is the home and the people who live in it, and commercial clients, where the focus is the complete building, its operations, code requirements, employees, customers, tenants, and long-term maintenance.
         </p>
         <p>
-          Every project is shaped by the property. Coastal homes may require stronger corrosion protection and hurricane-conscious detailing. Upcountry projects may need careful grading, retaining walls, water planning, and access coordination. Properties on Hawaiʻi Island may require additional attention to lava-zone conditions, volcanic exposure, or long material-haul distances. Commercial buildings may require more extensive structural, fire-life-safety, accessibility, electrical, plumbing, parking, and site-development coordination.
+          Every project is shaped by the property. Coastal homes may require stronger corrosion protection and hurricane-conscious detailing. Upcountry projects may need careful grading, retaining walls, water planning, and access coordination. Properties on Hawai&apos;i Island may require additional attention to lava-zone conditions, volcanic exposure, or long material-haul distances. Commercial buildings may require more extensive structural, fire-life-safety, accessibility, electrical, plumbing, parking, and site-development coordination.
         </p>
         <p>
           The three service levels below provide a practical way to understand how scope, materials, durability, comfort, and customization can change with the project budget.
@@ -192,7 +192,7 @@ const NewConstructionPage = () => {
                   <td>Enhanced flooring selections such as porcelain tile, engineered wood, or premium resilient materials.</td>
                 </tr>
                 <tr>
-                  <td><strong>Plumbing & Bath</strong></td>
+                  <td><strong>Plumbing &amp; Bath</strong></td>
                   <td>Upgraded plumbing fixtures and bathroom finishes.</td>
                 </tr>
                 <tr>
@@ -200,7 +200,7 @@ const NewConstructionPage = () => {
                   <td>Better appliance packages.</td>
                 </tr>
                 <tr>
-                  <td><strong>Doors & Trim</strong></td>
+                  <td><strong>Doors &amp; Trim</strong></td>
                   <td>More substantial doors, hardware, and trim.</td>
                 </tr>
                 <tr>
@@ -272,7 +272,7 @@ const NewConstructionPage = () => {
             Luxury construction is a fully customized experience built around architecture, craftsmanship, wellness, privacy, entertainment, technology, and long-term performance. For a residential client, the entire home is designed as a personal retreat. For a commercial client, the entire building is designed as an elevated experience.
           </p>
           <h3>Luxury residential homes</h3>
-          <p>Luxury homes in Hawaiʻi often emphasize the relationship between the house and the land. Depending on the property, the design may include:</p>
+          <p>Luxury homes in Hawai&apos;i often emphasize the relationship between the house and the land. Depending on the property, the design may include:</p>
           <div className={styles.tableContainer}>
             <table className={styles.table}>
               <thead>
@@ -284,15 +284,15 @@ const NewConstructionPage = () => {
               <tbody>
                 <tr>
                   <td><strong>Outdoor Living</strong></td>
-                  <td>Large covered lanais, outdoor kitchens, resort-style pools, spas, water features.</td>
+                  <td>Large covered lanais, outdoor kitchens, resort-style pools, spas, and water features.</td>
                 </tr>
                 <tr>
-                  <td><strong>Garages & Storage</strong></td>
+                  <td><strong>Garages &amp; Storage</strong></td>
                   <td>Large garages with workshop areas, vehicle lifts, or boat storage.</td>
                 </tr>
                 <tr>
                   <td><strong>Entertainment</strong></td>
-                  <td>Game rooms, dedicated theaters, media rooms, wine rooms.</td>
+                  <td>Game rooms, dedicated theaters, media rooms, and wine rooms.</td>
                 </tr>
                 <tr>
                   <td><strong>Wellness</strong></td>
@@ -308,11 +308,11 @@ const NewConstructionPage = () => {
                 </tr>
                 <tr>
                   <td><strong>Technology</strong></td>
-                  <td>Fully integrated home automation, high-performance glazing, backup power, solar integration.</td>
+                  <td>Fully integrated home automation, high-performance glazing, backup power, and solar integration.</td>
                 </tr>
                 <tr>
-                  <td><strong>Landscaping & Security</strong></td>
-                  <td>Private gardens, tropical landscaping, custom stonework, secure gates, camera systems.</td>
+                  <td><strong>Landscaping &amp; Security</strong></td>
+                  <td>Private gardens, custom stonework, secure gates, and camera systems.</td>
                 </tr>
               </tbody>
             </table>
@@ -371,7 +371,7 @@ const NewConstructionPage = () => {
               </thead>
               <tbody>
                 <tr>
-                  <td><strong>Oʻahu</strong></td>
+                  <td><strong>O&apos;ahu</strong></td>
                   <td>Tight-site construction, ADUs, coastal corrosion protection, drainage work, parking solutions, and careful scheduling.</td>
                 </tr>
                 <tr>
@@ -379,19 +379,19 @@ const NewConstructionPage = () => {
                   <td>Outdoor living structures, pools, water-conscious landscaping, wildfire-conscious planning, and salt-air protection.</td>
                 </tr>
                 <tr>
-                  <td><strong>Kauaʻi</strong></td>
+                  <td><strong>Kaua&apos;i</strong></td>
                   <td>Roof and water management, mold-resistant detailing, covered walkways, corrosion-resistant hardware, and careful delivery planning.</td>
                 </tr>
                 <tr>
-                  <td><strong>Hawaiʻi Island</strong></td>
+                  <td><strong>Hawai&apos;i Island</strong></td>
                   <td>Drainage, grading, retaining walls, moisture management in wet areas, shading in dry areas, lava-zone review, and long-distance material hauling.</td>
                 </tr>
                 <tr>
-                  <td><strong>Molokaʻi</strong></td>
+                  <td><strong>Moloka&apos;i</strong></td>
                   <td>Early material ordering, durable finishes, water storage, resilient utility planning, and practical workshops.</td>
                 </tr>
                 <tr>
-                  <td><strong>Lānaʻi</strong></td>
+                  <td><strong>Lāna&apos;i</strong></td>
                   <td>Consolidated procurement, early shipping confirmation, durable materials, simplified maintenance access, and backup systems.</td>
                 </tr>
               </tbody>
@@ -402,7 +402,7 @@ const NewConstructionPage = () => {
         <section>
           <h2>Permitting, Design, and Project Control</h2>
           <p>
-            Hawaiʻi construction is administered through state and county requirements that vary by island. Our process is built around early discovery:
+            Hawai&apos;i construction is administered through state and county requirements that vary by island. Our process is built around early discovery:
           </p>
           <ul>
             <li>Review the property, zoning, access, utilities, and site constraints.</li>

@@ -8,15 +8,15 @@ import JsonLdFaq from '../../../components/JsonLdFaq';
 const faqs = [
   {
     question: 'What are the most critical first steps when planning a house move in Hawaiʻi?',
-    answer: 'Before considering transportation, it is crucial to assess both the house\'s structural integrity and the suitability of the destination property. This involves inspecting the building for its ability to withstand being moved and evaluating the receiving lot for any constraints like setbacks or utility issues. A thorough route survey is also essential to identify any potential obstructions that could make the move impractical. This initial dual-ended investigation prevents committing to a move that isn\'t feasible from the start.',
+    answer: 'Before considering transportation, it is crucial to assess both the house&apos;s structural integrity and the suitability of the destination property. This involves inspecting the building for its ability to withstand being moved and evaluating the receiving lot for any constraints like setbacks or utility issues. A thorough route survey is also essential to identify any potential obstructions that could make the move impractical. This initial dual-ended investigation prevents committing to a move that isn&apos;t feasible from the start.',
   },
   {
     question: 'How does the house moving process differ across the Hawaiian Islands?',
-    answer: 'Each island has unique planning priorities, from Oʻahu\'s explicit relocation permit process to Hawaiʻi Island\'s focus on destination site readiness, including foundation and wastewater solutions. On Maui, a key challenge is navigating layered approvals for building, coastal, and flood-related regulations. For islands like Molokaʻi and Lānaʻi, the logistical plan for mobilizing equipment and confirming site access becomes a primary hurdle to address upfront.',
+    answer: 'Each island has unique planning priorities, from Oʻahu&apos;s explicit relocation permit process to Hawaiʻi Island&apos;s focus on destination site readiness, including foundation and wastewater solutions. On Maui, a key challenge is navigating layered approvals for building, coastal, and flood-related regulations. For islands like Molokaʻi and Lānaʻi, the logistical plan for mobilizing equipment and confirming site access becomes a primary hurdle to address upfront.',
   },
   {
     question: 'What kind of professional assessment is needed before moving a house?',
-    answer: 'A proper assessment goes beyond a surface-level look, focusing on the building\'s structural ability to be lifted and transported. It should determine if the house can be moved as is or if parts need to be removed, what repairs are mandatory before the lift, and what work will be needed after placement. In places like Honolulu, this evaluation is critical, as a relocation request can be denied if the structure is too deteriorated or repair costs are excessive.',
+    answer: 'A proper assessment goes beyond a surface-level look, focusing on the building&apos;s structural ability to be lifted and transported. It should determine if the house can be moved as is or if parts need to be removed, what repairs are mandatory before the lift, and what work will be needed after placement. In places like Honolulu, this evaluation is critical, as a relocation request can be denied if the structure is too deteriorated or repair costs are excessive.',
   },
   {
     question: 'What should a comprehensive house-moving budget include beyond just the transportation cost?',
@@ -164,12 +164,12 @@ const HouseMovingPage: NextPage = () => {
                         <td>Floodplain, drainage, and site access</td>
                     </tr>
                      <tr>
-                        <td>Molokaʻi & Lānaʻi</td>
+                        <td>Molokaʻi &amp; Lānaʻi</td>
                         <td>Island-specific review and mobilization</td>
                         <td>Land-use requirements and equipment plan</td>
                     </tr>
                     <tr>
-                        <td>Niʻihau & Kahoʻolawe</td>
+                        <td>Niʻihau &amp; Kahoʻolawe</td>
                         <td>Authorization and reserve restrictions</td>
                         <td>Whether the project is authorized</td>
                     </tr>

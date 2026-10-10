@@ -28,7 +28,7 @@ const HomeRemodelingPage = () => {
           The right remodeling plan is not simply a matter of choosing attractive finishes. It must account for the home or building’s location, exposure to salt air, weather, access for materials, existing utilities, structural conditions, permitting, and the way the property will be used. A practical renovation in Hilo will not be planned the same way as a luxury upgrade in Kailua, and a commercial building in Waikīkī will have different requirements from a retail property in Līhuʻe.
         </p>
         <p>
-          This guide explains three remodeling investment levels: Builder grade, Select grade, and Luxury grade. The budget levels below describe the type of work and materials generally associated with each category. Final pricing depends on the building’s size, access, structural conditions, design requirements, permits, labor, material availability, and the county where the project is located.
+          This guide explains three remodeling investment levels: Builder Grade, Select Grade, and Luxury Grade. The budget levels below describe the type of work and materials generally associated with each category. Final pricing depends on the building’s size, access, structural conditions, design requirements, permits, labor, material availability, and the county where the project is located.
         </p>
 
         <section>
@@ -36,7 +36,7 @@ const HomeRemodelingPage = () => {
           <table className={styles.table}>
             <thead>
               <tr>
-                <th colSpan={3} className={styles.center}>HAWAII HOME REMODELING TIERS</th>
+                <th colSpan={3} className={styles.center}>HAWAIʻI HOME REMODELING TIERS</th>
               </tr>
               <tr>
                 <th>BUILDER GRADE</th>
@@ -56,13 +56,13 @@ const HomeRemodelingPage = () => {
                 <td>• Fully custom cabinetry, natural stone</td>
               </tr>
               <tr>
-                <td>• Basic plumbing & light fixtures</td>
+                <td>• Basic plumbing &amp; light fixtures</td>
                 <td>• Improved insulation, enhanced lighting</td>
                 <td>• Custom windows, spa-style bathrooms</td>
               </tr>
               <tr>
                 <td>• Focus on function and value</td>
-                <td>• Improved comfort & customization</td>
+                <td>• Improved comfort &amp; customization</td>
                 <td>• Custom craftsmanship, extensive finishes</td>
               </tr>
             </tbody>
@@ -167,7 +167,7 @@ const HomeRemodelingPage = () => {
           <table className={`${styles.table} ${styles.center}`}>
             <thead>
               <tr>
-                <th colSpan={4}>HAWAII ARCHIPELAGO CONTRACTING LANDSCAPE</th>
+                <th colSpan={4}>HAWAIʻI ARCHIPELAGO CONTRACTING LANDSCAPE</th>
               </tr>
             </thead>
             <tbody>
@@ -178,16 +178,16 @@ const HomeRemodelingPage = () => {
                 <td><strong>KAUAʻI</strong></td>
               </tr>
               <tr>
-                <td>• Urban density & coastal exposure</td>
-                <td>• Resort property & residential variety</td>
-                <td>• Distance, terrain & different climates</td>
-                <td>• Rain, access & outdoor living</td>
+                <td>• Urban density &amp; coastal exposure</td>
+                <td>• Resort property &amp; residential variety</td>
+                <td>• Distance, terrain &amp; different climates</td>
+                <td>• Rain, access &amp; outdoor living</td>
               </tr>
               <tr>
                 <td>• High-rise logistics</td>
                 <td>• Salt-air corrosion</td>
                 <td>• Volcanic terrain</td>
-                <td>• Steep sites & narrow roads</td>
+                <td>• Steep sites &amp; narrow roads</td>
               </tr>
               <tr>
                 <td>• Strict permitting</td>
@@ -233,7 +233,7 @@ const HomeRemodelingPage = () => {
               </tr>
               <tr>
                 <th>SUB-MARKET</th>
-                <th>CONSTRUCTION CHARACTERISTICS & SERVICE PROFILE</th>
+                <th>CONSTRUCTION CHARACTERISTICS &amp; SERVICE PROFILE</th>
               </tr>
             </thead>
             <tbody>
@@ -284,7 +284,7 @@ const HomeRemodelingPage = () => {
               </tr>
               <tr>
                 <th>SUB-MARKET</th>
-                <th>CONSTRUCTION CHARACTERISTICS & SERVICE PROFILE</th>
+                <th>CONSTRUCTION CHARACTERISTICS &amp; SERVICE PROFILE</th>
               </tr>
             </thead>
             <tbody>
@@ -335,7 +335,7 @@ const HomeRemodelingPage = () => {
               </tr>
               <tr>
                 <th>SUB-MARKET</th>
-                <th>CONSTRUCTION CHARACTERISTICS & SERVICE PROFILE</th>
+                <th>CONSTRUCTION CHARACTERISTICS &amp; SERVICE PROFILE</th>
               </tr>
             </thead>
             <tbody>
@@ -388,7 +388,7 @@ const HomeRemodelingPage = () => {
               </tr>
               <tr>
                 <th>SUB-MARKET</th>
-                <th>CONSTRUCTION CHARACTERISTICS & SERVICE PROFILE</th>
+                <th>CONSTRUCTION CHARACTERISTICS &amp; SERVICE PROFILE</th>
               </tr>
             </thead>
             <tbody>

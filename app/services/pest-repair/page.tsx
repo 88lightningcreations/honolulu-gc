@@ -1,7 +1,11 @@
 import { Metadata } from 'next';
 import styles from '../page.module.css';
 import Faq from '../../../components/InteractiveFAQ';
-import { faqData } from '../../../lib/services';
+
+interface Faq {
+  question: string;
+  answer: string;
+}
 
 export const metadata: Metadata = {
   title: 'Pest Damage Repair Services in Hawaii | Dumore Construction',
@@ -10,10 +14,10 @@ export const metadata: Metadata = {
 };
 
 const PestRepairPage = () => {
-  const pageFaqs: faqData[] = [
+  const pageFaqs: Faq[] = [
     {
       question: 'Do we need tenting before opening the walls?',
-      answer: 'Tenting isn\'t always necessary before starting wall repairs, as the appropriate treatment depends on the termite type and infestation severity. Localized treatments can work for some drywood termite cases, while subterranean termites require different strategies. We coordinate with a licensed pest professional to determine the best course of action. This ensures the right treatment is applied before reconstruction begins.',
+      answer: 'Tenting isn&apos;t always necessary before starting wall repairs, as the appropriate treatment depends on the termite type and infestation severity. Localized treatments can work for some drywood termite cases, while subterranean termites require different strategies. We coordinate with a licensed pest professional to determine the best course of action. This ensures the right treatment is applied before reconstruction begins.',
     },
     {
       question: 'Can a small repair avoid permits?',
@@ -21,7 +25,7 @@ const PestRepairPage = () => {
     },
     {
       question: 'Who handles a condo wall repair?',
-      answer: 'In a condominium, the first step is to determine ownership of the damaged component based on your association\'s governing documents. Responsibility for a wall may be shared, and it is not always straightforward. We review these documents to clarify who authorizes and pays for the work. This coordination prevents conflicting instructions and ensures a smooth repair process.',
+      answer: 'In a condominium, the first step is to determine ownership of the damaged component based on your association&apos;s governing documents. Responsibility for a wall may be shared, and it is not always straightforward. We review these documents to clarify who authorizes and pays for the work. This coordination prevents conflicting instructions and ensures a smooth repair process.',
     },
     {
       question: 'How do we control hidden-damage costs?',
@@ -29,7 +33,7 @@ const PestRepairPage = () => {
     },
     {
       question: 'How do we avoid paying twice?',
-      answer: 'To avoid paying twice, we keep pest treatment and construction repair as separate but coordinated tasks. Repairing the wood doesn\'t solve the infestation, and treating the pests doesn\'t fix the structural damage. We follow a property-specific plan and provide comprehensive closeout documentation for both the construction and pest treatment. This ensures the job is done completely and correctly the first time.',
+      answer: 'To avoid paying twice, we keep pest treatment and construction repair as separate but coordinated tasks. Repairing the wood doesn&apos;t solve the infestation, and treating the pests doesn&apos;t fix the structural damage. We follow a property-specific plan and provide comprehensive closeout documentation for both the construction and pest treatment. This ensures the job is done completely and correctly the first time.',
     },
   ];
 
@@ -122,9 +126,9 @@ const PestRepairPage = () => {
               </tr>
               <tr>
                 <td>Typical fit</td>
-                <td>Rentals, utility spaces, budget-focused homes</td>
-                <td>Primary residences, offices, established rentals</td>
-                <td>Custom homes, premium hospitality, executive spaces</td>
+                <td>Rentals, utility spaces, and budget-focused homes</td>
+                <td>Primary residences, offices, and established rentals</td>
+                <td>Custom homes, premium hospitality, and executive spaces</td>
               </tr>
               <tr>
                   <td>Scope strategy</td>
@@ -249,7 +253,7 @@ const PestRepairPage = () => {
                     </tr>
                     <tr>
                     <td>Protection</td>
-                    <td>Furniture, belongings, pets</td>
+                    <td>Furniture, belongings, and pets</td>
                     <td>Inventory, equipment, guest or tenant areas</td>
                     </tr>
                     <tr>

@@ -7,23 +7,23 @@ import JsonLdFaq from '@/components/JsonLdFaq';
 const faqs = [
   {
     question: "My house took wind-driven rain and rising water. How should the estimate separate them?",
-    answer: "Start by documenting where water entered and which building components were affected. Ask for photographs, location-specific descriptions, and separate scope items where the evidence supports a distinction. Coverage can differ between wind-related damage and inundation from rising floodwater; your policy wording and the insurer’s assessment control the outcome. Our construction documentation can describe observed damage and the proposed repair, but it should not invent a cause, guarantee coverage, or replace the adjuster’s determination.",
+    answer: "Start by documenting where water entered and which building components were affected. Ask for photographs, location-specific descriptions, and separate scope items where the evidence supports a distinction. Coverage can differ between wind-related damage and inundation from rising floodwater; your policy wording and the insurer&apos;s assessment control the outcome. Our construction documentation can describe observed damage and the proposed repair, but it should not invent a cause, guarantee coverage, or replace the adjuster&apos;s determination.",
   },
   {
     question: "Can emergency work start before permits or the insurance inspection?",
-    answer: "Emergency protection and permanent reconstruction are different decisions. Hawaiʻi DCCA advises owners to prevent further damage when safe, retain receipts, and avoid beginning permanent repairs until the adjuster has inspected the damage or the insurer has approved the work. Permit rules also matter; for example, Honolulu allows qualifying emergency repairs to start before permit issuance when the application is submitted on the next working day and the work satisfies its stated conditions. We would document protective work, confirm the applicable county procedure, and coordinate the permanent scope separately.",
+    answer: "Emergency protection and permanent reconstruction are different decisions. Hawai&apos;i DCCA advises owners to prevent further damage when safe, retain receipts, and avoid beginning permanent repairs until the adjuster has inspected the damage or the insurer has approved the work. Permit rules also matter; for example, Honolulu allows qualifying emergency repairs to start before permit issuance when the application is submitted on the next working day and the work satisfies its stated conditions. We would document protective work, confirm the applicable county procedure, and coordinate the permanent scope separately.",
   },
   {
     question: "Why does a flood-zone repair trigger questions about 50 percent of the building’s value?",
-    answer: "The substantial-damage threshold can change what rebuilding requires. Under FEMA’s general rule, a structure is substantially damaged when the cost to restore it to its pre-damage condition equals or exceeds 50 percent of its pre-damage market value. For example, a building valued at $400,000 with $220,000 in qualifying restoration costs exceeds that general threshold. Floodplain compliance can affect the rebuilding plan even when flood insurance was not in place, so we flag this issue before committing to a like-for-like reconstruction scope.",
+    answer: "The substantial-damage threshold can change what rebuilding requires. Under FEMA&apos;s general rule, a structure is substantially damaged when the cost to restore it to its pre-damage condition equals or exceeds 50 percent of its pre-damage market value. For example, a building valued at $400,000 with $220,000 in qualifying restoration costs exceeds that general threshold. Floodplain compliance can affect the rebuilding plan even when flood insurance was not in place, so we flag this issue before committing to a like-for-like reconstruction scope.",
   },
   {
     question: "Can I add a pool, water feature, game room, or large garage while rebuilding?",
-    answer: "Yes, those features can be explored—but as separately evaluated improvements, not automatic storm-repair items. We would first establish the restoration scope, then review the proposed addition’s design, site fit, utilities, structural needs, and applicable approvals. For flood-zone properties, improvements may also affect substantial-improvement review, as FEMA’s framework considers reconstruction, additions, and other improvements against the applicable building-value threshold. Our proposal should make the distinction explicit: required repair, required compliance, and elective enhancement.",
+    answer: "Yes, those features can be explored—but as separately evaluated improvements, not automatic storm-repair items. We would first establish the restoration scope, then review the proposed addition&apos;s design, site fit, utilities, structural needs, and applicable approvals. For flood-zone properties, improvements may also affect substantial-improvement review, as FEMA&apos;s framework considers reconstruction, additions, and other improvements against the applicable building-value threshold. Our proposal should make the distinction explicit: required repair, required compliance, and elective enhancement.",
   },
   {
     question: "How do I compare quotes without choosing the one that missed half the work?",
-    answer: "Compare the scopes before comparing the totals. Look for consistent quantities, specified materials, trade responsibilities, allowances, exclusions, debris handling, and the treatment of concealed damage. Hawaiʻi guidance emphasizes license verification and written contracts identifying the scope, materials, timeline, price, and payment schedule. Insurance payments also deserve care: DCCA warns against signing your entire claim check over to a contractor.",
+    answer: "Compare the scopes before comparing the totals. Look for consistent quantities, specified materials, trade responsibilities, allowances, exclusions, debris handling, and the treatment of concealed damage. Hawai&apos;i guidance emphasizes license verification and written contracts identifying the scope, materials, timeline, price, and payment schedule. Insurance payments also deserve care: DCCA warns against signing your entire claim check over to a contractor.",
   },
 ];
 
@@ -32,7 +32,7 @@ const StormDamageRepairPage = () => {
     <div className={styles.servicePageContainer}>
        <JsonLdFaq faqs={faqs} />
       <header>
-        <h1 className={styles.servicePageTitle}>Storm Damage Repair Across Hawaiʻi: Restore Your Property, Rebuild With Purpose</h1>
+        <h1 className={styles.servicePageTitle}>Storm Damage Repair Across Hawai&apos;i: Restore Your Property, Rebuild With Purpose</h1>
       </header>
 
       <article className={styles.servicePageContent}>
@@ -40,10 +40,10 @@ const StormDamageRepairPage = () => {
           For almost 30 years, we have served homeowners and businesses across the Hawaiian Islands with a straightforward approach: understand the damage, protect what matters, and build a repair plan that respects your property and budget. Whether you need practical builder-grade repairs, a select-grade renovation, or a luxury restoration, our focus stays the same—sound construction, clear communication, and a finished space that works for you.
         </p>
         <p>
-          Storm recovery is not just about replacing what looks damaged. It is about finding where water entered, understanding what happened behind the finishes, and deciding what must be repaired before you spend money on improvements.
+          Storm recovery is not just about replacing what looks damaged. It&apos;s about finding where water entered, understanding what happened behind the finishes, and deciding what must be repaired before you spend money on improvements.
         </p>
         <p>
-          A family home, neighborhood restaurant, condominium building, and oceanfront estate can experience the same storm very differently. Hawaiʻi’s coastal hazards include storm waves, stream flooding, erosion, and hurricanes; location and site conditions matter as much as the name of the island.
+          A family home, neighborhood restaurant, condominium building, and oceanfront estate can experience the same storm very differently. Hawai&apos;i’s coastal hazards include storm waves, stream flooding, erosion, and hurricanes; location and site conditions matter as much as the name of the island.
         </p>
         <p>
           Our role is to bring those details together into a workable construction plan—not rush you into the most expensive option.
@@ -59,7 +59,7 @@ const StormDamageRepairPage = () => {
             For residential properties, that means organizing repairs around bedrooms, kitchens, bathrooms, family routines, and safe access. For commercial properties, it means considering occupied spaces, customer entrances, deliveries, equipment, tenant coordination, and the sequence needed to restore operations.
           </p>
           <p>
-            Hawaiʻi storms can combine wind, heavy rain, coastal overwash, and slope instability. A property may therefore need several coordinated repairs rather than one isolated trade visit.
+            Hawai&apos;i storms can combine wind, heavy rain, coastal overwash, and slope instability. A property may therefore need several coordinated repairs rather than one isolated trade visit.
           </p>
           <p>Our proposed assessment and repair scope can include:</p>
           <ul>
@@ -79,7 +79,7 @@ const StormDamageRepairPage = () => {
         <section>
           <h2>Document first, rebuild deliberately</h2>
           <p>
-            Photographs, measurements, written scopes, and material records help establish what happened and what restoration requires. Hawaiʻi’s insurance regulator recommends documenting damage, preventing further damage when safe, keeping receipts, and waiting for adjuster inspection or insurer approval before beginning permanent repairs.
+            Photographs, measurements, written scopes, and material records help establish what happened and what restoration requires. Hawai&apos;i’s insurance regulator recommends documenting damage, preventing further damage when safe, keeping receipts, and waiting for adjuster inspection or insurer approval before beginning permanent repairs.
           </p>
           <p>
             That does not mean leaving an opening exposed while you wait. It means distinguishing immediate protection from permanent reconstruction and communicating with your insurer about both.
@@ -256,15 +256,15 @@ const StormDamageRepairPage = () => {
             Every island contains modest homes, valuable properties, working businesses, and buildings with unusual site conditions. The community examples below describe broad market context—not the wealth of individual residents or a promise that construction will be inexpensive.
           </p>
           <p>
-            Relatively lower-cost housing does not automatically mean lower repair costs. Access, material selection, concealed damage, and the complexity of the work can outweigh the neighborhood’s property values.
+            Relatively lower-cost housing does not automatically mean lower repair costs. Access, material selection, concealed damage, and the complexity of the work can outweigh the neighborhood&apos;s property values.
           </p>
 
-          <h3>Oʻahu: neighborhood homes to coastal estates</h3>
+          <h3>O&apos;ahu: neighborhood homes to coastal estates</h3>
           <p>
-            Oʻahu restoration planning needs to accommodate everything from family houses to condominium buildings and commercial tenant spaces.
+            O&apos;ahu restoration planning needs to accommodate everything from family houses to condominium buildings and commercial tenant spaces.
           </p>
           <p>
-            Waipahu, Kalihi, and Waiʻanae are useful examples when discussing comparatively budget-conscious housing markets. Kahala, Diamond Head, Lanikai/Kailua, and parts of Hawaiʻi Kai are established luxury-market examples. Neither category applies uniformly to every property.
+            Waipahu, Kalihi, and Wai&apos;anae are useful examples when discussing comparatively budget-conscious housing markets. Kahala, Diamond Head, Lanikai/Kailua, and parts of Hawai&apos;i Kai are established luxury-market examples. Neither category applies uniformly to every property.
           </p>
           <p>
             For a builder-grade project in an older neighborhood home, we would focus the estimate on the affected building envelope, essential interior repairs, and the rooms the family needs first. The goal is to preserve usable areas rather than make undamaged portions of the house part of an unnecessary renovation.
@@ -276,7 +276,7 @@ const StormDamageRepairPage = () => {
             Commercial work calls for a different conversation. A shop or office needs a repair sequence tied to access and operations. A condominium project needs clarity about unit interiors, common elements, association responsibilities, and approvals.
           </p>
           <p>
-            Oʻahu also has specific emergency repair guidance. Honolulu DPP permits qualifying emergency work to begin before a building permit is obtained, but requires an application on the next working day and imposes conditions; this is not a general exemption for redesign or expansion.
+            O&apos;ahu also has specific emergency repair guidance. Honolulu DPP permits qualifying emergency work to begin before a building permit is obtained, but requires an application on the next working day and imposes conditions; this is not a general exemption for redesign or expansion.
           </p>
 
           <h3>Maui: practical central communities and resort properties</h3>
@@ -290,7 +290,7 @@ const StormDamageRepairPage = () => {
             For these homeowners, we can structure builder-grade repairs around restoring essential rooms, limiting custom fabrication, and protecting the budget with clearly defined allowances. Select-grade projects can add coordinated flooring, cabinetry, bathroom finishes, or improved storage in the areas already being repaired.
           </p>
           <p>
-            For properties in resort-oriented areas such as Wailea, the conversation may shift toward finish matching, guest expectations, custom interiors, and outdoor amenities. We would treat the individual property’s condition and specifications as the basis for the scope rather than assume every address needs luxury work.
+            For properties in resort-oriented areas such as Wailea, the conversation may shift toward finish matching, guest expectations, custom interiors, and outdoor amenities. We would treat the individual property&apos;s condition and specifications as the basis for the scope rather than assume every address needs luxury work.
           </p>
           <p>
             Commercial restoration may involve shops, restaurants, lodging, and service businesses. Our planning would address affected public areas, staff spaces, utilities, and the order in which different portions can be completed.
@@ -299,18 +299,18 @@ const StormDamageRepairPage = () => {
             For remote projects, we discuss deliveries, site access, material staging, and workforce arrangements before promising a schedule. Luxury features such as pools, water features, and outdoor kitchens need their own feasibility and approval review, even when they are being considered alongside storm recovery.
           </p>
 
-          <h3>Hawaiʻi Island: different exposures, different priorities</h3>
+          <h3>Hawai&apos;i Island: different exposures, different priorities</h3>
           <p>
-            Hawaiʻi Island projects need property-specific planning rather than a single island-wide repair package. University of Hawaiʻi at Hilo guidance identifies hurricane-related wind, storm surge, upland flooding, and debris flows on steep slopes as distinct damage mechanisms.
+            Hawai&apos;i Island projects need property-specific planning rather than a single island-wide repair package. University of Hawai&apos;i at Hilo guidance identifies hurricane-related wind, storm surge, upland flooding, and debris flows on steep slopes as distinct damage mechanisms.
           </p>
           <p>
-            Hilo and parts of Puna are commonly discussed as more budget-conscious housing alternatives within Hawaiʻi, although the property, location, and available services make a substantial difference.
+            Hilo and parts of Puna are commonly discussed as more budget-conscious housing alternatives within Hawai&apos;i, although the property, location, and available services make a substantial difference.
           </p>
           <p>
             For a Hilo-area or Puna home, our proposed assessment might focus on roof entry points, affected wall assemblies, drainage, access, and the condition of essential interior rooms. Builder-grade restoration can prioritize a usable home; select-grade work can improve the affected spaces without expanding the entire project.
           </p>
           <p>
-            On the Kona and Kohala sides, we can also plan for resort-oriented and estate-style scopes. The correct finish level still depends on the owner’s goals, not a blanket assumption about the coast or postal address.
+            On the Kona and Kohala sides, we can also plan for resort-oriented and estate-style scopes. The correct finish level still depends on the owner&apos;s goals, not a blanket assumption about the coast or postal address.
           </p>
           <p>
             Luxury options may include pool and spa restoration, custom bathrooms, covered entertaining areas, game rooms, and substantial garage or workshop spaces. Each addition needs to fit the site, approvals, and maintenance expectations.
@@ -319,9 +319,9 @@ const StormDamageRepairPage = () => {
             Commercial owners may need repair planning for retail space, restaurants, offices, agricultural buildings, or hospitality properties. We would identify critical equipment and utility needs early, then organize construction around the areas that must return to service first.
           </p>
 
-          <h3>Kauaʻi: drainage and coastal context</h3>
+          <h3>Kaua&apos;i: drainage and coastal context</h3>
           <p>
-            Kauaʻi’s property market includes both everyday residential communities and substantial resort or estate properties. Kapaʻa appears in affordability discussions, while Princeville, Hanalei, and the Kōloa area feature prominently in luxury-market discussions; there are exceptions within every community.
+            Kaua&apos;i’s property market includes both everyday residential communities and substantial resort or estate properties. Kapaʻa appears in affordability discussions, while Princeville, Hanalei, and the Kōloa area feature prominently in luxury-market discussions; there are exceptions within every community.
           </p>
           <p>
             A builder-grade plan for an affected family home should begin with essential restoration rather than neighborhood-based assumptions. We assess the damaged areas, review relevant site conditions, and discuss the most direct path back to dependable use.
@@ -333,15 +333,15 @@ const StormDamageRepairPage = () => {
             For businesses, the scope may involve guest rooms, customer-facing interiors, service spaces, and exterior circulation. We would separate cosmetic restoration from work affecting the building envelope or supporting systems.
           </p>
           <p>
-            Flood-zone and shoreline rules can materially affect the project. Kauaʻi’s published storm-repair guidance directs flood-zone owners to obtain individual review and identifies shoreline-related assessment requirements; event-specific relief should never be assumed to apply to every future storm or every property.
+            Flood-zone and shoreline rules can materially affect the project. Kaua&apos;i’s published storm-repair guidance directs flood-zone owners to obtain individual review and identifies shoreline-related assessment requirements; event-specific relief should never be assumed to apply to every future storm or every property.
           </p>
           <p>
             That is why we review the applicable requirements before promising that a damaged building can be rebuilt exactly as it stood.
           </p>
 
-          <h3>Molokaʻi: measured scopes and careful logistics</h3>
+          <h3>Moloka&apos;i: measured scopes and careful logistics</h3>
           <p>
-            Molokaʻi deserves a restoration plan centered on the actual household or business, not an oversized resort template.
+            Moloka&apos;i deserves a restoration plan centered on the actual household or business, not an oversized resort template.
           </p>
           <p>
             Kaunakakai, Kualapuʻu, and Maunaloa provide useful community reference points, but available real-estate information does not support neatly dividing them into “cheap” and “wealthy” areas. Listings show a range of property types and prices, so we would compare individual properties rather than label entire communities.
@@ -362,12 +362,12 @@ const StormDamageRepairPage = () => {
             Across all three grades, we favor early decisions on major materials. A clearly coordinated package gives the owner a better basis for evaluating scope and schedule than a low headline estimate with unanswered logistical questions.
           </p>
 
-          <h3>Lānaʻi: town properties and Manele estates</h3>
+          <h3>Lāna&apos;i: town properties and Manele estates</h3>
           <p>
-            Lānaʻi calls for a distinction between town-based restoration and resort-area estate work without pretending the island has a simple low-cost housing market.
+            Lāna&apos;i calls for a distinction between town-based restoration and resort-area estate work without pretending the island has a simple low-cost housing market.
           </p>
           <p>
-            Lānaʻi City has varied housing, including an identified affordable-housing property in the state inventory. Manele Bay is a documented luxury residential setting with single-family homes, building lots, and condominiums.
+            Lāna&apos;i City has varied housing, including an identified affordable-housing property in the state inventory. Manele Bay is a documented luxury residential setting with single-family homes, building lots, and condominiums.
           </p>
           <p>
             For a town home or small commercial property, builder-grade work can focus on essential repairs and standard materials. Select grade can add coordinated finishes and practical improvements to the affected rooms.
@@ -385,15 +385,15 @@ const StormDamageRepairPage = () => {
             Delivery arrangements and material staging belong in the initial discussion. We would not represent island access or a specialty-product delivery date as settled until the necessary arrangements are confirmed.
           </p>
 
-          <h3>Niʻihau and Kahoʻolawe: access comes first</h3>
+          <h3>Ni&apos;ihau and Kaho&apos;olawe: access comes first</h3>
           <p>
-            Serving across Hawaiʻi does not mean unrestricted access to every island.
+            Serving across Hawai&apos;i does not mean unrestricted access to every island.
           </p>
           <p>
-            Niʻihau is privately owned and access is controlled. Any potential work must begin with owner authorization and agreed arrangements, not a standard service appointment.
+            Ni&apos;ihau is privately owned and access is controlled. Any potential work must begin with owner authorization and agreed arrangements, not a standard service appointment.
           </p>
           <p>
-            Kahoʻolawe is not a conventional residential or commercial construction market. Access to the reserve requires authorization because of continuing unexploded-ordnance hazards, and permitted access is tied to specific approved purposes.
+            Kaho&apos;olawe is not a conventional residential or commercial construction market. Access to the reserve requires authorization because of continuing unexploded-ordnance hazards, and permitted access is tied to specific approved purposes.
           </p>
           <p>
             For these islands, we would discuss only authorized, appropriate project opportunities. We would not advertise ordinary home renovations, speculative neighborhood pricing, or unrestricted site visits.
@@ -477,7 +477,7 @@ const StormDamageRepairPage = () => {
         </section>
 
         <p>
-          After almost 30 years serving across Hawaiʻi, our message remains straightforward: choose the repair plan you can understand. Whether the finish is builder grade, select grade, or luxury, the work should begin with the damage, respect the property, and make every major decision visible.
+          After almost 30 years serving across Hawai&apos;i, our message remains straightforward: choose the repair plan you can understand. Whether the finish is builder grade, select grade, or luxury, the work should begin with the damage, respect the property, and make every major decision visible.
         </p>
 
       </article>

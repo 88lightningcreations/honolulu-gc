@@ -33,7 +33,7 @@ const BathroomRemodelingPage = () => {
 
       <article className={styles.servicePageContent}>
         <p>For nearly three decades, our general contracting firm has been building, restoring, and modernizing residential and commercial spaces across the State of Hawaii. From high-density condo towers in urban Honolulu to historic beachfront estates in Lahaina, resort properties in Wailea, and sprawling agricultural acreage in Upcountry Maui or the Big Island, we have lived through the unique challenges of island construction.</p>
-        <p>Renovating a bathroom in Hawaii is fundamentally different from continental mainland projects. The tropical environment brings intense ambient humidity, salt air corrosion, seismic activity, volcanic trade winds, mold vectors, and strict municipal building codes. Every material brought past our harbors must be selected for durability, moisture resistance, and long-term performance under sub-tropical exposure.Below is an extensive, authoritative manual covering bathroom remodeling tiers, island-specific logistical demands, neighborhood economic profiles, sector differences, and local construction answers.</p>
+        <p>Renovating a bathroom in Hawaii is fundamentally different from continental mainland projects. The tropical environment brings intense ambient humidity, salt air corrosion, seismic activity, volcanic trade winds, mold vectors, and strict municipal building codes. Every material brought past our harbors must be selected for durability, moisture resistance, and long-term performance under sub-tropical exposure. Below is an extensive, authoritative manual covering bathroom remodeling tiers, island-specific logistical demands, neighborhood economic profiles, sector differences, and local construction answers.</p>
 
         <section>
           <h2>Section 1: The Three Service Tiers</h2>
@@ -191,10 +191,10 @@ const BathroomRemodelingPage = () => {
 
           <h3>3. Hawaii Island / Big Island (County of Hawaii)</h3>
           <h4>Primary Environmental & Structural Factors</h4>
-          <p>The Big Island spans 10 of the world’s 14 climate zones. Key factors include volcanic emissions ("Vog" or sulfur dioxide), extreme rainfall differences between East Hawaii (Hilo) and West Hawaii (Kona), and seismic activity (Earthquake Zones 3 and 4).</p>
+          <p>The Big Island spans 10 of the world’s 14 climate zones. Key factors include volcanic emissions (&quot;Vog&quot; or sulfur dioxide), extreme rainfall differences between East Hawaii (Hilo) and West Hawaii (Kona), and seismic activity (Earthquake Zones 3 and 4).</p>
           <h4>Common Service & Material Needs</h4>
           <p><strong>Vog Resistance:</strong> Volcanic gases convert to dilute sulfuric acid when mixed with atmospheric moisture. Metal finishes must be marine-grade PVD (Physical Vapor Deposition) or powder-coated to prevent rapid oxidation and tarnish.</p>
-          <p><strong>Rainwater Catchment Compatibility:</strong> In rural zones (Puna, Ka'u, parts of Waimea), home water is supplied via rainwater catchment. Bathrooms require specialized filtration, UV sanitization systems, and low-voltage pumps integrated into plumbing layouts.</p>
+          <p><strong>Rainwater Catchment Compatibility:</strong> In rural zones (Puna, Ka&apos;u, parts of Waimea), home water is supplied via rainwater catchment. Bathrooms require specialized filtration, UV sanitization systems, and low-voltage pumps integrated into plumbing layouts.</p>
           <p><strong>Seismic Anchoring:</strong> Extra structural bracing for heavy granite vanity tops, tile backer boards, and glass shower enclosures to endure ground movement.</p>
           <h4>Island Logistics & Permitting Realities</h4>
           <p><strong>Harbors:</strong> Commercial shipments arrive through Kawaihae (West) or Hilo (East). Driving materials between sides requires traversing the Saddle Road (2000+ foot elevation), exposing sensitive materials to atmospheric pressure shifts.</p>
@@ -202,7 +202,7 @@ const BathroomRemodelingPage = () => {
 
           <h3>4. Kauai (County of Kauai)</h3>
           <h4>Primary Environmental & Structural Factors</h4>
-          <p>Known as the Garden Isle, Kauai features extremely high humidity, frequent rainfall (especially near Mt. Waialeale), and pervasive red clay soil ("Kauai Red Dirt").</p>
+          <p>Known as the Garden Isle, Kauai features extremely high humidity, frequent rainfall (especially near Mt. Waialeale), and pervasive red clay soil (&quot;Kauai Red Dirt&quot;).</p>
           <h4>Common Service & Material Needs</h4>
           <p><strong>Stain-Resistant Surfaces:</strong> Pervasive red dirt contains high iron oxide levels that easily stain porous natural stone, white grout lines, and light-colored LVP flooring. Non-porous porcelain tiles and dark, epoxy-based grouts are strongly advised.</p>
           <p><strong>Deep Moisture & Mold Mitigation:</strong> Enhanced sub-floor drying, continuous-run de-humidification systems, and vapor-barrier membranes extending from floor to ceiling.</p>
@@ -214,7 +214,7 @@ const BathroomRemodelingPage = () => {
 
         <section>
           <h2>Section 3: Neighborhood Socioeconomic & Real Estate Profiles</h2>
-          <p>Successful remodeling requires tailoring material selections to the neighborhood's real estate values. Below is a profile of primary socioeconomic zones across the four major islands.</p>
+          <p>Successful remodeling requires tailoring material selections to the neighborhood&apos;s real estate values. Below is a profile of primary socioeconomic zones across the four major islands.</p>
           <div style={{ overflowX: 'auto' }}>
             <table className={styles.table}>
                 <thead>
@@ -243,7 +243,7 @@ const BathroomRemodelingPage = () => {
                     <tr>
                         <td>Kauai</td>
                         <td>Lihue, Kapaa, Hanapepe</td>
-                        <td>Princeville, Kukui'ula, Poipu, Hanalei</td>
+                        <td>Princeville, Kukui&apos;ula, Poipu, Hanalei</td>
                     </tr>
                 </tbody>
             </table>
@@ -280,7 +280,7 @@ const BathroomRemodelingPage = () => {
           <p><strong>Remodeling Strategy:</strong> Builder Grade and Select Grade transformations emphasizing water proofing and dirt resistance.</p>
           <p><strong>Material Focus:</strong> Darker, non-porous tiles, epoxy grouts, rust-resistant stainless fixtures, and mold-resistant paint systems.</p>
           <h3>Exclusive Luxury Neighborhoods</h3>
-          <p><strong>Neighborhoods:</strong> Kukui'ula, Princeville, Poipu oceanfront, Hanalei.</p>
+          <p><strong>Neighborhoods:</strong> Kukui&apos;ula, Princeville, Poipu oceanfront, Hanalei.</p>
           <p><strong>Remodeling Strategy:</strong> Bespoke Luxury Grade additions reflecting island architecture.</p>
           <p><strong>Material Focus:</strong> Custom outdoor rain showers, copper accents, exotic natural stones, and floor-to-ceiling glass paneling looking out over lush tropical backdrops.</p>
         </section>
