@@ -72,7 +72,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${playfair.variable} ${montserrat.variable}`} data-scroll-behavior="smooth">
-      <body>
+      <body style={{ paddingTop: '80px' }}>
         <Accessibility />
         <Navbar />
         <main>

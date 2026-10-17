@@ -6,8 +6,12 @@
   background-color: var(--section-background);
   border-bottom: 1px solid var(--border-color);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-  position: relative; /* Establish stacking context */
-  z-index: 1000; /* Ensure navbar is on top of all other content */
+  position: fixed; /* Keep navbar at the top */
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000; /* Ensure navbar is on top */
+  transition: top 0.3s ease-in-out;
 }
 
 .logo a {
@@ -33,4 +37,12 @@
 
 .phoneNumber:hover {
   color: var(--accent-color);
+}
+
+.visible {
+  top: 0;
+}
+
+.hidden {
+  top: -100px; /* Adjust this value based on the navbar's height */
 }

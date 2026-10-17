@@ -1,9 +1,33 @@
+'use client';
+
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import styles from './Navbar.module.css';
 
 const Navbar = () => {
+  const [visible, setVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+
+  const handleScroll = () => {
+    if (window.scrollY > lastScrollY) {
+      // Scrolling down
+      setVisible(false);
+    } else {
+      // Scrolling up
+      setVisible(true);
+    }
+    setLastScrollY(window.scrollY);
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [lastScrollY]);
+
   return (
-    <nav className={styles.navbar}>
+    <nav className={`${styles.navbar} ${visible ? styles.visible : styles.hidden}`}>
       <div className={styles.logo}>
         <Link href="/">
             {/* eslint-disable-next-line @next/next/no-img-element */}
