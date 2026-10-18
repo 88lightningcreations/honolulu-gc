@@ -7,7 +7,6 @@
   align-items: center;
   text-align: center;
   padding: var(--space-xl) var(--space-lg);
-  background-image: url('/home-remodel-honolulu-general-contractor.webp');
   background-size: cover;
   background-position: center;
   position: relative;
@@ -37,7 +36,7 @@
   font-size: clamp(3rem, 10vw, 6rem);
   font-weight: 700;
   line-height: 1.1;
-  color: var(--accent-gold);
+  color: var(--light-heading);
   text-shadow:
     0 2px 3px rgba(0, 0, 0, 0.6),
     0 8px 15px rgba(0, 0, 0, 0.5),

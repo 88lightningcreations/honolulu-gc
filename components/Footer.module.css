@@ -24,7 +24,7 @@
     font-size: 1.5rem;
     font-weight: 700;
     margin-bottom: var(--space-md);
-    color: var(--accent-gold);
+    color: var(--dark-heading);
 }
 
 .contactInfo p {
@@ -44,7 +44,7 @@
 }
 
 .socialIcons a:hover {
-    color: var(--accent-gold);
+    color: var(--dark-heading);
     transform: scale(1.1);
     text-shadow: 0 0 10px var(--accent-color-glow);
 }

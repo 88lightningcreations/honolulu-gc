@@ -1,14 +1,14 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
-import styles from './Navbar.module.css';
+import Image from 'next/image';
 
 const Navbar = () => {
   const [visible, setVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
 
-  const handleScroll = () => {
+  const handleScroll = useCallback(() => {
     if (window.scrollY > lastScrollY) {
       // Scrolling down
       setVisible(false);
@@ -17,30 +17,31 @@ const Navbar = () => {
       setVisible(true);
     }
     setLastScrollY(window.scrollY);
-  };
+  }, [lastScrollY]);
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, [lastScrollY]);
+  }, [handleScroll]);
 
   return (
-    <nav className={`${styles.navbar} ${visible ? styles.visible : styles.hidden}`}>
-      <div className={styles.logo}>
+    <nav className={`navbar ${visible ? 'visible' : 'hidden'}`}>
+      <div className="logo">
         <Link href="/">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
+            <Image
               src="/hawaii-general-contractor-logo.webp"
               alt="Dumore Construction and Remodeling Logo"
-              width="150"
-              height="50"
+              width={150}
+              height={50}
+              priority
             />
         </Link>
       </div>
-      <div className={styles.contact}>
-        <a href="tel:+18082169956" className={styles.phoneNumber}>+1 (808) 216-9956</a>
+      <div className="contact">
+        <a href="tel:+18082169956" className="phoneNumber">+1 (808) 216-9956</a>
       </div>
     </nav>
   );

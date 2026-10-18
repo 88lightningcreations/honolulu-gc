@@ -1,56 +1,75 @@
-.whyChooseUsSection {
-  padding: var(--space-xl) var(--space-lg);
-  background-color: var(--dark-bg); /* Use the darker background */
+
+.whyChooseUsContainer {
+  width: 100%;
+  padding: var(--space-2xl) var(--space-lg);
+  background-color: var(--light-bg);
+  position: relative;
+  overflow: hidden;
 }
 
-.maxWidthWrapper {
-  max-width: var(--max-width);
-  margin: 0 auto;
-  text-align: center;
-}
-
-.title {
+.whyChooseUsTitle {
   font-family: var(--font-serif);
-  font-size: 4rem;
-  font-weight: 700;
-  color: var(--dark-heading);
-  margin-bottom: var(--space-lg);
+  font-size: clamp(3rem, 8vw, 6rem); /* 96px on a 1200px screen */
+  font-weight: bold;
+  color: var(--light-heading); /* CORRECTED: Was --dark-heading */
+  text-align: center;
+  margin-bottom: var(--space-2xl);
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.1);
 }
 
 .reasonsGrid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: var(--space-lg);
-  text-align: left;
+  gap: var(--space-xl);
+  max-width: var(--max-width);
+  margin: 0 auto;
 }
 
 .reasonCard {
-  background: var(--dark-card-bg);
-  backdrop-filter: var(--glass-blur);
-  -webkit-backdrop-filter: var(--glass-blur);
+  background-color: var(--light-card-bg);
   border-radius: var(--border-radius);
-  border: var(--dark-glass-border);
-  box-shadow: var(--shadow);
-  padding: var(--space-lg);
+  padding: var(--space-xl);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .reasonCard:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.2);
+  transform: translateY(-10px);
+  box-shadow: 0 16px 40px 0 rgba(0, 0, 0, 0.15);
 }
 
 .reasonCard h3 {
   font-family: var(--font-serif);
   font-size: 2rem;
   font-weight: 700;
-  color: var(--dark-heading);
+  color: var(--light-heading); /* CORRECTED: Was --dark-heading */
   margin-bottom: var(--space-md);
 }
 
 .reasonCard p {
   font-family: var(--font-sans);
   font-size: 1rem;
-  color: var(--dark-text-secondary);
+  color: var(--light-text-secondary);
   line-height: 1.6;
+}
+
+/* Animated background elements */
+.bgElement {
+  position: absolute;
+  border-radius: 50%;
+  background: linear-gradient(145deg, rgba(212, 175, 55, 0.1), rgba(78, 52, 46, 0.1));
+  z-index: 0;
+  animation: float 15s infinite ease-in-out alternate;
+}
+
+.element1 { width: 200px; height: 200px; top: 10%; left: 5%; animation-delay: 0s; }
+.element2 { width: 150px; height: 150px; top: 25%; right: 10%; animation-delay: -5s; }
+.element3 { width: 100px; height: 100px; bottom: 15%; left: 20%; animation-delay: -10s; }
+.element4 { width: 250px; height: 250px; bottom: 5%; right: 5%; animation-delay: -2s; }
+
+@keyframes float {
+  0% { transform: translateY(0px) translateX(0px) rotate(0deg); }
+  100% { transform: translateY(30px) translateX(-20px) rotate(20deg); }
 }
