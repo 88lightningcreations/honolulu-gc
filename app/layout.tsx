@@ -1,85 +1,126 @@
 
-import type { Metadata } from "next";
-import { Playfair_Display, Montserrat } from "next/font/google";
-import "./globals.css";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
-import Accessibility from "../components/Accessibility";
-import ClientAnalytics from "../components/ClientAnalytics";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Analytics } from '@vercel/analytics/react';
+import { GoogleAnalytics } from '@next/third-parties/google'
+import ClientAnalytics from '@/components/ClientAnalytics';
+import { Inter, Playfair_Display } from 'next/font/google';
+import Navbar from '@/components/Navbar';
+import Footer from '@/components/Footer';
+import { home, services, about, blog, contact, nowHiring, businessOpportunity, privacyPolicy, termsOfService } from '@/lib/paths';
+import './globals.css';
 
-const playfair = Playfair_Display({ 
-  subsets: ["latin"], 
-  variable: '--font-playfair-display',
-  display: 'swap',
-});
+const inter = Inter({ subsets: ['latin'], variable: '--font-sans' });
+const playfair = Playfair_Display({ subsets: ['latin'], variable: '--font-serif' });
 
-const montserrat = Montserrat({ 
-  subsets: ["latin"], 
-  variable: '--font-montserrat',
-  display: 'swap',
-});
-
-export const metadata: Metadata = {
-  metadataBase: new URL('https://dumoreconstruction.com'),
-  alternates: {
-    canonical: '/',
-  },
-  title: {
-    template: '%s | Dumore Construction and Remodeling',
-    default: 'Dumore Construction and Remodeling',
-  },
-  description: 'Top-rated general contractor in Honolulu, Hawaii, specializing in new construction, kitchen and bathroom remodeling, home additions, and storm damage repair.',
-  openGraph: {
+export async function generateMetadata() {
+  return {
+    metadataBase: new URL('https://dumoreconstruction.com'),
     title: 'Dumore Construction and Remodeling | General Contractor in Honolulu, HI',
-    description: 'High-quality construction and remodeling services in Hawaii.',
-    url: 'https://dumoreconstruction.com',
-    siteName: 'Dumore Construction and Remodeling',
-    images: [
-      {
-        url: '/hawaii-general-contractor-logo.webp',
-        width: 1200,
-        height: 630,
-      },
-    ],
-    locale: 'en_US',
-    type: 'website',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Dumore Construction and Remodeling | General Contractor in Honolulu, HI',
-    description: 'High-quality construction and remodeling services in Hawaii.',
-    creator: '@dumorehawaii',
-    images: ['/hawaii-general-contractor-logo.webp'],
-  },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
+    description: 'Top-rated general contractor in Honolulu, Hawaii, specializing in custom new home builds, full home renovations, kitchen and bathroom remodeling, and commercial construction. Your vision, our expertise.',
+    alternates: {
+      canonical: '/',
+    },
+    openGraph: {
+      title: 'Dumore Construction and Remodeling | General Contractor in Honolulu, HI',
+      description: 'High-quality construction and remodeling services in Hawaii.',
+      url: 'https://dumoreconstruction.com',
+      siteName: 'Dumore Construction and Remodeling',
+      locale: 'en_US',
+      type: 'website',
+      images: [
+        {
+          url: '/hawaii-general-contractor-logo.webp',
+          width: 800,
+          height: 600,
+          alt: 'Dumore Construction and Remodeling Logo',
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: 'Dumore Construction and Remodeling | General Contractor in Honolulu, HI',
+      description: 'High-quality construction and remodeling services in Hawaii.',
+      creator: '@dumorehawaii',
+      images: ['/hawaii-general-contractor-logo.webp'],
+    },
+    robots: {
       index: true,
       follow: true,
-      noimageindex: false,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
+      googleBot: {
+        index: true,
+        follow: true,
+        noimageindex: false,
+        'max-video-preview': -1,
+        'max-image-preview': 'large',
+        'max-snippet': -1,
+      },
     },
-  },
-};
+  };
+}
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "GeneralContractor",
+    "name": "Dumore Construction and Remodeling",
+    "url": "https://dumoreconstruction.com",
+    "logo": "https://dumoreconstruction.com/hawaii-general-contractor-logo.webp",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "1234 Dumore Lane",
+      "addressLocality": "Honolulu",
+      "addressRegion": "HI",
+      "postalCode": "96818",
+      "addressCountry": "US"
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+1-808-555-0101",
+      "contactType": "Customer Service"
+    },
+    "sameAs": [
+      "https://www.facebook.com/dumorehawaii",
+      "https://www.instagram.com/dumorehawaii",
+      "https://www.linkedin.com/company/dumore-construction"
+    ]
+  };
+
+  const navLinks = [
+    { href: home, label: 'Home' },
+    { href: services, label: 'Services' },
+    { href: about, label: 'About' },
+    { href: blog, label: 'Blog' },
+    { href: contact, label: 'Contact' },
+  ];
+
+  const footerLinks = {
+    'Company': [
+      { href: about, label: 'About Us' },
+      { href: blog, label: 'Our Blog' },
+      { href: nowHiring, label: 'Now Hiring' },
+      { href: businessOpportunity, label: 'Business Opportunity' },
+      { href: contact, label: 'Contact Us' },
+    ],
+    'Legal': [
+      { href: privacyPolicy, label: 'Privacy Policy' },
+      { href: termsOfService, label: 'Terms of Service' },
+    ],
+  };
+
   return (
-    <html lang="en" className={`${playfair.variable} ${montserrat.variable}`} data-scroll-behavior="smooth">
-      <body style={{ paddingTop: '80px' }}>
-        <Accessibility />
-        <Navbar />
-        <main>
-          {children}
-        </main>
-        <Footer />
-        <ClientAnalytics /> 
+    <html lang="en" className={`${inter.variable} ${playfair.variable}`}>
+      <head>
+        <link rel="preload" href="/living-room-remodel-honolulu-general-contractor.webp" as="image" />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
+      </head>
+      <body>
+        <ClientAnalytics />
+        <Navbar navLinks={navLinks} />
+        <main>{children}</main>
+        <Footer footerLinks={footerLinks} />
+        <SpeedInsights />
+        <Analytics />
+        <GoogleAnalytics gaId="G-1111111111" />
       </body>
     </html>
   );
