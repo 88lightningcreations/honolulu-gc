@@ -123,24 +123,26 @@ const BlogCarousel = () => {
         <div className={styles.carousel}>
             <div className={styles.carouselInner} style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
             {posts.map((post) => (
-                <div key={post.id} className={styles.slide}>
-                {post.image && (
-                    <div className={styles.imageContainer}>
-                        <Image
-                        src={post.image}
-                        alt={post.title}
-                        fill
-                        sizes="(max-width: 768px) 100vw, 430px"
-                        style={{ objectFit: 'cover' }}
-                        />
+                <Link key={post.id} href={`/blog/${post.slug}`} className={styles.slideLink}>
+                    <div className={styles.slide}>
+                        {post.image && (
+                            <div className={styles.imageContainer}>
+                                <Image
+                                src={post.image}
+                                alt={post.title}
+                                fill
+                                sizes="(max-width: 768px) 100vw, 430px"
+                                style={{ objectFit: 'cover' }}
+                                />
+                            </div>
+                        )}
+                        <div className={styles.slideContent}>
+                            <h3>{post.title}</h3>
+                            <p>{post.excerpt}</p>
+                            <div className={styles.readMore}>Read More</div>
+                        </div>
                     </div>
-                )}
-                <div className={styles.slideContent}>
-                    <h3>{post.title}</h3>
-                    <p>{post.excerpt}</p>
-                    <Link href={`/blog/${post.slug}`} className={styles.readMore}>Read More</Link>
-                </div>
-                </div>
+                </Link>
             ))}
             </div>
         </div>
