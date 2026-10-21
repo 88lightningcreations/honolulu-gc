@@ -2,7 +2,7 @@
 import { Inter, Playfair_Display } from 'next/font/google';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import { about, blog, contact, nowHiring, businessOpportunity, privacyPolicy, termsOfService } from '@/lib/paths';
+import { nowHiring, businessOpportunity, privacyPolicy, termsOfService } from '@/lib/paths';
 import './globals.css';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-sans' });
@@ -83,11 +83,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
   const footerLinks = {
     'Company': [
-      { href: about, label: 'About Us' },
-      { href: blog, label: 'Our Blog' },
       { href: nowHiring, label: 'Now Hiring' },
       { href: businessOpportunity, label: 'Business Opportunity' },
-      { href: contact, label: 'Contact Us' },
     ],
     'Legal': [
       { href: privacyPolicy, label: 'Privacy Policy' },
