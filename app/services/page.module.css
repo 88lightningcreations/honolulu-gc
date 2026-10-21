@@ -2,7 +2,7 @@
 .servicePageContainer {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 6rem 2rem 2rem 2rem;
   font-family: var(--font-sans);
   background-color: var(--light-bg);
   border-radius: var(--border-radius);

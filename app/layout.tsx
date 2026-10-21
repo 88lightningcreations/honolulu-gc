@@ -1,12 +1,8 @@
 
-import { SpeedInsights } from "@vercel/speed-insights/next";
-import { Analytics } from '@vercel/analytics/react';
-import { GoogleAnalytics } from '@next/third-parties/google'
-import ClientAnalytics from '@/components/ClientAnalytics';
 import { Inter, Playfair_Display } from 'next/font/google';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import { home, services, about, blog, contact, nowHiring, businessOpportunity, privacyPolicy, termsOfService } from '@/lib/paths';
+import { about, blog, contact, nowHiring, businessOpportunity, privacyPolicy, termsOfService } from '@/lib/paths';
 import './globals.css';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-sans' });
@@ -85,14 +81,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     ]
   };
 
-  const navLinks = [
-    { href: home, label: 'Home' },
-    { href: services, label: 'Services' },
-    { href: about, label: 'About' },
-    { href: blog, label: 'Blog' },
-    { href: contact, label: 'Contact' },
-  ];
-
   const footerLinks = {
     'Company': [
       { href: about, label: 'About Us' },
@@ -114,13 +102,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
       </head>
       <body>
-        <ClientAnalytics />
-        <Navbar navLinks={navLinks} />
+        <Navbar />
         <main>{children}</main>
         <Footer footerLinks={footerLinks} />
-        <SpeedInsights />
-        <Analytics />
-        <GoogleAnalytics gaId="G-1111111111" />
       </body>
     </html>
   );
